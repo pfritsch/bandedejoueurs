@@ -24,6 +24,21 @@ formatLocation = function(meetingPlace) {
     return TAPi18n.__('helper.platform', { title: title, additional: meetingPlace.service.additional});
   }
 }
+djb2 = function(str){
+  var hash = 5381;
+  for (var i = 0; i < str.length; i++) {
+    hash = ((hash << 5) + hash) + str.charCodeAt(i); /* hash * 33 + c */
+  }
+  return hash;
+}
+hashStringToColor = function(str) {
+  var hash = djb2(str);
+  var r = (hash & 0xFF0000) >> 16;
+  var g = (hash & 0x00FF00) >> 8;
+  var b = hash & 0x0000FF;
+  return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2);
+}
+
 getName = function(user) {
   if(user.profile && user.profile.name ) return user.profile.name;
   return user.username;
