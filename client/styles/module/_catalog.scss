@@ -1,0 +1,18 @@
+.catalog-list {
+  @include reset-list;
+}
+.catalog-group-title {
+  font-weight: 400;
+  font-size: rem-calc(14);
+  line-height: rem-calc(18);
+  color: #4E4930;
+  border-bottom: 1px solid #D9D4BA;
+  margin: rem-calc(24 0 12);
+  padding-bottom: rem-calc(6);
+  &::first-letter {
+    text-transform: capitalize;
+  }
+}
+.catalog-item + .catalog-item {
+  margin-top: rem-calc(2);
+}

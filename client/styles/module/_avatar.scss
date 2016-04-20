@@ -1,0 +1,28 @@
+.avatar {
+  box-sizing: border-box;
+  width: rem-calc(72);
+  height: rem-calc(72);
+  border: 3px solid rgba(0,0,0,0.20);
+  border-radius: 50%;
+  transition: border 300ms ease;
+  overflow: hidden;
+  margin: 0 auto; 
+}
+.avatar-circle {
+  border-radius: 50%;
+}
+.avatar-image {
+  min-width: 100%;
+  background: #13B169;
+}
+a:hover .avatar {
+  border-color: rgba(0,0,0,0.50);
+}
+.avatar .avatar-initials {
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 2.75em;
+}
+.avatar .avatar-image {
+  z-index: 5
+}

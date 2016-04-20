@@ -1,0 +1,18 @@
+<template name="playerItem">
+  <div id="{{username}}" class="player-item {{#if itsMe}}is-currentuser{{/if}} {{#if isSelected}}is-selected{{/if}}">
+    <a href="{{pathFor 'playerDetail' username=username}}" class="player-item-avatar">
+      {{> avatar user=this}}
+    </a>
+    <div class="player-item-content">
+      <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-name">{{playerName}}</a>
+      {{#if itsMe}}<small class="is-muted">{{_ 'playerItemThatsyou'}}</small>{{/if}}
+      <ul class="player-item-infos">
+        {{#if profile.address.city}}<li class="player-item-city">{{profile.address.city}}</li>{{/if}}
+        {{#if profile.gender}}<li class="player-item-gender">{{profile.gender}}</li>{{/if}}
+        {{#if profile.birthday}}<li class="player-item-age">{{age}}</li>{{/if}}
+        {{#if playerGames}}<li class="player-item-games">{{playerGames}}</li>{{/if}}
+      </ul>
+      {{> playerAction player=this}}
+    </div>
+  </div>
+</template>

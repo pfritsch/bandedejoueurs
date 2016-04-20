@@ -1,0 +1,143 @@
+// Imports
+// ----------------------------------------------
+// Import external ressources, as plugins or frameworks
+// ----------------------------------------------
+@import "/{meta:susy}/susy";
+
+// Settings
+// ----------------------------------------------
+// Set default variables
+// ----------------------------------------------
+$base-font: 16px;
+$base-line-height: 24;
+
+$susy: (
+  container: auto,
+  container-position: center,
+  columns: 12,
+  gutters: 24/72,
+  column-width: 72px
+);
+
+$small-breakpoint:  620px;
+$medium-breakpoint: 940px;
+$large-breakpoint:  1200px;
+$xlarge-breakpoint: 1440px;
+
+// Media Queries
+$screen: "only screen";
+
+$small-up: "#{$screen} and (min-width:#{rem-calc($small-breakpoint + 1)})";
+$small-only: "#{$screen} and (min-width:#{rem-calc($small-breakpoint + 1)}) and (max-width:#{rem-calc($medium-breakpoint)})";
+
+$medium-up: "#{$screen} and (min-width:#{rem-calc($medium-breakpoint + 1)})";
+$medium-only: "#{$screen} and (min-width:#{rem-calc($medium-breakpoint + 1)}) and (max-width:#{rem-calc($large-breakpoint)})";
+
+$large-up: "#{$screen} and (min-width:#{rem-calc($large-breakpoint + 1)})";
+$large-only: "#{$screen} and (min-width:#{rem-calc($large-breakpoint + 1)}) and (max-width:#{rem-calc($xlarge-breakpoint)})";
+
+$color-primary: #9EAF56;
+$color-secondary: #418D4B;
+
+// Tags
+$color-ps: #C41230;
+$color-pc: black;
+$color-board: #127DC4;
+$color-outside: #0D9E9D;
+$color-xbox: #73A50A;
+$color-rpg: #BB7100;
+$color-wii: #6E4E99;
+
+
+// Base
+// ----------------------------------------------
+// Base rules are the defaults. They are almost exclusively single element selectors but
+// it could include attribute selectors, pseudo-class selectors, child selectors or sibling
+// selectors. Essentially, a base style says that wherever this element is on the page.
+// ----------------------------------------------
+@import 'base/function';
+@import 'base/common';
+@import 'base/font_halisr';
+@import 'base/typography';
+
+
+// Module
+// ----------------------------------------------
+// Modules are the reusable, modular parts of our design. They are the callouts, the buttons,
+// the products and so on. (Micro elements)
+//
+// /* Example module: Product */
+// .product { }
+//
+// /* Product list */
+// .product-list { }
+//
+// /* Product name */
+// .product-name { }
+// ----------------------------------------------
+@import 'module/avatar';
+@import 'module/button';
+@import 'module/catalog';
+@import 'module/cover';
+@import 'module/filter';
+@import 'module/icon';
+@import 'module/label';
+@import 'module/logo';
+@import 'module/msg';
+@import 'module/notification';
+@import 'module/my';
+@import 'module/nav';
+@import 'module/player';
+@import 'module/game';
+@import 'module/gamesession';
+@import 'module/notification';
+@import 'module/tags';
+
+// Map
+.map-container {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+}
+
+
+// Layout
+// ----------------------------------------------
+// Layout rules divide the page into sections. Layouts hold one or more modules together. (Macro)
+//
+// /* Example layout: Header */
+// .header-container { }
+// ----------------------------------------------
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/form';
+@import 'layout/account';
+
+
+// Page
+// ----------------------------------------------
+// Styles for specific pages.
+//
+// /* Example layout: Home */
+// .home h1,
+// .home .h1 { }
+// ----------------------------------------------
+@import 'layout/home';
+
+
+// State
+// ----------------------------------------------
+// State rules are ways to describe how our modules or layouts will look when in a particular
+// state. Is it hidden or expanded? Is it active or inactive? They are about describing how a
+// module or layout looks on screens that are smaller or bigger. They are also about
+// describing how a module might look in different views like the home page or the inside page.
+//
+// /* Example state: Collapsed Product */
+// .product.is-collapsed { }
+// ----------------------------------------------
+.is-hidden {
+  position: absolute;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}

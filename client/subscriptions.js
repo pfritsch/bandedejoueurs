@@ -1,0 +1,2 @@
+// Tags
+Meteor.subscribe("tags");

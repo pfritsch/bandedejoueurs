@@ -1,0 +1,16 @@
+.msg,
+.at-error {
+  margin-top: rem-calc(24);
+  padding: rem-calc(12 0);
+  background: #E5E1CF;
+  border-radius: 3px;
+  text-align: center;
+}
+.msg.is-important,
+.at-error {
+  color: white;
+  background-color: #7D385C;
+  & > a {
+    color: #FFE77D;
+  }
+}

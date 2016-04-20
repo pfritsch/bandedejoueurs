@@ -1,0 +1,49 @@
+.notification-list {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+.notification {
+  font-size: rem-calc(14);
+  line-height: rem-calc(16);
+  margin: rem-calc(12 12 0);
+  padding: rem-calc(12);
+  border-radius: 3px;
+  background: #7D385C;
+  color: white;
+  animation-name: fadeOut;
+  animation-duration: 3600ms;
+  animation-fill-mode: both;
+  transition: all 300ms ease;
+
+  a {
+    color: #FFE77D;
+    &:hover,
+    &:focus {
+      color: #FFE77D;
+    }
+  }
+  & + .page {
+    margin-bottom: rem-calc(60);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -75%, 0);
+  }
+  10% {
+    opacity: 1;
+    transform: none;
+  }
+  90% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 75%, 0);
+  }
+}

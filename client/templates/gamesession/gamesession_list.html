@@ -1,0 +1,66 @@
+<template name="gamesessionList">
+{{#if Template.subscriptionsReady}}
+  <div class="filter-container">
+    <div class="filter grid-container">
+      <div class="grid-row">
+        <div class="grid-col medium-8">
+          <label>{{_ 'gamesessionFilterWhere'}}</label>
+          <div class="grid-row">
+            <div class="form-check-group">
+              <input id="meetingTypeIRL" type="checkbox" value="irl" name="meetingType" checked="{{#if meetingTypeIsIRL}}checked{{/if}}">
+              <label for="meetingTypeIRL">{{_ 'gamesessionFilterWhereIRL'}}</label>
+              {{#if meetingTypeIsIRL}}
+                {{> universeSelectize id="meetingPlaceIRL" name="meetingPlaceIRL" options=meetingTypeIRLOption placeholder=meetingPlaceIRLPlaceholder optionsPlaceholder=true}}
+              {{/if}}
+            </div>
+            <div class="form-check-group">
+              <input id="meetingTypeOnline" type="checkbox" value="online" name="meetingType" checked="{{#if meetingTypeIsOnline}}checked{{/if}}">
+              <label for="meetingTypeOnline">{{_ 'gamesessionFilterWhereOnline'}}</label>
+              {{#if meetingTypeIsOnline}}
+                {{> universeSelectize id="meetingPlaceOnline" name="meetingPlaceOnline" options=meetingTypeOnlineOption placeholder=meetingPlaceOnlinePlaceholder optionsPlaceholder=true}}
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+        <div class="grid-col medium-4">
+          <label for="gameTitle">{{_ 'gamesessionFilterWhat'}}</label>
+          {{> universeSelectize id="gameTitle" name="gameTitle" options=gamesTitleOptions placeholder=gamesTitlePlaceholder optionsPlaceholder=true}}
+        </div>
+      </div>
+    </div>
+    <a href="#" class="filter-button" data-collapse="filter">
+      <svg class="icon"><use xlink:href="#icon-chevron-left" /></svg>
+    </a>
+  </div>
+
+  <div class="grid-container gamesession-list-container has-space-bottom">
+    {{#with gamesessionsByDay}}
+      <ul class="catalog-list">
+        {{#each gamesessionsByDay}}
+        <li class="catalog-group">
+          <h3 class="catalog-group-title">{{date}} ({{_ "gamesessionListParty" count=this.count}})</h3>
+          <section class="catalog-group-list gamesession-list">
+            {{#each gamesessions}}
+              {{> gamesessionItem}}
+            {{else}}
+              Aucune partie prévue avec ces critères...
+            {{/each}}
+          </section>
+        </li>
+        {{/each}}
+      </ul>
+      {{#if moreResults}}
+        {{> spinner}}
+      {{/if}}
+    {{/with}}
+    <div class="msg">
+      <p>{{{_ "gamesessionListNotFound"}}}</p>
+    </div>
+  </div>
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>

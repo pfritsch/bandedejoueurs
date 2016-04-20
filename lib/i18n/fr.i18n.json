@@ -1,0 +1,322 @@
+{
+  "schemas": {
+    "gamesession": {
+      "meetingType": {
+        "label": "Rendez-vous où ?",
+        "options": {
+          "irl": "À l'addresse",
+          "online": "En ligne"
+        }
+      },
+      "meetingPlace": {
+        "label": "Rendez-vous où ?",
+        "address": {
+          "country": {
+            "label": "Pays"
+          },
+          "city": {
+            "label": "Ville"
+          },
+          "zipCode": {
+            "label": "Code postal"
+          },
+          "street": {
+            "label": "Rue et numéro"
+          }
+        },
+        "service": {
+          "title": {
+            "label": "Plateforme",
+            "options": {
+              "other": "Autre",
+              "skype": "Skype",
+              "steam": "Steam",
+              "teamspeak": "Teamspeak",
+              "psn": "PSN",
+              "xlive": "XBox Live"
+            }
+          },
+          "additional": {
+            "label": "Identifiant ou URL",
+            "placeholder": "Ton identifiant ou une URL pour se retrouver"
+          }
+        }
+      },
+      "meetingDate": {
+        "label": "Date du rendez-vous"
+      },
+      "spots": {
+        "label": "Nombre de places (toi y compris)"
+      },
+      "description": {
+        "label": "Quelques mot pour décrire la partie"
+      },
+      "boardgameTags": {
+        "label": "Plutôt jeux de société?"
+      },
+      "videogameTags": {
+        "label": "ou jeux vidéo?"
+      },
+      "games": {
+        "label": "Un jeu spécifique en tête?",
+        "$": {
+          "title": {
+            "label": "Ajouter un jeu",
+            "placeholder": "Titre du jeu"
+          }
+        }
+      }
+    },
+    "user": {
+      "username": {
+        "label": "Identifiant"
+      },
+      "emails": {
+        "label": "E-mail",
+        "$": {
+          "address": {
+            "label": "E-mail"
+          }
+        }
+      },
+      "profile": {
+        "name": {
+          "label": "Véritable nom",
+          "placeholder": "Devra t'on t'appeller John Doe?"
+        },
+        "birthday": {
+          "label": "Date de naissance",
+          "placeholder": "JJ/MM/AAAA"
+        },
+        "gender": {
+          "label": "Chromosomes",
+          "placeholder": "Choisis une catégorie",
+          "options": {
+            "XY": "XY",
+            "XX": "XX"
+          }
+        },
+        "address": {
+          "country": {
+            "label": "Pays"
+          },
+          "city": {
+            "label": "Ville",
+            "placeholder": ""
+          },
+          "zipCode": {
+            "label": "Code postal",
+            "placeholder": ""
+          },
+          "street": {
+            "label": "Addresse",
+            "placeholder": "N° et nom de la rue"
+          }
+        },
+        "bio": {
+          "label": "Un dernier mot pour te présenter",
+          "placeholder": "Tu dois bien avoir un truc à raconter... Quelles sont tes disponibilités pour jouer? Quel sont tes jeux préférés? As-tu une console, une grande table ronde?"
+        },
+        "style": {
+          "label": "Tu es plutôt un(e) joueur(euse)..."
+        }
+      }
+    }
+  },
+
+  "headerJoin": "Rejoindre la bande",
+  "headerLogin": "Connexion",
+
+  "navPlayers": "Joueurs",
+  "navParties": "Prochaines parties",
+  "navAbout": "À Propos",
+  "navOrganize": "Organiser une partie",
+
+  "navTabMyProfile": "Mon Profil",
+  "navTabMyBand": "Ma bande",
+  "navTabMyParties": "Mes parties",
+  "navTabMyGames": "Mes jeux",
+
+  "homeTitle": "Bande de joueurs",
+  "homeClaim": "C’est quand même mieux à plusieurs!",
+  "homeHeraAlt": "Bande de joueurs, rencontrer d'autres joueurs pour du multiplayer",
+  "homeWhatTitle": "Jeux de société ou jeux vidéo",
+  "homeWhatSubtitle": "Trouve des partenaires pour tes jeux préférés.",
+  "homeWhatText": "Bande de Joueurs, c’est une communauté en ligne, où tu peux rencontrer d’autres personnes afin de ne plus jouer tout(e) seul(e). Parce que les jeux ne devraient pas nous isoler, mais nous faire partager des moments agréables à plusieurs, nous rapprocher.",
+  "homeHowTitle": "Comment ça marche?",
+  "homeHowOrganize": "Organise ou inscris-toi à une partie, à la date de ton choix.",
+  "homeHowMeet":"Rencontre d'autres joueurs, en ligne ou près de chez toi.",
+  "homeHowStart": "Faites vos jeux, la partie peut commencer!",
+  "homeDescFindAlt": "D'autres gamers recherchent des partenaires de jeu",
+  "homeDescFindTitle": "Rien de prévu ce Week-end ?",
+  "homeDescFindText": "Participes à une soirée jeux près de chez toi",
+  "homeDescTestAlt": "Pas facile de trouver des joueurs pour tous les jeux de ma collection...",
+  "homeDescTestTitle": "Un nouveau jeu à tester?",
+  "homeDescTestText": "Organise une partie et rencontre des gens sympas pour l’essayer",
+  "homeDescGameAlt": "Multi-player et jeux vidéo",
+  "homeDescGameTitle": "Fini le mode solo?",
+  "homeDescGameText": "Rencontre d’autres gamers pour les modes multi et <span class=\"no-hyphen\">co-op!</span>",
+  "homeJoinTitle": "Rejoindre la bande",
+  "homeJoinSubtitle": "On te tient au courant dès que c’est prêt.",
+  "homeJoinText": "Envoie ton e-mail, tu feras partie des premiers lors du lancement.",
+  "homeReadyTitle": "Prêt(e) à jouer?",
+  "homeReadySubtitle": "Rejoins-nous!",
+  "homeReadyText": "C'est gratuit et ça ne te prendra pas très longtemps. Tu fais presque déjà partie de la bande ...",
+  "homeReadySubtitleOnline": "Hello %s, comment ça va?",
+  "homeReadyTextOnline": "Ca fait bien plaisir de te compter parmis nous. ",
+  "homeReadyAlt": "Un dragon joue à la gameboy",
+  "homeWhoTitle": "Qui sommes-nous?",
+  "homeWhoText": "Une bande de passionnés qui fait ça pour le plaisir: <br>Aline, Elodie, Frank, Guillaume, Max, Philou, Pierre, Roland et Sam.",
+  "homeWhoContact": "Retrouve-nous sur Twitter: <a href=\"https://twitter.com/bandedejoueurs\" target=\"_blank\">@bandedejoueurs</a><br> Une question, un commentaire? <a href=\"mailto:hello@bandedejoueurs.com\">hello@bandedejoueurs.com</a>",
+
+  "accountErrorUsername": "Nom d'utilisateur déjà pris",
+  "accountErrorEmail": "E-mail non valide",
+  "accountChangePassword": "Modifier mon mot de passe",
+
+  "myProfileProfile": "Mon profil",
+  "myProfileBand": "Ma bande",
+  "myProfileParties": "Mes parties",
+  "myProfileGames": "Mes jeux",
+  "myProfileSubtitle": "Ici, tu peux modifier ton profil et nous en dire un peu plus sur toi.",
+  "myProfileAboutYou": "A propos de toi",
+  "myProfileVisibleData": "À part ton adresse exacte, ces données seront visibles par les autres joueurs.",
+  "myProfileSave": "Sauvegarder mon profil",
+  "myProfileDelete": "Supprimer mon compte",
+  "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte?",
+  "myProfileNoGamesessions": "<strong>Pas de partie prévue pour le moment...</strong> Pourquoi ne pas <a href=\"gamesessions\">voir les prochaines parties</a>?",
+  "myProfileNoGroup": "<strong>Pas encore de joueur dans ta bande...</strong> Pourquoi ne pas <a href=\"players\">en inviter</a>?",
+
+  "playerAge": "%s ans",
+  "playerSeeProfile": "Voir mon profil",
+  "playerGroupRemove": "Retirer de ma bande",
+  "playerGroupInvite": "Inviter dans ma bande",
+  "playerItemThatsyou": "(c'est toi)",
+  "playerDetailallPlayers": "Tous les joueurs",
+  "playerDetailItsYou": "<strong>C'est bien toi !</strong> Voici la page qui te présente aux autres membres de la bande. <br />Tu peux modifier les données affichées dans <a href=\"/profile\">ton profil</a>.",
+  "playerDetailNone": "On en sait pas beaucoup sur ce joueur...",
+  "playerDetailStyle": "Le style de jeu de %s est plutôt...",
+  "playerDetailGamesessions": "Prochaine partie",
+  "playerDetailGamesessions_plural": "Prochaines parties (__count__)",
+
+  "gamesessionOrganizedBy": "Organisé par",
+  "gamesessionEdit": "Éditer",
+  "gamesessionJoin": "Rejoindre la partie",
+  "gamesessionLeave": "Se retirer",
+  "gamesessionPlayersRegistered": "Joueurs inscrits",
+  "gamesessionGames": "Jeu prévu",
+  "gamesessionGames_plural": "Jeux prévus",
+  "gamesessionRemoveGame": "Retirer ce jeu",
+  "gamesessionAddGame": "Ajouter ce jeu",
+  "gamesessionRemove": "Annuler la partie",
+  "gamesessionRemoveConfirm": "Es-tu certain de vouloir annuler cette partie?",
+  "gamesessionShareMsgTwitter": "%s @bandedejoueurs",
+
+  "gamesessionCreateGo": "Publier",
+  "gamesessionCreateTitle": "Organiser une partie",
+  "gamesessionCreateSubtitle": "Génial! Te voilà fin prêt à rencontrer d’autres joueurs sympas. Pour te retrouver, ils auront besoins de quelques informations.",
+  "gamesessionCreateWhen": "Quand?",
+  "gamesessionCreateWhere": "Rendez-vous où?",
+  "gamesessionCreateMore": "Quelques détails (optionel)",
+  "gamesessionCreateWho": "Qui est de la partie?",
+  "gamesessionCreateWhat": "Â quoi on joue ? (optionel)",
+  "gamesessionCreateGames": "Jeux",
+  "gamesessionCreateVideoGames": "Jeux vidéo",
+  "gamesessionCreateBoardGames": "Jeux de société",
+  "gamesessionCreateAddGame": "Ajouter un jeu",
+  "gamesessionCreateOnlyVisible": "L'adresse exacte du rendez-vous ne sera visible que par les participants.",
+
+  "gamesessionFilterWhat": "Â quoi on joue ?",
+  "gamesessionFilterWhere": "On se retrouve où?",
+  "gamesessionFilterWhereIRL": "Près de...",
+  "gamesessionFilterWhereOnline": "En ligne...",
+
+  "gamesessionPreviewTitle": "Félicitations! La partie a été crée avec succès",
+  "gamesessionPreviewText": "Elle sera visible dans la liste des prochaines parties. Voilà à quoi ça va ressembler:",
+  "gamesessionPreviewInvite": "Tu seras informé dès que d'autres joueurs se seront inscrits à ta partie.<br />N'oublies pas d'inviter tes amis en leur envoyant ce lien:",
+
+  "gamesessionUpdateTitle": "Modifier la partie %s",
+  "gamesessionUpdateSubtitle": "Tu es sur le point de modifier cet évènement, tous les joueurs inscrits recevront une notification.",
+  "gamesessionUpdateGo": "Modifier",
+
+  "gamesessionListParty": "une partie",
+  "gamesessionListParty_plural": "__count__ parties",
+  "gamesessionListNotFound": "<strong>Vous ne trouvez pas de partie?</strong> Pourquoi ne pas <a href=\"/gamesession/create\">en organiser une!</a>",
+
+  "gamesessionItemSpots": "Plus qu'une place !",
+  "gamesessionItemSpots_plural": "Encore __count__ places.",
+  "gamesessionItemSpotsFull": "Partie complète.",
+  "gamesessionItemSpotsSorry": "Trop tard, on est complet!",
+
+  "gamesessionDetailallSessions": "Toutes les parties",
+  "gamesessionDetailSee": "Voir la partie",
+
+  "gameAdd": "Ajouter le jeu",
+
+  "emailCongrats": "Félicitations %s !",
+  "emailGamesessionSendLink": "Tu seras informé dès que d'autres joueurs se seront inscrits à la partie. N'oublies pas d'inviter tes amis en leur envoyant ce lien:",
+  "emailGamesessionRDV": "Le Rendez-vous est pris:",
+  "emailCiao": "Bon jeu!",
+  "emailFollowUs": "Retrouve-nous sur Twitter:",
+  "emailFeedback": "Une question, un commentaire?",
+
+  "time": {
+    "morning": "Matinée",
+    "afternoon": "Après-midi",
+    "evening": "Soirée",
+    "at": "à"
+  },
+  "helper": {
+    "address": "Au __street__, __zipCode__ __city__",
+    "onDate": "Le %s",
+    "inCity": "à %s",
+    "inZipCode": "dans le %s",
+    "platform": "Sur __title__, cherche __additional__",
+    "onPlatform": "sur %s",
+    "logout": "Se déconnecter",
+    "loading": "Chargement...",
+    "more": "+",
+    "less": "-"
+  },
+  "errorNotUser": "Pour aller plus loin, tu dois faire partie de la bande... <a href=\"/sign-up\">Rejoindre la bande</a>",
+  "errorProfile": "Finalise ton profile avant d'aller plus loin: <a href=\"/profile\">Finaliser mon profile</a>",
+  "errorNoEmail": "Il manque juste une addresse e-mail pour qu'on puisse te contacter.<br />C'est promis, pas de spam!",
+  "errorNotVerified": "On aimerait bien une confirmation. Regarde dans ta boite de réception.",
+
+  "board": "Plateaux",
+  "cards": "Cartes",
+  "dices": "Dés",
+  "outside": "Extérieur",
+  "wargame": "Wargames",
+  "rpg": "JdR",
+  "party": "Party-games",
+  "puzzle": "Puzzles",
+  "quizz": "Quizz",
+  "pc": "PC",
+  "mac": "MAC",
+  "linux": "Linux",
+  "ios": "iOS",
+  "android": "Android",
+  "ps4": "PS 4",
+  "ps3": "PS 3",
+  "xone": "XBOX One",
+  "x360": "XBOX 360",
+  "wii": "Wii",
+  "wiiu": "Wii U",
+  "3ds": "3DS",
+  "psvita": "PS Vita",
+
+  "discussion": "Déconneur",
+  "immersion": "À fond dans ton rôle",
+  "occasional": "Occasionnel",
+  "hardcore": "Hard-core",
+  "oldschool": "Old-school",
+  "relaxation": "Relax",
+  "competition": "Compétiteur",
+  "cooperation": "Coopératif",
+  "sniper": "Tireur d'élite",
+  "brute": "Brute",
+  "strategist": "Stratège",
+  "leader": "Leader",
+  "support": "Soutien",
+  "infiltration": "Infiltré"
+}

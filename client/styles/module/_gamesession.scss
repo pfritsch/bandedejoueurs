@@ -1,0 +1,190 @@
+.gamesession-item {
+  @include clearfix;
+  background: white;
+  box-shadow: 0px 2px 4px 0px rgba(119,117,104,0.30);
+}
+.gamesession-item-cover {
+  line-height: 0;
+  position: relative;
+  @include span(2);
+  img {
+    max-width: 100%;
+  }
+}
+.gamesession-item-content {
+  @include span(last 10);
+  padding: rem-calc(12);
+  @media #{$medium-up} {
+    position: relative;
+    padding: rem-calc(24 12);
+  }
+}
+.gamesession-item-headline {
+  display: inline-block;
+  text-decoration: none;
+}
+.gamesession-item-title {
+  font-size: rem-calc(18);
+  line-height: rem-calc(24);
+  @media #{$small-up} {
+    display: inline;
+  }
+}
+.gamesession-item-date {
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  color: #4E4930;
+  @media #{$small-up} {
+    font-size: rem-calc(18);
+    color: inherit;
+  }
+}
+.gamesession-item-owner {
+  @include clearfix;
+  display: none;
+  @media #{$small-up} {
+    display: block;
+    margin-top: rem-calc(6);
+  }
+  @media #{$medium-up} {
+    margin-top: rem-calc(12);
+  }
+}
+.gamesession-item-owner-name {
+  font-weight: 300;
+}
+.gamesession-item-owner-avatar {
+  float: left;
+  margin-right: rem-calc(12);
+  margin-left: rem-calc(-6);
+  @media #{$medium-up} {
+    margin-right: rem-calc(18);
+  }
+  .avatar {
+    width: rem-calc(48);
+    height: rem-calc(48);
+    @media #{$medium-up} {
+      width: rem-calc(72);
+      height: rem-calc(72);
+    }
+  }
+}
+.gamesession-item-desc {
+  margin-left: rem-calc(60);
+  @media #{$medium-up} {
+    margin-left: rem-calc(84);
+    margin-top: rem-calc(6);
+  }
+  & > p {
+    margin-top: 0;
+  }
+}
+.gamesession-item-action {
+  display: none;
+  @media #{$small-up} {
+    display: block;
+    margin-top: rem-calc(12);
+  }
+  @media #{$medium-up} {
+    position: absolute;
+    top: rem-calc(12);
+    right: rem-calc(12);
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+.gamesession-detail-content {
+  @include clearfix;
+  margin: rem-calc(36 0);
+  text-align: center;
+  @media #{$medium-up} {
+    text-align: left;
+  }
+}
+.gamesession-detail-cover {
+  line-height: 0;
+  position: relative;
+  width: rem-calc(168);
+  margin-left: auto;
+  margin-right: auto;
+  @media #{$medium-up} {
+    @include span(2 of 12);
+  }
+  img {
+    max-width: 100%;
+  }
+}
+.gamesession-detail-infos {
+  margin-top: rem-calc(48);
+  @media #{$medium-up} {
+    margin-top: 0;
+    padding-left: rem-calc(12);
+    @include span(10 last of 12);
+  }
+}
+.gamesession-detail-info {
+  display: block;
+  margin-top: rem-calc(6);
+  @media #{$medium-up} {
+    display: inline-block;
+    margin-top: 0;
+    margin-right: rem-calc(16);
+  }
+}
+.gamesession-detail-desc {
+  & > p {
+    margin-top: 0;
+  }
+}
+.gamesession-detail-owner {
+  @media #{$large-up} {
+    margin-top: rem-calc(12);
+  }
+}
+.gamesession-detail-owner-name {
+  @media #{$medium-up} {
+    display: inline-block;
+    margin-bottom: rem-calc(6);
+  }
+}
+.gamesession-detail-owner-avatar {
+  display: inline-block;
+  margin: 0 auto rem-calc(12);
+  @media #{$medium-up} {
+    float: left;
+    margin-left: rem-calc(-6);
+    margin-right: rem-calc(18);
+  }
+  .avatar {
+    width: rem-calc(72);
+    height: rem-calc(72);
+  }
+}
+.gamesession-detail-actions {
+  margin-top: rem-calc(24);
+  @media #{$medium-up} {
+    float: left;
+    margin-top: rem-calc(12);
+    margin-left: rem-calc(12);
+  }
+}
+.gamesession-detail-games {
+  @media #{$medium-up} {
+    &.game-list {
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+    .game-item {
+      flex: 1;
+      min-width: 50%;
+      max-width: 50%;
+      margin: rem-calc(2 0)
+    }
+  } 
+}
+
+.gamesession-delete.button {
+  opacity: 0.4;
+  margin: rem-calc(24) auto;
+}

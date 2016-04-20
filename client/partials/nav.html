@@ -1,0 +1,69 @@
+<template name="navOff">
+  <nav id="nav-off" class="nav-off">
+    <div class="nav-off-header">
+      {{> myPreview}}
+    </div>
+    <ul class="nav-off-menu">
+      <li><a href="{{pathFor 'home'}}" class="nav-off-link {{activeRouteClass 'home'}}">Home</a></li>
+      <li><a href="{{pathFor 'playerList'}}" class="nav-off-link {{activeRouteClass 'playerList'}}">Joueurs</a></li>
+      <li><a href="{{pathFor 'gamesessions'}}" class="nav-off-link {{activeRouteClass 'gamesessionList'}}">Prochaines parties</a></li>
+      <!-- <li><a href="{{pathFor 'about'}}" class="nav-off-link {{activeRouteClass 'about'}}">À propos</a></li> -->
+      <li>{{> navLang}}</li>
+      <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-off-link">{{_ "navOrganize"}}</a></li>
+    </ul>
+  </nav>
+</template>
+
+<template name="navMain">
+  <nav id="nav-main" class="nav-main">
+    <div class="grid-container">
+      <ul class="nav-main-first">
+        <li><a href="{{pathFor 'playerList'}}" class="nav-main-link {{activeRouteClass 'playerList'}}">{{_ "navPlayers"}}</a></li>
+        <li><a href="{{pathFor 'gamesessionList'}}" class="nav-main-link {{activeRouteClass 'gamesessionList'}}">{{_ "navParties"}}</a></li>
+        <!-- <li><a href="{{pathFor 'about'}}" class="nav-main-link {{activeRouteClass 'about'}}">{{_ "navAbout"}}</a></li> -->
+      </ul>
+      <ul class="nav-main-second">
+        <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-main-button button">{{_ "navOrganize"}}</a></li>
+      </ul>
+      <ul class="nav-main-lang">
+        <li>
+          {{> navLang}}
+        </li>
+      </ul>
+    </div>
+  </nav>
+</template>
+
+<template name="navLang">
+  <div class="nav-lang" data-collapse="nav-lang-menu">
+    <span class="nav-lang-current">{{languageTag}}</span>
+    <ul id="nav-lang-menu" class="nav-lang-menu">
+      <li><a href="/de" class="nav-lang-link" data-lang="de">DE</a></li>
+      <li><a href="/fr" class="nav-lang-link" data-lang="en">EN</a></li>
+      <li><a href="/en" class="nav-lang-link" data-lang="fr">FR</a></li>
+    </ul>
+  </div>
+</template>
+
+<template name="navTabs">
+  <nav class="nav-sub nav-tabs-container">
+    <div class="grid-container is-centered">
+      {{#if activeTab}}
+        {{trackActiveTab activeTab}}
+      {{/if}}
+
+      {{trackTabs tabs}}
+
+      <ul class="tabs-list nav-tabs">
+        {{#each tabs}}
+          <li class="tab-item nav-tabs-item {{isActiveTab slug}}"><a href="#{{slug}}" class="nav-tabs-links">{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </nav>
+  <div class="tabs-content-container grid-container">
+    {{> UI.contentBlock
+        context=__context__
+    }}
+  </div>
+</template>

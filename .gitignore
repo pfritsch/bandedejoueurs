@@ -1,0 +1,14 @@
+#OSX
+.DS_Store
+._*
+
+# Grunt
+node_modules
+.npm-debug.log
+tmp
+.sass-cache
+bower_components/
+static/
+src/scss/main.doc.css
+
+settings.json

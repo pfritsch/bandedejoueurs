@@ -1,0 +1,36 @@
+@import url('//hello.myfonts.net/count/2a4c89');
+
+$font-url: '/fonts/';
+
+// Light
+@font-face {
+  font-family: 'Halis Rounded';
+  src: url($font-url + '2A4C89_3_0.eot');
+  src: url($font-url + '2A4C89_3_0.eot?#iefix') format('embedded-opentype'),
+       url($font-url + '2A4C89_3_0.woff') format('woff'),
+       url($font-url + '2A4C89_3_0.ttf')  format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+// Regular
+@font-face {
+  font-family: 'Halis Rounded';
+  src: url($font-url + '2A4C89_6_0.eot');
+  src: url($font-url + '2A4C89_6_0.eot?#iefix') format('embedded-opentype'),
+       url($font-url + '2A4C89_6_0.woff') format('woff'),
+       url($font-url + '2A4C89_6_0.ttf')  format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Medium
+@font-face {
+  font-family: 'Halis Rounded';
+  src: url($font-url + '2A4C89_5_0.eot');
+  src: url($font-url + '2A4C89_5_0.eot?#iefix') format('embedded-opentype'),
+       url($font-url + '2A4C89_5_0.woff') format('woff'),
+       url($font-url + '2A4C89_5_0.ttf')  format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}

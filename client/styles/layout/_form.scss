@@ -1,0 +1,211 @@
+// Fieldset
+// ----------------------------------------------
+fieldset {
+  padding: rem-calc(24 48 36);
+  margin-top: rem-calc(24);
+  border: 1px solid #D9D4BA;
+}
+legend {
+  text-align: center;
+  padding: rem-calc(0 24);
+  font-weight: 300;
+  font-size: rem-calc(12);
+  line-height: rem-calc(18);
+  color: #4E4930;
+}
+
+// Control
+// ----------------------------------------------
+input,
+select,
+textarea {
+  margin: 0;
+  vertical-align: top;
+  font-family: 'Halis Rounded', 'Helvetica Neue', helvetica, arial, sans;
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+}
+input[type="search"],
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  display: block;
+  font-weight: 500;
+  width: 100%;
+  transition: background 300ms ease-out;
+  &:focus,
+  &:hover {
+    background: #FFFDDF;
+  }
+}
+input[type="search"],
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: rem-calc(4 12);
+  border: 1px solid #D9D4BA;
+  border-radius: rem-calc(2);
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+}
+input[type=radio],
+input[type=checkbox] {
+  vertical-align: middle;
+}
+select,
+.selectize-control.single .selectize-input {
+  appearance: none;
+  font-size: rem-calc(14);
+  padding: rem-calc(4 12);
+  border: 1px solid #D9D4BA;
+  border-radius: rem-calc(2);
+  height: rem-calc(36);
+  background: white;
+}
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+  vertical-align: top;
+  font-family: 'Halis Rounded';
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+}
+label {
+  display: inline-block;
+  font-weight: 300;
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  color: inherit;
+  margin-top: rem-calc(12);
+}
+
+.af-radio-group > label {
+  display: block;
+  position: relative;
+  margin-top: 0;
+  padding: rem-calc(6 12);
+  border-radius: rem-calc(2);
+  height: rem-calc(36);
+  cursor: pointer;
+  @media #{$small-up} {
+    @include span(6 of 12);
+    &:last-child {
+      @include last;
+    }
+  }
+}
+.af-radio-group input {
+  float: left;
+  margin: rem-calc(6 12 6 0);
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #E5E1CF;
+    border-radius: rem-calc(18);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: background-color 200ms ease;
+  }
+  &:hover:after,
+  &:focus:after {
+    background: #FFFDDF;
+  }
+  &:checked:after {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+  }
+}
+.has-feedback,
+.has-error,
+.has-success {
+  position: relative;
+  & > span {
+    position: absolute;
+    top: rem-calc(12);
+    right: 0;
+    font-size: rem-calc(12);
+    line-height: rem-calc(16);
+    padding: rem-calc(4 12);
+    font-style: italic;
+    border-radius: rem-calc(2 2 0 0);
+  }
+}
+.has-error {
+  & > input {
+    border-color: #7D385C;
+  }
+  & > span {
+    color: white;
+    background-color: #7D385C;
+  }
+}
+.has-success {
+  & > input {
+    border-color: #0E995A;
+  }
+  & > span {
+    color: white;
+    background-color: #0E995A;
+  }
+  .fa.fa-check {
+    display: inline-block;
+    width: rem-calc(24);
+    height: rem-calc(24);
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Y2hlY2s8L3RpdGxlPjxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNi42NjcgMGwtMTAgOS42LTMuMzM0LTMuMkwwIDkuNiA2LjY2NyAxNiAyMCAzLjIiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70%;
+  }
+}
+.form-action {
+  margin-top: rem-calc(24);
+}
+.form-check-group {
+  position: relative;
+  float: left;
+  width: 50%;
+  & > label {
+    display: block;
+    padding: rem-calc(6 12);
+    border-radius: rem-calc(0 18 18 0);
+    background-color: rgba(#fff, 0.5);
+    margin-top: 0;
+    cursor: pointer;
+    transition: background 300ms ease-out;
+  }
+  &:hover > label {
+    background-color: rgba(#fff, 0.75);
+  }
+  &:first-child > label {
+    margin-right: 1px;
+    border-radius: rem-calc(18 0 0 18);
+  }
+  & > input {
+    float: left;
+    margin: rem-calc(12 12 12 16);
+  }
+  & > input:checked + label {
+    background: white;
+  }
+  & > .selectize-control {
+    position: absolute;
+    top: 0;
+    left: rem-calc(40);
+    right: 0;
+  }
+}

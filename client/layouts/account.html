@@ -1,0 +1,21 @@
+<template name="layoutAccount">
+  {{>icons}}
+  {{>notificationList}}
+  {{>navOff}}
+  <div class="page layout-account">
+    <a class="nav-burger" data-collapse="nav-off">
+      <span class="nav-burger-bar"></span>
+      <span class="nav-burger-title">Menu</span>
+      <span class="nav-burger-bar"></span>
+    </a>
+    {{>Template.dynamic template=header}}
+    {{>Template.dynamic template=nav}}
+    <main role="main">
+      <div class="grid-container has-space-bottom">
+        <div class="grid-section is-contracted">
+          {{>Template.dynamic template=main}}
+        </div>
+      </div>
+    </main>
+  </div>
+</template>

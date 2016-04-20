@@ -1,0 +1,42 @@
+<template name="gamesessionItem">
+  <article class="catalog-item gamesession-item">
+  {{#if Template.subscriptionsReady}}
+    <a href="{{pathFor 'gamesessionDetail' gamesessionId=_id}}" class="gamesession-item-cover">
+      <figure class="cover-frame">
+        <img alt="{{title}}" src="{{cover}}" class="{{#if gameCover}}cover{{/if}}" />
+        <ul class="cover-labels label-list">
+        {{#each gamesessionTags}}
+          <li class="label is-{{this}}">
+            <svg class="icon is-inline"><use xlink:href="#icon-{{this}}" /></svg> <span class="label-name">{{_ this}}</span>
+          </li>
+        {{/each}}
+        </ul>
+      </figure>
+    </a>
+    <div class="gamesession-item-content">
+      
+      <a href="{{pathFor 'gamesessionDetail' gamesessionId=_id}}" class="gamesession-item-headline"><h2 class="gamesession-item-title">{{titleFormated}}</h2> <span class="gamesession-item-date">{{dateFormated}}</span></a>
+      
+      <section class="gamesession-item-owner">
+        {{#with author}}
+          <a href="{{pathFor 'playerDetail' username=username}}" class="gamesession-item-owner-avatar">
+            {{> avatar user=this}}
+          </a>
+        {{/with}}
+        <div class="gamesession-item-desc">
+          <span class="gamesession-item-owner-name is-muted">{{_ 'gamesessionOrganizedBy'}} {{author.username}}</span>
+          <p>
+            {{#if playersLeft}}<span class="gamesession-item-spots">{{playersLeft}}</span> {{/if}}
+            {{description}} 
+          </p>
+        </div>
+      </section>
+      <div class="gamesession-item-action">
+        {{> gamesessionActions gamesession=this}}
+      </div>
+    </div>
+  {{else}}
+    {{_ "helper.loading"}}
+  {{/if}}
+  </article>
+</template>

@@ -1,0 +1,18 @@
+<template name="playerList">
+{{#if Template.subscriptionsReady}}
+  <div class="player-container">
+    <div class="player-map">
+      {{> googleMap name="map" options=mapOptions}}
+    </div>
+    <div class="player-list">
+      {{#each allPlayers}}
+        {{> playerItem}}
+      {{/each}}
+    </div>
+  </div>
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>

@@ -1,0 +1,72 @@
+{ 
+  "schemas": {
+    "User": {
+      "username": {
+        "label": "Identifiant",
+        "placeholder": "Ton identifiant unique"
+      },
+      "profile": {
+        "name": {
+          "label": "Véritable nom",
+          "placeholder": "Devra t'on t'appeller John Doe?"
+        },
+        "birthday": {
+          "label": "Date de naissance",
+          "placeholder": ""
+        },
+        "gender": {
+          "label": "Chromosomes",
+          "placeholder": "Choisis une catégorie",
+          "options": {
+            "XY": "XY",
+            "XX": "XX"
+          }
+        },
+        "address": {
+          "label": "Véritable nom",
+          "placeholder": "Devra t'on t'appeller John Doe?"
+        },
+        "cp": {
+          "label": "CP",
+          "placeholder": ""
+        },
+        "city": {
+          "label": "Ville",
+          "placeholder": "Là où tu veux jouer"
+        },
+        "country": {
+          "label": "Pays"
+        },
+        "bio": {
+          "label": "Un dernier mot pour te présenter",
+          "placeholder": "Tu dois bien avoir un truc à raconter... Quelles sont tes disponibilités pour jouer? Quel sont tes jeux préférés? As-tu une console, une grande table ronde?"
+        }
+      }
+    }
+  }, 
+  "homeTitle": "Band of gamers",
+  "homeClaim": "Viel besser zusammen zu spielen",
+  "homeHeraAlt": "Bande de joueurs, rencontrer d'autres joueurs pour du multiplayer",
+  "homeWhatTitle": "Jeux de société ou jeux vidéo",
+  "homeWhatSubtitle": "Trouve des partenaires pour tes jeux préférés.",
+  "homeWhatText": "Bande de Joueurs, c’est une communauté en ligne, où tu peux rencontrer d’autres personnes afin de ne plus jouer tout(e) seul(e). Parce que les jeux ne devraient pas nous isoler, mais nous faire partager des moments agréables à plusieurs, nous rapprocher.",
+  "homeHowTitle": "Comment ça marche?",
+  "homeHowOrganize": "Organise ou inscris-toi à une partie, pour le jeu de ton choix.",
+  "homeHowMeet":"Rencontre les joueurs comme convenu, en ligne ou près de chez toi.",
+  "homeHowStart": "C’est tout. La partie peut commencer!",
+  "homeDescFindAlt": "D'autres gamers recherchent des partenaires de jeu",
+  "homeDescFindTitle": "Rien de prévu ce Week-end ?",
+  "homeDescFindText": "Participes à une soirée jeux près de chez toi",
+  "homeDescTestAlt": "Pas facile de trouver des joueurs pour tous les jeux de ma collection...",
+  "homeDescTestTitle": "Un nouveau jeu à tester?",
+  "homeDescTestText": "Organise une partie et rencontre des gens sympas pour l’essayer",
+  "homeDescGameAlt": "Multi-player et jeux vidéo",
+  "homeDescGameTitle": "Fini le mode solo?",
+  "homeDescGameText": "Rencontre d’autres gamers pour les modes multi et <span class=\"no-hyphen\">co-op!</span>",
+  "homeJoinTitle": "Join the band",
+  "homeJoinSubtitle": "On te tient au courant dès que c’est prêt.",
+  "homeJoinText": "Envoie ton e-mail, tu feras partie des premiers lors du lancement.",
+
+  "accountErrorUsername": "Username still used",
+  "accountErrorEmail": "Invalid email"
+}

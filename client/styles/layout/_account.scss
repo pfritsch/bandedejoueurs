@@ -1,0 +1,51 @@
+.at-form {
+  .at-title {
+    text-align: center;
+    font-size: rem-calc(20);
+    color: #4E4930;
+    line-height: rem-calc(24);
+  }
+  .at-oauth {
+    margin-top: rem-calc(36);
+  }
+  .at-sep {
+    position: relative;
+    text-align: center;
+    margin-top: rem-calc(24);
+    strong {
+      position: relative;
+      display: inline-block;
+      background: #F0EEE3;
+      font-size: rem-calc(12);
+      padding: rem-calc(0 12);
+      z-index: 1;
+    }
+    &:after {
+      content: '';
+      display:block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin-top: -1px;
+      border-top: 1px solid #D9D4BA;
+    }
+  }
+  .at-pwd-link {
+    margin-top: rem-calc(12);
+  }
+  .at-btn.submit {
+    margin-top: rem-calc(24);
+  }
+  .at-signin-link,
+  .at-signup-link {
+    text-align: center;
+    margin-top: rem-calc(24);
+  }
+  [role="form"] {
+    text-align: center;
+    & > .at-input {
+      text-align: left;
+    }
+  }
+}

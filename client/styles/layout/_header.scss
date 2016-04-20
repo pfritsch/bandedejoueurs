@@ -1,0 +1,42 @@
+/*doc
+---
+title: Header
+name: header
+category: Layout
+---
+
+```html_example
+<header class="header-container" role="banner">
+  The header's content gets here
+</header>
+```
+*/
+
+.header-container {
+  background-color: #13B169;
+  color: white;
+  height: rem-calc(48);
+  @media #{$medium-up} {
+    position: fixed;
+    width: 100%;
+    height: rem-calc(72);
+    z-index: 999;
+  }
+}
+.header-my-preview {
+  display: none;
+  @media #{$medium-up} {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: rem-calc(36);
+  }
+}
+.header-button-well {
+  @media #{$medium-up} {
+    display: block;
+    position: absolute;
+    top: rem-calc(18);
+    right: rem-calc(36);
+  }
+}

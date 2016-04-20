@@ -1,0 +1,38 @@
+html, body {
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: #F0EEE3;
+  font-family: 'Halis Rounded', 'Helvetica Neue', helvetica, arial, sans;
+  color: #4E4930;
+  font-weight: 400;
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  overflow-x: hidden;
+}
+#__blaze-root {
+  display: flex;
+  min-height: 100%;
+  @media #{$medium-up} {
+    display: block;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+} 
+
+main {
+  // padding-bottom: rem-calc(120);
+}

@@ -1,0 +1,25 @@
+.logo-home,
+.logo-header {
+  display: inline-block;
+  margin: 0 auto;
+  background: url("images/logo.svg") transparent no-repeat center bottom;
+  background-size: contain;
+  text-indent: -9999px;
+}
+.logo-home {
+  width: rem-calc(488);
+  max-width: 100%; 
+  height: rem-calc(36);
+}
+.logo-header {
+  width: rem-calc(244);
+  height: rem-calc(18);
+  max-width: 100%; 
+  margin: rem-calc(15 0 15 12);
+
+  @media #{$medium-up} {
+    width: rem-calc(325);
+    height: rem-calc(24);
+    margin: rem-calc(24 0);
+  }
+}

@@ -1,0 +1,226 @@
+.home-header {
+  background-color: #13B169;
+  color: white;
+  overflow: hidden;
+
+  .nav-burger {
+    padding: rem-calc(18);
+    height: rem-calc(60);
+  }
+}
+
+.home-hero {
+  text-align: center;
+  margin-top: rem-calc(60);
+  @media #{$small-up} { 
+    margin-top: rem-calc(160);
+  }
+}
+.home-hero-illus-container {
+  display: block;
+  line-height: 0;
+  margin: 0 auto;
+  max-height: 60vh;
+  overflow: hidden;
+}
+.home-hero-illus {
+  width: rem-calc(1240);
+  max-width: 100%;
+  margin-bottom: rem-calc(-24);
+
+  @media #{$small-up} {
+    margin-bottom: rem-calc(-48);
+  }
+
+  @media #{$medium-up} {
+    margin-bottom: rem-calc(-96);
+  }
+} 
+
+.home-title {
+  padding: rem-calc(0 48);
+  span {
+    display: inline-block;
+    font-weight: 300;
+    font-size: rem-calc(18);
+    margin-top: rem-calc(6);
+
+    @media #{$small-up} { 
+      font-size: rem-calc(24);
+      line-height: rem-calc(36);
+      margin-top: rem-calc(12);
+    }
+  }
+}
+.svg .home-title h1 {
+  content: url('../logo.svg');
+  display: block;
+  margin: 0 auto rem-calc(12);
+  max-width: 100%;
+  width: rem-calc(488);
+  height: rem-calc(35);
+}
+
+.home-light, 
+.home-description,
+.home-who {
+  padding: rem-calc(48);
+  @media #{$medium-up} {
+    padding: rem-calc(60 0);
+  }
+}
+.home-light, 
+.home-description,
+.home-ready {
+  text-align: center;
+}
+.home-light {
+  background-color: white;
+}
+.home-what-content {
+  @media #{$medium-up} {
+    @include span(8);
+    @include push(2);
+  }
+}
+.home-how-content {
+  text-align: center;
+  padding-top: rem-calc(60);
+  @media #{$medium-up} {
+    @include span(8);
+    @include push(2);
+  }
+}
+.home-how-list {
+  @include reset-list;
+  li {
+    margin-top: rem-calc(24);
+  }
+  p.is-large {
+    display: inline-block;
+    padding: auto;
+    width: rem-calc(48);
+    height: rem-calc(48);
+    line-height: rem-calc(49);
+    border: 2px solid rgba(#4E4930, 0.3);
+    border-radius: 50%;
+  }
+}
+
+.home-description {
+  background: #FFE77D;
+  figure {
+    @media #{$medium-up} {
+      text-align: left;
+    }
+  }
+  img {
+    @media #{$medium-up} {
+      @include span(5 last of 12);
+      @include squish(1, 1);
+    }
+    @media #{$large-up} {
+      transform: translateY(-60px);
+      margin-bottom: rem-calc(-120);
+    }
+  }
+  figcaption {
+    margin: rem-calc(0 0 48);
+    @media #{$medium-up} {
+      text-align: right;
+      @include span(4 of 12);
+      @include squish(1, 0);
+    }
+    @media #{$large-up} {
+      margin: rem-calc(120 0 0);
+    }
+  }
+  figure:first-child img,
+  figure:last-child img {
+    @media #{$medium-up} {
+      @include span(5 of 12);
+    }
+  }
+  figure:first-child figcaption,
+  figure:last-child figcaption {
+    @media #{$medium-up} {
+      text-align: left;
+      @include span(4 last of 12);
+      @include squish(1, 1);
+    }
+  }
+  figure:first-child figcaption {
+    @media #{$medium-up} {
+      margin-top: rem-calc(120);
+    }
+  }
+  figure:last-child figcaption {
+    @media #{$medium-up} {
+      margin-top: rem-calc(196);
+    }
+  }
+}
+
+.home-ready {
+  background: #7D385C;
+  padding: rem-calc(48);
+  @media #{$medium-up} {
+    padding: rem-calc(60 0);
+  }
+}
+.home-ready-form {
+  @media #{$medium-up} {
+    @include span(5 last of 12);
+    @include squish(0, 1);
+    text-align: left;
+    margin-top: rem-calc(96);
+  }
+  .at-btn.submit {
+    margin: rem-calc(12 0);
+    background-color: #501132;
+    color: white;
+    border: none;
+    border-radius: rem-calc(18); 
+    &:hover,
+    &:focus {
+      background-color: darken(#501132, 5%);
+    }
+  }
+}
+.home-ready-illus {
+  @media #{$medium-up} {
+    transform: translateY(-10%);
+    @include span(5 of 12);
+    @include squish(1, 0);
+  }
+}
+.home-ready, 
+.home-who {
+  color: white;
+  input {
+    color: #4E4930;
+  }
+  a {
+    color: #FFE77D;
+    &:hover,
+    &:focus {
+      color: #FFE77D;
+    }
+  }
+}
+
+.home-who {
+  background: #501132;
+}
+.home-who-names {
+  @media #{$medium-up} {
+    @include span(5 of 12);
+    @include squish(1, 1);
+  }
+}
+.home-who-contact {
+  @media #{$medium-up} {
+    @include span(4 last of 12);
+    @include squish(0, 1);
+  }
+}

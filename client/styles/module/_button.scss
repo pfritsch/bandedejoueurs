@@ -1,0 +1,199 @@
+// Buttons
+// ----------------------------------------------
+
+/*doc
+---
+title: Button
+name: Button
+category: Module
+---
+
+Button styles can be applied to any element. Typically you'll want to
+use either a `<button>` or an `<a>` element:
+
+```html_example
+<button class="button">Simple button</button>
+<a class="button" href="http://wearecube.ch">Link with .button class</a>
+<a class="button is-primary">Primary button</a>
+<a class="button is-disabled">Disabled button</a>
+```
+
+Three sizes for the buttons: small, medium (default) and big.
+
+```html_example
+<a class="button is-small">Small</a>
+<a class="button">Medium</a>
+<a class="button is-big">Big</a>
+```
+*/
+
+button,
+input[type='submit'] {
+  font-family: 'Halis Rounded', 'Helvetica Neue', helvetica, arial, sans;
+}
+
+.button, 
+a.button,
+button,
+input[type='submit'] {
+  display: inline-block;
+  padding: rem-calc(5 15);
+  opacity: 0.8;
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  color: #4E4930;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.02rem;
+  border: 1px solid #716D59;
+  border-radius: rem-calc(2);
+  transition: all 200ms ease;
+  background: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    background: #4E4930;
+    color: white;
+  }
+  &.is-danger {
+    &:hover,
+    &:focus {
+      background: #D0021B;
+    }
+  }
+}
+.button:not(.button-big), 
+a.button:not(.button-big),
+button:not(.button-big),
+input[type='submit']:not(.button-big){
+  &.is-danger {
+    border-color: #D0021B;
+    color: #D0021B;
+    &:hover,
+    &:focus {
+      color: white;
+    }
+  }
+}
+.button-big,
+a.button-big,
+.at-btn.submit,
+.button-well > a {
+  display: inline-block;
+  color: white;
+  background: #0E995A;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 200ms ease;
+  border: none;
+}
+.button-big,
+a.button-big,
+.at-btn.submit {
+  padding: rem-calc(12 36);
+  font-size: rem-calc(16);
+  line-height: rem-calc(24);
+  border-radius: rem-calc(24);
+}
+.button-big.is-cta {
+  color: white;
+  background: #501132;
+  border-color: #501132;
+  text-transform: uppercase;
+}
+.button-well {
+  @media #{$medium-up} {
+    float: right;
+  }
+}
+.button-well > a {
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  padding: rem-calc(6 16);
+  &:first-child {
+    border-radius: rem-calc(18 0 0 18);
+  }
+  &:last-child {
+    border-radius: rem-calc(0 18 18 0);
+  }
+  & + a {
+    margin-left: 1px;
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+    background: #FFF28C;
+    color: #4E4930;
+  }
+}
+
+
+.at-social-btn {
+  display: block;
+  width: 100%;
+  opacity: 1;
+  color: white;
+  & + .at-social-btn {
+    margin-top: rem-calc(12);
+  }
+}
+#at-steam,
+.is-steam {
+  background: #444444;
+  border-color: #444444;
+  &:hover,
+  &:focus {
+    background: darken(#444444, 5%);
+  }
+}
+#at-facebook,
+.is-facebook {
+  background: #3A5795;
+  border-color: #3A5795;
+  &:hover,
+  &:focus {
+    background: darken(#3A5795, 5%);
+  }
+}
+#at-twitter,
+.is-twitter {
+  background: #0084B4;
+  border-color: #0084B4;
+  &:hover,
+  &:focus {
+    background: darken(#0084B4, 5%);
+  }
+}
+#at-google,
+.is-google {
+  background: #DC4E41;
+  border-color: #DC4E41;
+  &:hover,
+  &:focus {
+    background: darken(#DC4E41, 5%);
+  }
+}
+.button-share {
+  display: inline-block;
+  padding: rem-calc(5 15);
+  opacity: 0.8;
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: -0.02rem;
+  border-radius: rem-calc(24);
+  transition: all 200ms ease;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+  }
+}
+.button-list {
+  @include reset-list;
+}

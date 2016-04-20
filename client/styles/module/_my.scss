@@ -1,0 +1,63 @@
+// My Preview
+.my-preview {
+  display: flex;
+}
+.my-preview-content {
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  margin: rem-calc(12 0 0 0);
+
+  a {
+    color: white;
+  }
+  a:hover,
+  a:focus {
+    color: #FFE77D;
+  }
+}
+.my-preview-name,
+.my-preview-email {
+  display: block;
+}
+.my-preview-avatar {
+  margin: rem-calc(6 0 0 12);
+}
+// My Profile
+.my-profile-avatar  {
+  display: inline-block;
+  @include clearfix;
+  .avatar {
+    width: rem-calc(120);
+    height: rem-calc(120);
+    margin: rem-calc(24) auto 0;
+    transition: border 300ms ease;
+  }
+  &:hover .avatar {
+    border-color: rgba(0,0,0,0.5); 
+  }
+}
+.my-profil-actions {
+  @include clearfix;
+  text-align: center;
+}
+.my-profil-actions > a {
+  display: inline-block;
+}
+.my-profil-logout {
+  margin: rem-calc(0 48 24);
+  @media #{$small-up} {
+    float: left;
+    margin: rem-calc(6 48 24 0);
+  }
+}
+button.my-profil-delete {
+  opacity: 0.4;
+  margin: rem-calc(24 48 24);
+  @media #{$small-up} {
+    margin: rem-calc(0 0 24);
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}

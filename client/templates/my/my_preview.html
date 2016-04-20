@@ -1,0 +1,9 @@
+<template name="myPreview">
+  <div class="my-preview">
+      <div class="my-preview-content">
+        <span class="my-preview-name">{{currentUserName}}</span>
+        <a href="{{pathFor 'myProfile'}}" class="my-preview-email">Mon profil</a>
+      </div>
+      <a href="{{pathFor 'myProfile'}}" class="my-preview-avatar">{{> avatar user=currentUser}}</a>
+  </div>
+</template>

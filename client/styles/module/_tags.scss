@@ -1,0 +1,127 @@
+.tags {
+  @include reset-list
+  @include container;
+  margin: rem-calc(0 -3);
+  text-align: center;
+  @media #{$medium-up} {
+    text-align: left;
+  }
+}
+.tag,
+.tag-more {
+  display: inline-block;
+  margin: rem-calc(12 3 0);
+}
+.tag [class^="icon"], 
+.tag [class*=" icon"] {
+  float: left;
+  width: 1em;
+  height: 1em;
+  margin: rem-calc(4 6 0 0); 
+}
+.tag-content,
+.tag-more a {
+  display: block;
+  padding: rem-calc(5 12);
+  border-radius: rem-calc(24);
+  font-size: rem-calc(14);
+  line-height: rem-calc(24);
+  font-weight: 400;
+  white-space: nowrap;
+  color: #777568;
+  background-color: #E5E1CF;
+}
+.tag-more a {
+  padding: rem-calc(5 18);
+}
+.tag > label,
+.tag-more a {
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.tag-more a {
+  text-align: center;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    background: #403F3F;
+    color: #fff;
+  }
+}
+.tag-content {
+  // position: relative;
+  margin: 0;
+  box-shadow: 0 0 0 transparent;
+}
+.tag input[type=radio],
+.tag input[type=checkbox] {
+  position: absolute;
+  visibility: hidden;
+}
+.tag input[type=radio]:checked + label,
+.tag input[type=checkbox]:checked + label,
+.tag.is-checked > .tag-content {
+  background: #FFFFFF;
+  color: #403F3F;
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.2);
+}
+.tag label:hover {
+  background: #403F3F;
+  color: #fff;
+}
+.tag input[type=radio]:focus + label,
+.tag input[type=checkbox]:focus + label {
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.5);
+}
+
+
+// Colors / Tags
+@mixin tagColor($color) {
+  input[type=radio]:checked + label,
+  input[type=checkbox]:checked + label {
+    border-color: $color;
+    color: $color;
+    &:before {
+      border-color: transparent $color transparent transparent;   
+    }
+  }
+  label:hover{
+    background: $color;
+    border-color: $color;
+    color: #fff;
+  }
+}
+
+.tag {
+  &.is-ps3,
+  &.is-ps4 {
+    @include tagColor($color-ps);
+  } 
+  &.is-pc,
+  &.is-mac,
+  &.is-ios {
+    @include tagColor($color-pc);
+  }
+  &.is-board, 
+  &.is-cards,
+  &.is-dices {
+    @include tagColor($color-board);
+  } 
+  &.is-outside {
+    @include tagColor($color-outside);
+  } 
+  &.is-xbox360,
+  &.is-xboxone,
+  &.is-android {
+    @include tagColor($color-xbox);
+  } 
+  &.is-wargame,
+  &.is-rpg {
+    @include tagColor($color-rpg);
+  }
+  &.is-wii,
+  &.is-wiiu,
+  &.is-3ds {
+    @include tagColor($color-wii);
+  } 
+}

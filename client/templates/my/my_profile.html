@@ -1,0 +1,112 @@
+<template name="myProfile">
+{{#with currentUser}}
+
+  {{#navTabs tabs=myProfileTabs activeTab=activeTab}}
+  <!-- My Profile -->
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section is-contracted">
+      <div class="my-profil-header is-centered">
+        <h1>Hello {{currentUserName}}!</h1>
+        <p class="is-highlight">{{_ "myProfileSubtitle"}}</p>
+        <a href="https://gravatar.com/" target="_blank" class="my-profile-avatar">{{> avatar user=currentUser}}</a>
+
+      </div>
+
+
+      {{#if hasNoEmail}}
+      <p class="msg is-important">
+        {{{_ 'errorNoEmail'}}}
+      </p>
+      {{else}}
+        {{#if emailNotValidated}}
+        <p class="msg is-important">
+          {{{_ 'errorNotVerified'}}}
+        </p>
+        <!-- {{> atForm state='resendVerificationEmail' doc=currentUser}} -->
+        {{/if}}
+      {{/if}}
+      {{#autoForm id="userEditProfile" doc=currentUser schema=userSchema type="update" collection="Meteor.users" }}
+        {{> afQuickField name='username'}}
+        {{#if afFieldIsInvalid name='username'}}
+          <p class="at-error">{{{afFieldMessage name='username'}}}</p>
+        {{/if}}
+        {{> afQuickField name='emails.0.address' required='true'}}
+        {{#if afFieldIsInvalid name='emails'}}
+          <p class="at-error">{{{afFieldMessage name='emails'}}}</p>
+        {{/if}}
+        <p>
+          <a href="{{pathFor 'change-password'}}">{{_ "accountChangePassword"}}</a>
+        </p>
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">{{_ "myProfileAboutYou"}}</legend>
+          <p>{{_ "myProfileVisibleData"}}</p>
+          {{> afQuickField name='profile.name'}}
+          <div class="grid-row">
+            {{> afQuickField name='profile.birthday' formgroup-class='grid-col medium-6' type='text' value=birthdayValue}}
+            {{> afQuickField name='profile.gender' type='select' options='allowed' formgroup-class='grid-col medium-6'}}
+          </div>
+          {{> afQuickField name='profile.address.street'}}
+          <div class="grid-row">
+            {{> afQuickField name='profile.address.zipCode' formgroup-class='grid-col medium-4'}}
+            {{> afQuickField name='profile.address.city' formgroup-class='grid-col medium-8'}}
+          </div>
+          {{> afQuickField name='profile.bio' rows=6}}
+
+          {{> afQuickField name='profile.style' template='tags'}}
+        </fieldset>
+        <div class="form-action is-centered">
+          <button type="submit" class="button-big">{{_ "myProfileSave"}}</button>
+          <p>
+            {{#quickRemoveButton collection="Meteor.users" _id=this._id onSuccess=onRemoveSuccess beforeRemove=beforeRemove class="my-profil-delete is-danger"}}{{_ "myProfileDelete"}}{{/quickRemoveButton}}
+          </p>
+        </div>
+      {{/autoForm}}
+    </div>
+  </div>
+
+  <!-- My Band -->
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section has-space-bottom">
+      <h2 class="h1">{{_ "navTabMyBand"}}</h2>
+      <div class="grid-section">
+        {{#if myGroup}}
+          {{#each myGroup}}
+            {{> playerItem}}
+          {{/each}}
+        {{else}}
+          <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <!-- My Parties -->
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section">
+      <h2 class="h1">{{_ "navTabMyParties"}}</h2>
+    </div>
+    <div class="grid-section">
+      {{#if myGamesessions}}
+        {{#each myGamesessions}}
+          {{> gamesessionItem}}
+        {{/each}}
+      {{else}}
+        <div class="msg">{{{_ "myProfileNoGamesessions"}}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- Logout -->
+  <div>
+    <div class="grid-section">
+      {{> spinner}}
+    </div>
+  </div>
+
+  <!-- My Games -->
+  <!-- <div>
+    <h2>{{_ "navTabMyGames"}}</h2>
+  </div> -->
+{{/navTabs}}
+{{/with}}
+</template>

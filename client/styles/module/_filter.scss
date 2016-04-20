@@ -1,0 +1,46 @@
+.filter-container {
+  background: #FFE77D;
+  text-align: center;
+}
+.filter {
+  max-height: 0;
+  overflow: hidden;
+  text-align: left;
+  transition: all 300ms ease-out;
+  &.is-open:not(.is-moving) {
+    overflow: visible;
+  }
+  &.is-open {
+    transition: all 300ms ease-in;
+    max-height: rem-calc(168);
+    @media #{$medium-up} {
+      max-height: rem-calc(96);
+    }
+  }
+}
+.filter-button {
+  position: relative;
+  display: inline-block;
+  bottom: rem-calc(-12);
+  padding: rem-calc(6 48);
+  margin: 0 auto;
+  color: #777568;
+  background: #FFE77D;
+  border-radius: rem-calc(18);
+
+  & > .icon {
+    width: rem-calc(12);
+    height: rem-calc(12);
+    transform: rotate(-90deg);
+    transition: transform 300ms ease-out;
+  }
+  &:hover  > .icon {
+    transform: rotate(-90deg) scale(1.25);
+  }
+}
+.filter.is-open + .filter-button > .icon {
+  transform: rotate(90deg);
+}
+.filter.is-open + .filter-button:hover > .icon {
+  transform: rotate(90deg) scale(1.25);
+}

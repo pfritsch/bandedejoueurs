@@ -1,0 +1,75 @@
+<template name="gamesessionCreate">
+  <div class="grid-container gamesession-create-container has-space-bottom">
+    <div class="grid-section is-contracted">
+      <h1>{{_ "gamesessionCreateTitle"}}</h1>
+
+      <p class="is-highlight is-centered">
+        {{_ "gamesessionCreateSubtitle"}}
+      </p>
+      {{#autoForm id="gamesessionInsert" action="gamesessions" type="insert" collection="Gamesessions" }}
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">{{_ "gamesessionCreateWhen"}}</legend>
+          {{> afQuickField name='meetingDate' class='form-control datetimepicker' type='text' value=meetingDateValue}}
+        </fieldset>
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">{{_ "gamesessionCreateWhere"}}</legend>
+          {{> afQuickField name='meetingType' type='select-radio-inline' options=meetingTypeOptions label=false}}
+          {{#if meetingTypeIsIRL}}
+            {{> afQuickField name='meetingPlace.address.street' value=meetingPlaceValue.street}}
+            <div class="grid-row">
+              {{> afQuickField name='meetingPlace.address.zipCode' formgroup-class='grid-col medium-4' value=meetingPlaceValue.zipCode}}
+              {{> afQuickField name='meetingPlace.address.city' formgroup-class='grid-col medium-8' value=meetingPlaceValue.city}}
+            </div>
+          {{else}}
+            <div class="grid-row">
+              {{> afQuickField name='meetingPlace.service.title' formgroup-class='grid-col medium-4' options=meetingServiceOptions}}
+              {{> afQuickField name='meetingPlace.service.additional' formgroup-class='grid-col medium-8'}}
+            </div>
+          {{/if}}
+          {{#if afFieldIsInvalid name='meetingPlace'}}
+          <p class="at-error">{{{afFieldMessage name='meetingPlace'}}}</p>
+          {{/if}}
+          <p class="msg">{{_ 'gamesessionCreateOnlyVisible'}}</p>
+        </fieldset>
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">{{_ "gamesessionCreateMore"}}</legend>
+          {{> afQuickField name='spots'}}
+          {{> afQuickField name='description'}}
+        </fieldset>
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">{{_ "gamesessionCreateWhat"}}</legend>
+          <div class="grid-row">
+            <div class="grid-col medium-6">
+              {{> afQuickField name='boardgameTags' template='tags'}}
+            </div>
+            <div class="grid-col medium-6">
+              {{> afQuickField name='videogameTags' template='tags'}}
+            </div>
+          </div>
+
+          {{> afQuickField name='games.$.title' class='game-title' optionsMethod='getGamesTitleOptions' optionsMethodParams=gamesTitleParams uniPlaceholder=gamesTitlePlaceholder createOnBlur=true create=true}}
+
+          {{#if gamesSuggests}}
+            <p>Aha, ce ne serait pas un de ces jeux?</p>
+            <div class="game-list is-framed catalog-group">
+            {{#each gamesSuggests}}
+              {{> gameSuggest game=this index=@index}}
+            {{/each}}
+            </div>
+          {{/if}}
+          {{#if games}}
+            <h3 class="catalog-group-title">{{_ 'gamesessionGames' count=games.length}}</h3>
+            <section class="catalog-group-list game-list">
+            {{#each games}}
+              {{> gameChoose}}
+            {{/each}}
+            </section>
+          {{/if}}
+        </fieldset>
+        <div class="form-action is-centered">
+          <button type="submit" class="button-big">{{_ 'gamesessionCreateGo'}}</button>
+        </div>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>

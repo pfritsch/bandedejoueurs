@@ -1,0 +1,83 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+blaze-html-templates    # Compile .html files into Meteor Blaze views
+session                 # Client-side reactive dictionary for your app
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
+
+standard-minifiers      # JS/CSS minifiers run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
+# DEV Helper
+meteortoys:allthings
+#meteorhacks:kadira
+
+# EMAILS
+email                   # The email package allows sending email from you app
+meteorhacks:ssr
+
+# API
+http
+peerlibrary:xml2js
+
+# DB
+aldeed:collection2
+check
+
+# Router
+kadira:flow-router
+kadira:blaze-layout
+okgrow:router-autoscroll
+arillo:flow-router-helpers
+meteorhacks:fast-render
+
+# Forms
+aldeed:autoform
+vazco:universe-autoform-select
+aldeed:delete-button
+
+# Time
+momentjs:moment
+drewy:datetimepicker
+# drewy:autoform-datetimepicker
+
+# International
+tap:i18n
+jcbernack:autoform-i18n
+gwendall:simple-schema-i18n
+
+# Styles
+fourseven:scss
+meta:susy
+
+# Template
+templates:tabs
+
+# Accounts
+useraccounts:unstyled
+useraccounts:flow-routing
+accounts-password
+service-configuration
+accounts-facebook
+accounts-google
+accounts-twitter
+mrt:accounts-steam
+softwarerero:accounts-t9n
+jparker:gravatar
+
+# Maps
+dburles:google-maps
+aldeed:geocoder
+mdg:geolocation
+# oakworks:marker-clusterer
+
+# Loading
+sacha:spin

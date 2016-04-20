@@ -1,0 +1,13 @@
+<template name="gameSuggest">
+  <article class="game-item catalog-item">
+    <div class="game-item-cover">
+      <figure class="cover-frame">
+        <img src="{{cover}}" alt="{{game.name}}" class="{{#if hasCover}}cover{{/if}}">
+      </figure>
+    </div>
+    <div class="game-item-content">
+      <h3 class="game-item-title">{{game.name}}</h3> <br>
+      <a href="" class="game-suggest-pick">{{_ 'gamesessionAddGame'}}</a>
+    </div>
+  </article>
+</template>

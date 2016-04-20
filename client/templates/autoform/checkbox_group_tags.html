@@ -1,0 +1,15 @@
+<template name="afCheckboxGroupInline_tags">
+  <ul class="af-checkbox-group tags" {{dsk}}>
+    {{#each this.items}}
+    <li class="tag is-{{this.value}}">
+      <input id="{{atts.name}}-{{this.value}}" type="checkbox" value="{{this.value}}" name="{{atts.name}}" checked="{{atts.checked}}" />
+      <label for="{{atts.name}}-{{this.value}}" class="tag-content"><svg class="icon"><use xlink:href="#icon-{{this.value}}" /></svg> {{this.label}}</label>
+    </li>
+    {{/each}}
+    {{#if hasMore}}
+    <li class="tag-more">
+      <a href="#" data-toggle="{{atts.name}}">{{tagsMore atts.name}}</a>
+    </li>
+    {{/if}}
+  </ul>
+</template>

@@ -1,0 +1,98 @@
+.label-list {
+  @include reset-list;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  align-items: flex-end;
+  > li {
+    margin: rem-calc(1 1 0 0);
+  }
+}
+.label-inline {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  > span {
+    display: inline-block;
+  }
+}
+
+.label {
+  max-width: 100%;
+  padding: rem-calc(3 4 1);
+  background: black;
+  border-radius: 1px;
+  color: white;
+  font-size: rem-calc(11);
+  line-height: rem-calc(14);
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media #{$large-up} {
+    font-size: rem-calc(14);
+    line-height: rem-calc(16);
+    padding: rem-calc(4 6);
+    border-radius: 2px;
+  }
+
+  &.is-light {
+    background: none;
+    color: #ccc;
+    padding: rem-calc(6 0 0);
+    margin-left: rem-calc(6);
+  }
+
+  // Icon 
+  .icon.is-inline {
+    float: left;
+    width: 1em;
+    height: 1em;
+    margin-right: 0;
+    @media #{$small-up} {
+      margin-right: rem-calc(6);
+    }
+  }
+
+  // Colors / type
+  &.is-ps3,
+  &.is-ps4 {
+    background: $color-ps;
+  } 
+  &.is-pc,
+  &.is-mac,
+  &.is-ios {
+    background: $color-pc;
+  } 
+  &.is-board, 
+  &.is-cards,
+  &.is-dices {
+    background: $color-board;
+  } 
+  &.is-outside {
+    background: $color-outside;
+  } 
+  &.is-x360,
+  &.is-xone,
+  &.is-android {
+    background: $color-xbox;
+  } 
+  &.is-wargame,
+  &.is-rpg {
+    background: $color-rpg;
+  }
+  &.is-wii,
+  &.is-wiiu,
+  &.is-3ds {
+    background: $color-wii;
+  } 
+}
+.label-name {
+  display: none;
+  @media #{$small-up} {
+    display: inline;
+  }
+}

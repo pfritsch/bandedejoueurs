@@ -1,0 +1,79 @@
+<template name="gamesessionDetail">
+{{#if Template.subscriptionsReady}}
+  {{#with gamesession}}
+  <nav class="nav-sub">
+    <div class="grid-container">
+      <a href="{{pathFor 'gamesessionList'}}" class="nav-sub-link"><svg class="icon is-inline"><use xlink:href="#icon-chevron-left" /></svg> {{_ 'gamesessionDetailallSessions'}}</a>
+    </div>
+  </nav>
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section">
+
+      <h1 class="gamesession-detail-title is-centered">{{titleFormated}} {{dateFormated}}</h1>
+
+      <div class="gamesession-detail-content">
+        <div class="gamesession-detail-cover">
+          <figure class="cover-frame">
+            <img alt="{{title}}" src="{{cover}}" class="{{#if gameCover}}cover{{/if}}" />
+            <ul class="cover-labels label-list">
+            {{#each gamesessionTags}}
+              <li class="label is-{{this}}">
+                <svg class="icon is-inline"><use xlink:href="#icon-{{this}}" /></svg> <span class="label-name">{{_ this}}</span>
+              </li>
+            {{/each}}
+            </ul>
+          </figure>
+        </div>
+        
+        <div class="gamesession-detail-infos">
+          <section class="gamesession-detail-owner">
+            {{#with author}}
+              <a href="{{pathFor 'playerDetail' username=username}}" class="gamesession-detail-owner-avatar">
+                {{> avatar user=this}}
+              </a>
+            {{/with}}
+            <div class="gamesession-detail-desc">
+              <span class="gamesession-detail-owner-name is-muted">{{_ 'gamesessionOrganizedBy'}} {{author.username}}</span>
+              {{#if description}}
+                <p>{{description}}</p>
+              {{/if}}
+              <p>{{{detailsFormated}}}</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="gamesession-detail-actions">
+          {{> gamesessionActions gamesession=this btnClass='button-big'}}
+        </div>
+      </div>
+
+      <h3 class="catalog-group-title">{{_ 'gamesessionPlayersRegistered'}} {{#if spotsAvailable}}{{spotsAvailable}}{{/if}}</h3>
+      <section class="catalog-group-list">
+      {{#each playersRegistered}}
+        {{> playerItem}}
+      {{/each}}
+      </section>
+      
+      {{#if games}}
+        <h3 class="catalog-group-title">{{_ 'gamesessionGames' count=games.length}}</h3>
+        <section class="catalog-group-list gamesession-detail-games game-list">
+        {{#each games}}
+          {{> gameItem}}
+        {{/each}}
+        </section>
+      {{/if}}
+
+      {{#if itsMe}}
+        <div class="msg">
+          <p>{{{_ 'playerDetailItsYou'}}}</p>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/with}}
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>

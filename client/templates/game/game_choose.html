@@ -1,0 +1,14 @@
+<template name="gameChoose">
+  <article class="game-item catalog-item">
+    <input type="hidden" name="games.{{key}}.title" value="{{title}}" id="{{key}}">
+    <div class="game-item-cover">
+      <figure class="cover-frame">
+        <img src="{{cover}}" alt="{{title}}" class="cover">
+      </figure>
+    </div>
+    <div class="game-item-content">
+      <h3 class="game-item-title">{{title}}</h3> <br>
+      <a href="" class="game-remove">{{_ 'gamesessionRemoveGame'}}</a>
+    </div>
+  </article>
+</template>

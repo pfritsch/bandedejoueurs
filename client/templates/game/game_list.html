@@ -1,0 +1,29 @@
+<template name="gameList">
+  <div class="grid-container">
+    <div class="game-suggest-container">
+      {{#each games}}
+        {{title}}
+        <img src="{{cover}}" alt="">
+      {{/each}}
+    </div>
+    
+    <label for="game-title">{{_ 'schemas.game.title.label'}}</label>
+    <div class="af-radio-group" data-schema-key="meetingType">
+      <label><input type="radio" value="boardgame" name="gameType" required>{{_ 'gamesessionCreateBoardGames'}}</label>
+      <label><input type="radio" value="videogame" name="gameType" required>{{_ 'gamesessionCreateVideoGames'}}</label>
+    </div>
+    <input id="game-title" type="text" name="game-title" placeholder="{{_ 'schemas.game.title.placeholder'}}">
+    {{#if suggests}}
+      <div class="game-suggest-container">
+      {{#each suggests}}
+        {{> gameSuggest game=this index=@index}}
+      {{/each}}
+      </div>
+    {{/if}}
+    <!-- {{#unless waitForGameChoice}}
+      {{#autoForm id="gameInsert" type="insert" collection="Games"}}
+        <button type="submit" class="button">{{_ "gameAdd"}}</button>
+      {{/autoForm}}
+    {{/unless}} -->
+  </div>
+</template>

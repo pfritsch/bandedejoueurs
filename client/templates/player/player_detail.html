@@ -1,0 +1,58 @@
+<template name="playerDetail">
+{{#if Template.subscriptionsReady}}
+  {{#with player}}
+  <nav class="nav-sub">
+    <div class="grid-container">
+      <a href="{{pathFor 'playerList'}}" class="nav-sub-link"><svg class="icon is-inline"><use xlink:href="#icon-chevron-left" /></svg> {{_ 'playerDetailallPlayers'}}</a>
+    </div>
+  </nav>
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section">
+      <h1 class="player-detail-title is-centered">{{{playerName}}}</h1>
+      {{#if itsMe}}
+        <div class="msg">
+          <p>{{{_ 'playerDetailItsYou'}}}</p>
+        </div>
+      {{/if}}
+      <div class="player-detail-header grid-row">
+        <div class="player-detail-face">
+          {{> avatar user=this}}
+        </div>
+        <div class="player-detail-infos">
+          <p class="is-highlight">{{playerInfos}} {{#if profile.bio}}<br> "{{profile.bio}}"{{/if}}</p>
+          <p>
+          {{> playerAction player=this btnClass='button-big'}}
+          </p>
+        </div>
+        {{#if profile.style}}
+        <div class="player-detail-style">
+          <strong>{{_ 'playerDetailStyle' username}}</strong>
+          <ul class="tags">
+            {{#each profile.style}}
+            <li class="tag is-{{this}} is-checked"><div class="tag-content"><svg class="icon"><use xlink:href="#icon-{{this}}" /></svg> <span>{{_ this}}</span></div></li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/if}}
+      </div>
+      {{#if myGamesessions}}
+      <ul class="player-detail-gamesessions catalog-list">
+        <li class="catalog-group">
+          <h3 class="catalog-group-title">{{_ 'playerDetailGamesessions' count=myGamesessions.count}}</h3>
+          <section class="catalog-group-list gamesession-list">
+            {{#each myGamesessions.sessions}}
+              {{> gamesessionItem}}
+            {{/each}}
+          </section>
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </div>
+  {{/with}}
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>

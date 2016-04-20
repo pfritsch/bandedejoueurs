@@ -1,0 +1,17 @@
+<template name="layoutDefault">
+  {{>icons}}
+  {{>notificationList}}
+  {{>navOff}}
+  <div class="page">
+    <a class="nav-burger" data-collapse="nav-off">
+      <span class="nav-burger-bar"></span>
+      <span class="nav-burger-title">Menu</span>
+      <span class="nav-burger-bar"></span>
+    </a>
+    {{>Template.dynamic template=header}}
+    {{>Template.dynamic template=nav}}
+    <main role="main">
+      {{>Template.dynamic template=main}}
+    </main>
+  </div>
+</template>

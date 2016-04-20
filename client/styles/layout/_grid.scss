@@ -1,0 +1,91 @@
+/*doc
+---
+title: Grid container
+name: grid
+category: Layout
+---
+
+This is not a grid system. Show what it is about on <a href="http://susy.oddbird.net/">Susy Framework page</a> 
+
+```html_example
+<div class="grid-container">
+  I'm a responsive container!
+</div>
+```
+*/
+
+.grid-container {
+  @include container;
+  position: relative;
+  padding-left: rem-calc(12);
+  padding-right: rem-calc(12);
+
+  @media #{$small-up} {
+    @include container(8);
+  }
+
+  @media #{$medium-up} {
+    @include container(12);
+    padding-left: rem-calc(36);
+    padding-right: rem-calc(36);
+  }
+
+  &.has-space-bottom {
+    margin-bottom: rem-calc(120);
+  }
+}
+[class^='grid-col'], 
+[class*=' grid-col'] {
+  &.small-6 {
+    @include span(6);
+    &:last-child {
+      @include last;
+    }
+  }
+  &.medium-8 {
+    @media #{$medium-up} {
+      @include span(8);
+      &:last-child {
+        @include last;
+      }
+    }
+  }
+  &.medium-6 {
+    @media #{$medium-up} {
+      @include span(6);
+      &:last-child {
+        @include last;
+      }
+    }
+  }
+  &.medium-4 {
+    @media #{$medium-up} {
+      @include span(4);
+      &:last-child {
+        @include last;
+      }
+    }
+  }
+}
+.grid-row {
+  @include container;
+}
+
+.grid-section {
+  margin-top: rem-calc(24);
+  @media #{$medium-up} {
+    margin-top: rem-calc(36);
+  }
+  &.is-contracted {
+    @media #{$medium-up} {
+      @include span(10 of 12);
+      @include squish(1, 1);
+      float: none;
+    }
+    @media #{$large-up} {
+      @include span(8 of 12);
+      @include squish(2, 2);
+      float: none;
+    }
+  }
+}

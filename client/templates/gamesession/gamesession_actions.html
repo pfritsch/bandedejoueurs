@@ -1,0 +1,17 @@
+<template name="gamesessionActions">
+{{#with gamesession}}
+  {{#if isAuthor}}
+    <a href="{{pathFor 'gamesessionEdit' gamesessionId=_id}}" class="button {{../btnClass}} gamesession-edit">{{_ 'gamesessionEdit'}}</a>
+  {{else}}
+    {{#if isRegistered}}
+      <a href="#" class="button {{../btnClass}} gamesession-leave is-danger">{{_ 'gamesessionLeave'}}</a>
+    {{else}}
+      {{#if isFull}}
+        <small class="is-muted">{{_ 'gamesessionItemSpotsSorry'}}</small>
+      {{else}}
+        <a href="#" class="button {{../btnClass}} gamesession-join">{{_ 'gamesessionJoin'}}</a>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/with}}
+</template>

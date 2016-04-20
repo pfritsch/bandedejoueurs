@@ -1,0 +1,59 @@
+<template name="headerDefault">
+  <header class="header-container" role="banner">
+    <div class="grid-container">
+      <a class="logo-header" href="{{pathFor 'home'}}">{{_ "homeTitle"}}</a>
+      {{#if currentUser}}
+        <div class="header-my-preview">
+          {{> myPreview}}
+        </div>
+      {{else}}
+        <div class="header-button-well button-well">
+          <a href="{{pathFor 'sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor 'sign-up'}}">{{_ "headerJoin"}}</a>
+        </div>
+      {{/if}}
+    </div>
+  </header>
+  {{> navMain}}
+</template>
+
+<template name="headerHome">
+  <header class="home-header">
+    <div class="grid-container">
+      <nav id="nav-header" class="nav-header" data-collapse="nav-header">
+        <ul class="nav-header-first">
+          <li><a href="{{pathFor 'playerList'}}" class="nav-header-link">{{_ "navPlayers"}}</a></li>
+          <li><a href="{{pathFor 'gamesessionList'}}" class="nav-header-link">{{_ "navParties"}}</a></li>
+          <!-- <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-header-link">{{_ "navOrganize"}}</a></li> -->
+          <!-- <li><a href="{{pathFor 'about'}}" class="nav-header-link">{{_ "navAbout"}}</a></li> -->
+        </ul>
+        <div class="nav-header-my-preview">
+        {{#if currentUser}}
+          {{> myPreview}}
+        {{else}}
+          <div class="button-well">
+            <a href="{{pathFor 'sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor 'sign-up'}}">{{_ "headerJoin"}}</a>
+          </div>
+        {{/if}}
+        </div>
+        <ul class="nav-header-lang">
+          <li>
+            {{> navLang}}
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="home-hero">
+      <div class="home-title">
+        <h1 class="logo-home">{{_ "homeTitle"}}</h1>
+        <br><span>{{_ "homeClaim"}}</span>
+      </div>
+      <div class="home-hero-illus-container">
+        <img alt="{{_ 'homeHeroAlt'}}"
+          src="images/hero_small.jpg" width="620" height="410" 
+          srcset="images/hero.jpg 1240w, images/hero_big.jpg 2480w"
+          sizes="auto" 
+          class="home-hero-illus">
+      </div>
+    </div>
+  </header>
+</template>

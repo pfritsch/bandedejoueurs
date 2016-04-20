@@ -1,0 +1,116 @@
+<template name="home">
+  <section class="home-light">
+    <div class="grid-container">
+      <a id="what"></a>
+      <div class="home-what-content">
+        <h2 class="h3">{{_ "homeWhatTitle"}}</h2>
+        <p class="is-large">{{_ "homeWhatSubtitle"}}</p>
+        <p>{{_ "homeWhatText"}}</p>
+      </div>
+    </div>
+    <div class="grid-container">
+      <a id="how"></a>
+      <div class="home-how-content">
+        <h2 class="h3">{{_ "homeHowTitle"}}</h2>
+        <ol class="grid-row home-how-list">
+          <li class="grid-col medium-4">
+            <p class="is-large">1</p>
+            <p>{{_ "homeHowOrganize"}}</p>
+          </li>
+          <li class="grid-col medium-4">
+            <p class="is-large">2</p>
+            <p>{{_ "homeHowMeet"}}</p>
+          </li>
+          <li class="grid-col medium-4">
+            <p class="is-large">3</p>
+            <p>{{_ "homeHowStart"}}</p>
+          </li>
+        </ol>
+        <br>
+        <p class="is-centered"><a href="{{pathFor 'gamesessionCreate'}}" class="button button-big">{{_ "navOrganize"}}</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-description">
+    <figure class="grid-container">
+      <img alt="{{_ 'homeDescFindAlt'}}"
+        src="images/king_small.jpg" width="228" height="290"
+        srcset="images/king.jpg 456w, images/king_big.jpg 912w"
+        sizes="auto">
+      <figcaption>
+        <h3>{{_ "homeDescFindTitle"}}</h3>
+        <p class="is-large">{{_ "homeDescFindText"}}</p>
+      </figcaption>
+    </figure>
+
+    <figure class="grid-container">
+      <img alt="{{_'homeDescTestAlt'}}"
+        src="images/knight_small.jpg" width="228" height="320"
+        srcset="images/knight.jpg 456w, images/knight_big.jpg 912w"
+        sizes="auto">
+      <figcaption>
+        <h3>{{_"homeDescTestTitle"}}</h3>
+        <p class="is-large">{{_"homeDescTestText"}}</p>
+      </figcaption>
+    </figure>
+    
+    <figure class="grid-container">
+      <img alt="{{_ 'homeDescGameAlt'}}"
+        src="images/robot_small.jpg" width="228" height="320"
+        srcset="images/robot.jpg 456w,
+          images/robot_big.jpg 912w"
+        sizes="auto">
+      <figcaption>
+        <h3>{{_ "homeDescGameTitle"}}</h3>
+        <p class="is-large">{{{_ "homeDescGameText"}}}</p>
+      </figcaption>
+    </figure>
+  </section>
+
+  <a id="ready-to-play"></a>
+  <section class="home-ready">
+    <div class="grid-container">
+      <h2 class="h3">{{_ "homeReadyTitle"}}</h2>
+      {{#if currentUser}}
+        <p class="is-large">{{_ "homeReadySubtitleOnline" currentUserName}}</p>
+        {{else}}
+        <p class="is-large">{{_ "homeReadySubtitle"}}</p>
+      {{/if}}
+    </div>
+    <div class="grid-container">
+      <div class="home-ready-form">
+        {{#if currentUser}}
+          <p>{{_ "homeReadyTextOnline"}}</p>
+        {{else}}
+          <p>{{_ "homeReadyText"}}</p>
+          <p>
+            <a class="button-big is-cta" href="{{pathFor 'sign-up'}}">{{_ "headerJoin"}}</a>
+          </p>
+        {{/if}}
+      </div>
+      <img alt="{{_ 'homeReadyAlt'}}"
+        src="images/gameboy_small.png" width="228" height="256"
+        srcset="images/gameboy.png 456w, images/gameboy_big.png 912w" 
+        sizes="auto"
+        class="home-ready-illus">
+    </div>
+  </section>
+
+  <footer class="footer-container">
+    <a id="who"></a>
+    <section class="home-who">
+      <div class="grid-container">
+        <h2 class="h3 home-who-names">{{_ 'homeWhoTitle'}}</h2>
+      </div>
+      <div class="grid-container">
+        <div class="home-who-names">
+          <p>{{{_ 'homeWhoText'}}}</p>
+        </div>
+        <div class="home-who-contact">
+          <p>{{{_ 'homeWhoContact'}}}</p>
+        </div>
+      </div>
+    </section>
+  </footer>
+</template>
