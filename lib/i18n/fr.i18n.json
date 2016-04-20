@@ -261,6 +261,8 @@
   "emailCiao": "Bon jeu!",
   "emailFollowUs": "Retrouve-nous sur Twitter:",
   "emailFeedback": "Une question, un commentaire?",
+  "emailGamesessionJoinSubject": "Inscription à la partie %s",
+  "emailGamesessionJoinTitle": "Super %s,<br> tu es bien inscrit!",
 
   "time": {
     "morning": "Matinée",

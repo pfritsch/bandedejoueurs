@@ -25,6 +25,25 @@ Meteor.methods({
       subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
+  },
+  emailGamesessionJoin: function (emailData) {
+    user = Meteor.user();
+    check(user, Object);
+    check(user.emails[0], {
+      address:String,
+      verified:true
+    });
+
+    SSR.compileTemplate( 'htmlEmail', Assets.getText( 'email_gamesession_join.html' ));
+
+    this.unblock();
+
+    Email.send({
+      to: user.emails[0].address,
+      from: process.env.MAIL_FROM,
+      subject: emailData.subject,
+      html: SSR.render( 'htmlEmail', emailData )
+    });
   }
 
 });
