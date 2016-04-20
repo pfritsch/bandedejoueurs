@@ -79,6 +79,9 @@
           }
         }
       },
+      "emailCheck": {
+        "label": "J'accepte de recevoir des e-mails de la parte de la bande."
+      },
       "profile": {
         "name": {
           "label": "Véritable nom",

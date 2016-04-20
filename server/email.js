@@ -1,27 +1,12 @@
 Meteor.startup(function () {
-  process.env.MAIL_URL = "";
+  // process.env.MAIL_URL = ;
+  var login = Meteor.settings.private.mailgun.login;
+  var password = Meteor.settings.private.mailgun.password;
+
+  process.env.MAIL_URL = "smtp://"+login+":"+password+"@smtp.mailgun.org:587";
   process.env.MAIL_FROM = "Bande de joueurs <hello@bandedejoueurs.com>";
 });
 Meteor.methods({
-  /**
-  * Send an email
-  * @param options - need \{"to", "subject", "html")\}
-  */
-  sendEmail: function (options) {
-    check(options, {
-        to:String,
-        subject:String,
-        html:String,
-    });
-    _.extend(options, {
-      from: process.env.MAIL_FROM
-    });
-    // Let other method calls from the same client start running,
-    // without waiting for the email sending to complete.
-    this.unblock();
-
-    Email.send(options);
-  },
   emailGamesessionConfirm: function (emailData) {
     user = Meteor.user();
     check(user, Object);
@@ -32,10 +17,12 @@ Meteor.methods({
 
     SSR.compileTemplate( 'htmlEmail', Assets.getText( 'email_gamesession_confirm.html' ));
 
+    this.unblock();
+
     Email.send({
-      to: "",
+      to: user.emails[0].address,
       from: process.env.MAIL_FROM,
-      subject: "Example Email",
+      subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
   }

@@ -131,6 +131,16 @@ AutoForm.hooks({
           birthday = moment(birthday, "DD/MM/YYYY");
           doc.$set['profile.birthday'] = moment(birthday).unix();
         }
+
+        // Change email: verified
+        var email = doc.$set['emails'];
+        if(email) {
+          if(email[0].address.length > 0) {
+            email[0].verified = true;
+            doc.$set['emails'] = email;
+          }
+        }
+
         return doc;
       }
     },

@@ -43,8 +43,7 @@
         }
       },
       "meetingDate": {
-        "label": "Quand?",
-        "placeholder": "Date du rendez-vous"
+        "label": "Quand?"
       },
       "spots": {
         "label": "Nombre de places"
@@ -80,6 +79,9 @@
             "label": "E-mail"
           }
         }
+      },
+      "emailCheck": {
+        "label": "J'accepte de recevoir des e-mails de la parte de la bande."
       },
       "profile": {
         "name": {

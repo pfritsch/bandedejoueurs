@@ -22,7 +22,6 @@
         <p class="msg is-important">
           {{{_ 'errorNotVerified'}}}
         </p>
-        <!-- {{> atForm state='resendVerificationEmail' doc=currentUser}} -->
         {{/if}}
       {{/if}}
       {{#autoForm id="userEditProfile" doc=currentUser schema=userSchema type="update" collection="Meteor.users" }}
@@ -34,6 +33,7 @@
         {{#if afFieldIsInvalid name='emails'}}
           <p class="at-error">{{{afFieldMessage name='emails'}}}</p>
         {{/if}}
+        {{> afFieldInput name='emailCheck'}}
         <p>
           <a href="{{pathFor 'change-password'}}">{{_ "accountChangePassword"}}</a>
         </p>

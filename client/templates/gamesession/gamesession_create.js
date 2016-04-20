@@ -210,8 +210,27 @@ AutoForm.hooks({
       }
     },
     onSuccess: function(t, result) {
+
+      var emailData = {
+        subject: TAPi18n.__('gamesessionPreviewTitle'),
+        title: TAPi18n.__('emailCongrats', getName(Meteor.user())),
+        subtitle: formatTitle(this.insertDoc)+' '+formatDate(this.insertDoc.meetingDate),
+        text: TAPi18n.__('emailGamesessionSendLink'),
+        url: Meteor.absoluteUrl()+'gamesessions/'+this.docId,
+        rdv: TAPi18n.__('emailGamesessionRDV'),
+        rdvDate: TAPi18n.__('helper.onDate', moment(this.insertDoc.meetingDate, 'X').format('LLLL')),
+        rdvLocation: formatLocation(this.insertDoc.meetingPlace),
+        callToActionUrl: Meteor.absoluteUrl()+'gamesessions/'+this.docId,
+        callToAction: TAPi18n.__('gamesessionDetailSee'),
+        ciao: TAPi18n.__('emailCiao'),
+        followUs: TAPi18n.__('emailFollowUs'),
+        feedback: TAPi18n.__('emailFeedback')
+      };
+      Meteor.call('emailGamesessionConfirm', emailData);
+
       // Add author to player list
       Meteor.call('joinGamesession', this.docId);
+
       // Redirect to confirmation page
       FlowRouter.go('gamesessionPreview', {gamesessionId: this.docId}, {sendMail: true});
     },
