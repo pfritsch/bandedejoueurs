@@ -195,9 +195,10 @@ AutoForm.hooks({
         // What
         if(form.category === 'boardgame') {
           newTitle.what = TAPi18n.__('gamesessionCreateBoardGames');
+          if(form.games.length === 1) newTitle.what = form.games[0].title;
         } else if(form.category === 'videogame') {
           newTitle.what = TAPi18n.__('gamesessionCreateVideoGames');
-          if(form.games.length > 0) newTitle.what = form.games[0].title;
+          if(form.games.length === 1) newTitle.what = form.games[0].title;
         }
         doc.title = newTitle.what + ' ' + newTitle.where;
 
@@ -212,6 +213,7 @@ AutoForm.hooks({
     onSuccess: function(t, result) {
 
       var emailData = {
+        template: 'email_gamesession_confirm',
         subject: TAPi18n.__('gamesessionPreviewTitle'),
         title: TAPi18n.__('emailCongrats', getName(Meteor.user())),
         subtitle: formatTitle(this.insertDoc)+' '+formatDate(this.insertDoc.meetingDate),
@@ -226,7 +228,7 @@ AutoForm.hooks({
         followUs: TAPi18n.__('emailFollowUs'),
         feedback: TAPi18n.__('emailFeedback')
       };
-      Meteor.call('emailGamesessionConfirm', emailData);
+      Meteor.call('sendEmail', sendUserEmail);
 
       // Add author to player list
       Meteor.call('joinGamesession', this.docId);

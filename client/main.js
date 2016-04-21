@@ -40,7 +40,7 @@ hashStringToColor = function(str) {
 }
 
 getName = function(user) {
-  if(user.profile && user.profile.name ) return user.profile.name;
+  if(user.profile && user.profile.name) return user.profile.name;
   return user.username;
 }
 getUserCoordinates = function() {

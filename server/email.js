@@ -1,13 +1,11 @@
 Meteor.startup(function () {
-  // process.env.MAIL_URL = ;
   var login = Meteor.settings.private.mailgun.login;
   var password = Meteor.settings.private.mailgun.password;
-
   process.env.MAIL_URL = "smtp://"+login+":"+password+"@smtp.mailgun.org:587";
   process.env.MAIL_FROM = "Bande de joueurs <hello@bandedejoueurs.com>";
 });
 Meteor.methods({
-  emailGamesessionConfirm: function (emailData) {
+  sendUserEmail: function (emailData) {
     user = Meteor.user();
     check(user, Object);
     check(user.emails[0], {
@@ -15,7 +13,7 @@ Meteor.methods({
       verified:true
     });
 
-    SSR.compileTemplate( 'htmlEmail', Assets.getText( 'email_gamesession_confirm.html' ));
+    SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
 
     this.unblock();
 
@@ -26,24 +24,28 @@ Meteor.methods({
       html: SSR.render( 'htmlEmail', emailData )
     });
   },
-  emailGamesessionJoin: function (emailData) {
+  sendAuthorEmail: function (emailData, authorId) {
     user = Meteor.user();
     check(user, Object);
-    check(user.emails[0], {
+    var author = Meteor.users.findOne(authorId);
+    check(author, Object);
+    check(author.emails[0], {
       address:String,
       verified:true
     });
+    check(author.emailCheck, true);
 
-    SSR.compileTemplate( 'htmlEmail', Assets.getText( 'email_gamesession_join.html' ));
+    SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
 
     this.unblock();
 
     Email.send({
-      to: user.emails[0].address,
+      to: author.emails[0].address,
       from: process.env.MAIL_FROM,
       subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
   }
+
 
 });

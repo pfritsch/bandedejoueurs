@@ -200,6 +200,7 @@
   "playerDetailStyle": "Le style de jeu de %s est plutôt...",
   "playerDetailGamesessions": "Prochaine partie",
   "playerDetailGamesessions_plural": "Prochaines parties (__count__)",
+  "playerDetailSee": "Voir le profile",
 
   "gamesessionOrganizedBy": "Organisé par",
   "gamesessionEdit": "Éditer",
@@ -263,6 +264,8 @@
   "emailFeedback": "Une question, un commentaire?",
   "emailGamesessionJoinSubject": "Inscription à la partie %s",
   "emailGamesessionJoinTitle": "Super %s,<br> tu es bien inscrit!",
+  "emailGamesessionNewplayerTitle": "Un nouveau joueur s'est inscrit!<br> %s",
+  "emailGamesessionNewplayerText": "Un joueur de la bande a rejoint la partie.",
 
   "time": {
     "morning": "Matinée",

@@ -22,6 +22,7 @@ Template.gamesessionActions.events({
 
         // Send email to new player
         var emailData = {
+          template: 'email_gamesession_join',
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
           title: TAPi18n.__('emailGamesessionJoinTitle', getName(Meteor.user())),
           subtitle: formatTitle(this)+' '+formatDate(this.meetingDate),
@@ -34,23 +35,23 @@ Template.gamesessionActions.events({
           followUs: TAPi18n.__('emailFollowUs'),
           feedback: TAPi18n.__('emailFeedback')
         };
-        Meteor.call('emailGamesessionJoin', emailData);
+        Meteor.call('sendUserEmail', emailData);
 
         // Send email to author
-        // var emailData = {
-        //   subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
-        //   title: TAPi18n.__('emailGamesessionJoinTitle', getName(Meteor.user())),
-        //   subtitle: formatTitle(this)+' '+formatDate(this.meetingDate),
-        //   rdv: TAPi18n.__('emailGamesessionRDV'),
-        //   rdvDate: TAPi18n.__('helper.onDate', moment(this.meetingDate, 'X').format('LLLL')),
-        //   rdvLocation: formatLocation(this.meetingPlace),
-        //   callToActionUrl: Meteor.absoluteUrl()+'gamesessions/'+this._id,
-        //   callToAction: TAPi18n.__('gamesessionDetailSee'),
-        //   ciao: TAPi18n.__('emailCiao'),
-        //   followUs: TAPi18n.__('emailFollowUs'),
-        //   feedback: TAPi18n.__('emailFeedback')
-        // };
-        // Meteor.call('emailGamesessionJoin', emailData);
+        var author = Meteor.users.findOne(this.authorId);
+        var emailData = {
+          template: 'email_gamesession_newplayer',
+          subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
+          title: TAPi18n.__('emailGamesessionNewplayerTitle', getName(author)),
+          subtitle: formatTitle(this)+' '+formatDate(this.meetingDate),
+          text: TAPi18n.__('emailGamesessionNewplayerText'),
+          callToActionUrl: Meteor.absoluteUrl()+'players/'+Meteor.userId(),
+          callToAction: TAPi18n.__('playerDetailSee'),
+          ciao: TAPi18n.__('emailCiao'),
+          followUs: TAPi18n.__('emailFollowUs'),
+          feedback: TAPi18n.__('emailFeedback')
+        };
+        Meteor.call('sendAuthorEmail', emailData, this.authorId);
       }
       FlowRouter.go('gamesessionDetail', {gamesessionId: this._id});
     }
