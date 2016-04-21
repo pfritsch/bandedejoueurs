@@ -8,7 +8,7 @@
         </div>
       {{else}}
         <div class="header-button-well button-well">
-          <a href="{{pathFor 'sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor 'sign-up'}}">{{_ "headerJoin"}}</a>
+          <a href="{{pathFor '/sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor '/sign-up'}}">{{_ "headerJoin"}}</a>
         </div>
       {{/if}}
     </div>
@@ -31,7 +31,7 @@
           {{> myPreview}}
         {{else}}
           <div class="button-well">
-            <a href="{{pathFor 'sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor 'sign-up'}}">{{_ "headerJoin"}}</a>
+            <a href="{{pathFor '/sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor '/sign-up'}}">{{_ "headerJoin"}}</a>
           </div>
         {{/if}}
         </div>
@@ -49,9 +49,9 @@
       </div>
       <div class="home-hero-illus-container">
         <img alt="{{_ 'homeHeroAlt'}}"
-          src="images/hero_small.jpg" width="620" height="410" 
+          src="images/hero_small.jpg" width="620" height="410"
           srcset="images/hero.jpg 1240w, images/hero_big.jpg 2480w"
-          sizes="auto" 
+          sizes="auto"
           class="home-hero-illus">
       </div>
     </div>

@@ -6,6 +6,8 @@ Meteor.startup(function () {
 });
 Meteor.methods({
   sendUserEmail: function (emailData) {
+    this.unblock();
+    
     user = Meteor.user();
     check(user, Object);
     check(user.emails[0], {
@@ -15,8 +17,6 @@ Meteor.methods({
 
     SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
 
-    this.unblock();
-
     Email.send({
       to: user.emails[0].address,
       from: process.env.MAIL_FROM,
@@ -25,6 +25,8 @@ Meteor.methods({
     });
   },
   sendAuthorEmail: function (emailData, authorId) {
+    this.unblock();
+
     user = Meteor.user();
     check(user, Object);
     var author = Meteor.users.findOne(authorId);
@@ -36,8 +38,6 @@ Meteor.methods({
     check(author.emailCheck, true);
 
     SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
-
-    this.unblock();
 
     Email.send({
       to: author.emails[0].address,
