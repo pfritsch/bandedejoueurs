@@ -185,7 +185,7 @@
   "myProfileVisibleData": "À part ton adresse exacte, ces données seront visibles par les autres joueurs.",
   "myProfileSave": "Sauvegarder mon profil",
   "myProfileDelete": "Supprimer mon compte",
-  "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte?",
+  "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte? Cela va également effacer toutes tes parties. (Cette action est irreversible)",
   "myProfileNoGamesessions": "<strong>Pas de partie prévue pour le moment...</strong> Pourquoi ne pas <a href=\"gamesessions\">voir les prochaines parties</a>?",
   "myProfileNoGroup": "<strong>Pas encore de joueur dans ta bande...</strong> Pourquoi ne pas <a href=\"players\">en inviter</a>?",
 

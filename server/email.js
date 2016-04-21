@@ -7,7 +7,7 @@ Meteor.startup(function () {
 Meteor.methods({
   sendUserEmail: function (emailData) {
     this.unblock();
-    
+
     user = Meteor.user();
     check(user, Object);
     check(user.emails[0], {

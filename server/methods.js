@@ -55,6 +55,11 @@ Meteor.methods({
   userRemoveProfile: function(userId) {
     user = Meteor.user();
     check(user, Object);
+
+    // Remove all gamesessions from this user
+    Gamesessions.remove({authorId: user._id});
+
+    // Remove the current user
     Meteor.users.remove({ _id: userId}, function (error, result) {
       if (error) {
         console.log("Error removing user: ", error);

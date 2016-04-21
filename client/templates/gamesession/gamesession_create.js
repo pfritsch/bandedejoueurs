@@ -228,7 +228,7 @@ AutoForm.hooks({
         followUs: TAPi18n.__('emailFollowUs'),
         feedback: TAPi18n.__('emailFeedback')
       };
-      Meteor.call('sendEmail', sendUserEmail);
+      Meteor.call('sendUserEmail', emailData);
 
       // Add author to player list
       Meteor.call('joinGamesession', this.docId);
