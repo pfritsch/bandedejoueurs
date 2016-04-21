@@ -38,7 +38,6 @@ hashStringToColor = function(str) {
   var b = hash & 0x0000FF;
   return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2);
 }
-
 getName = function(user) {
   if(user.profile && user.profile.name) return user.profile.name;
   return user.username;
@@ -60,7 +59,6 @@ getUserCoordinates = function() {
     }
   }
 }
-
 rangeAge = function(age) {
  switch (true) {
   case age > 60:
