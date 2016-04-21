@@ -57,7 +57,7 @@
         <div class="form-action is-centered">
           <button type="submit" class="button-big">{{_ "myProfileSave"}}</button>
           <p>
-            {{#quickRemoveButton collection="Meteor.users" _id=this._id onSuccess=onRemoveSuccess beforeRemove=beforeRemove class="my-profil-delete is-danger"}}{{_ "myProfileDelete"}}{{/quickRemoveButton}}
+            {{#quickRemoveButton collection="Meteor.users" _id=this._id beforeRemove=beforeRemove class="my-profil-delete is-danger"}}{{_ "myProfileDelete"}}{{/quickRemoveButton}}
           </p>
         </div>
       {{/autoForm}}

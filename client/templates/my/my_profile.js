@@ -81,15 +81,15 @@ Template.myProfile.helpers({
   },
   beforeRemove: function () {
     return function (collection, id) {
-      var doc = collection.findOne(id);
       if (confirm(TAPi18n.__('myProfileRemoveConfirm'))) {
-        this.remove();
+        try {
+          Meteor.call('userRemoveProfile', Meteor.userId());
+        } catch(error) {
+          return throwNotification(error);
+        } finally {
+          FlowRouter.go('home');
+        }
       }
-    };
-  },
-  onRemoveSuccess: function () {
-    return function (result) {
-      FlowRouter.go('home');
     };
   }
 });

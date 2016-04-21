@@ -52,6 +52,17 @@ Meteor.methods({
     check(doc, Schema.userProfile);
     Meteor.users.update(Meteor.userId(), {$set: {profile : doc}});
   },
+  userRemoveProfile: function(userId) {
+    user = Meteor.user();
+    check(user, Object);
+    Meteor.users.remove({ _id: userId}, function (error, result) {
+      if (error) {
+        console.log("Error removing user: ", error);
+      } else {
+        console.log("Number of users removed: " + result);
+      }
+    })
+  },
   userEditID: function(doc) {
     check(doc, Schema.user);
     Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
