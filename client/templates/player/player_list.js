@@ -1,8 +1,3 @@
-Session.setDefault('centerLatLng', {
-  lat: 46,
-  lng: 8
-});
-
 Template.playerList.helpers({
   allPlayers: function() {
     return Meteor.users.find();
@@ -12,8 +7,12 @@ Template.playerList.helpers({
     return error && error.message;
   },
   mapOptions: function() {
-    var latLng = Session.get('centerLatLng');
-    if(!Geolocation.error()) {
+    var latLng = {
+      lat: 46,
+      lng: 8
+    };
+    var newCoordinates = Geolocation.latLng();
+    if(newCoordinates) {
       latLng = Geolocation.latLng();
     } else if(Meteor.user()) {
       latLng = Meteor.user().profile.coordinates;
@@ -21,30 +20,71 @@ Template.playerList.helpers({
     if (GoogleMaps.loaded() && latLng) {
       return {
         center: new google.maps.LatLng(latLng),
-        zoom: 8,
-        maxZoom: 14
+        zoom: 6,
+        maxZoom: 12,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: false
       };
     }
   }
 })
 
 Template.playerList.onRendered(function() {
-  // Session.set('showLoadingIndicator', true);
   GoogleMaps.load({key: Meteor.settings.public.googleMap.key});
 });
 
+Template.playerList.events({
+  'click': function(e, tpl) {
+    var clickedInsideMap = $(e.target).parents('.player-map').length > 0;
+    if(!clickedInsideMap && tpl.mapPlayers) {
+      disableScrollingWithMouseWheel(tpl.mapPlayers);
+    }
+  },
+  'scroll': function(e, tpl) {
+    var clickedInsideMap = $(e.target).parents('.player-map').length > 0;
+    if(!clickedInsideMap && tpl.mapPlayers) {
+      disableScrollingWithMouseWheel(tpl.mapPlayers);
+    } else if($(window).width() > 1024 && tpl.mapPlayers) {
+      enableScrollingWithMouseWheel(tpl.mapPlayers);
+    }
+  },
+  'change [name="searchPlayerList"]': function(e, tpl) {
+    e.preventDefault();
+    var location = $(e.target).val();
+    var map = tpl.mapPlayers;
+    if(location.length > 3) {
+      Meteor.call('geoLocalizePlace', location, function (error, result) {
+        if(!error && result) {
+          map.setOptions({
+            center: new google.maps.LatLng(result),
+            zoom: 10,
+          })
+        } else {
+          console.log(error);
+        }
+      });
+    }
+  }
+});
+
+function enableScrollingWithMouseWheel(map) {
+  map.setOptions({ scrollwheel: true });
+}
+function disableScrollingWithMouseWheel(map) {
+  map.setOptions({ scrollwheel: false });
+}
+
 Template.playerList.onCreated(function() {
   var self = this;
-  var handle = {};
   var markers = {};
-  Session.set('selectedPlayer', null);
 
-  // self.autorun(function() {
-  //   self.subscribe('allPlayers', Session.get('box'));
-  // });
+  Session.set('selectedPlayer', null);
 
   GoogleMaps.ready('map', function(map) {
     getBox();
+
+    self.mapPlayers = map.instance;
 
     if(Meteor.user()) {
       getUserCoordinates();
@@ -68,8 +108,6 @@ Template.playerList.onCreated(function() {
               optimized: false,
               id: document._id
             });
-            // Store this marker instance within the markers object.
-            // cluster.push(marker);
             markers[document._id] = marker;
 
             marker.addListener('click', function(){
@@ -96,13 +134,8 @@ Template.playerList.onCreated(function() {
           google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
           // Remove the reference to this marker instance
           delete markers[oldDocument._id];
-
-          // var index = cluster.contains('id', oldDocument._id);
-          // if (index > -1) cluster.splice(index, 1);
         }
       });
-      // }
-      // var markerCluster = new MarkerClusterer(map.instance, cluster);
     });
 
     google.maps.event.addListener(map.instance, 'dragend', function(e){
@@ -111,6 +144,10 @@ Template.playerList.onCreated(function() {
 
     google.maps.event.addListener(map.instance, 'zoom_changed', function(e){
      getBox();
+    });
+
+    google.maps.event.addListener(map.instance, 'mousedown', function(e){
+      enableScrollingWithMouseWheel(map.instance);
     });
 
   });

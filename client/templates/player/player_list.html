@@ -1,6 +1,9 @@
 <template name="playerList">
 {{#if Template.subscriptionsReady}}
   <div class="player-container">
+    <div class="filter-container player-search">
+      <input type="text" name="searchPlayerList" placeholder="{{_ 'playerListSearch'}}">
+    </div>
     <div class="player-map">
       {{> googleMap name="map" options=mapOptions}}
     </div>
