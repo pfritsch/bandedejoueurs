@@ -16,8 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-webapp                  # Serves a Meteor app over HTTP
-
 # DEV Helper
 # meteortoys:allthings
 # meteorhacks:kadira
@@ -39,7 +37,7 @@ kadira:flow-router
 kadira:blaze-layout
 okgrow:router-autoscroll
 arillo:flow-router-helpers
-# meteorhacks:fast-render
+meteorhacks:fast-render
 
 # Forms
 aldeed:autoform
