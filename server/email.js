@@ -1,5 +1,8 @@
 Meteor.startup(function () {
+  var login = Meteor.settings.private.mailgun.login;
+  var password = Meteor.settings.private.mailgun.password;
   process.env.MAIL_FROM = "Bande de joueurs <hello@bandedejoueurs.com>";
+  process.env.MAIL_URL = "smtp://"+login+":"+password+"@smtp.mailgun.org:587";
 });
 Meteor.methods({
   sendUserEmail: function (emailData) {
