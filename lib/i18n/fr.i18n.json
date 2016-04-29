@@ -225,6 +225,8 @@
   "gamesessionCreateBoardGames": "Jeux de société",
   "gamesessionCreateAddGame": "Ajouter un jeu",
   "gamesessionCreateOnlyVisible": "L'adresse exacte du rendez-vous ne sera visible que par les participants.",
+  "gamesessionCreateSuggest": "Aha, ce ne serait pas un de ces jeux?",
+  "gamesessionCreateSuggestData": "<small>Ces données viennent de <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> et <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a></small>",
 
   "gamesessionFilterWhat": "Â quoi on joue ?",
   "gamesessionFilterWhere": "On se retrouve où?",
