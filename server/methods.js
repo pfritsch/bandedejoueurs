@@ -10,7 +10,7 @@ Meteor.methods({
 
     if(user.emails) {
       email = user.emails[0].address;
-      var urlDefault = encodeURIComponent('http://'+Meteor.absoluteUrl()+'images/default.svg');
+      var urlDefault = encodeURIComponent('https://'+Meteor.absoluteUrl()+'images/default.svg');
       user.avatar = 'https://secure.gravatar.com/avatar/'+Gravatar.hash(email)+'?d='+urlDefault;
     } else {
       user.emails = [];
@@ -35,7 +35,7 @@ Meteor.methods({
         user.profile.name = user.services.facebook.name;
         if(user.services.facebook.gender === 'female') user.profile.gender = 'XX';
         if(user.services.facebook.gender === 'male') user.profile.gender = 'XY';
-        user.avatar = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+        user.avatar = "https://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
         email = user.services.facebook.email;
         user.emails = [{ address: email, verified: true } ];
       }
@@ -94,13 +94,13 @@ Meteor.methods({
     this.unblock();
     var giantBombKey = Meteor.settings.private.giantBomb;
     var fields = 'name,platforms,image';
-    var url = 'http://www.giantbomb.com/api/search/?api_key='+giantBombKey+'&format=json&query="'+query+'"&resources=game&field_list='+fields;
+    var url = 'https://www.giantbomb.com/api/search/?api_key='+giantBombKey+'&format=json&query="'+query+'"&resources=game&field_list='+fields;
     var gamesFound = HTTP.get(url, {headers: {"User-Agent": "Meteor/1.0"}});
     return gamesFound.data.results;
   },
   getBoardGameByTitle: function (query) {
     this.unblock();
-    var url = 'http://www.boardgamegeek.com/xmlapi2/search?query="'+query+'"&type=boardgame';
+    var url = 'https://www.boardgamegeek.com/xmlapi2/search?query="'+query+'"&type=boardgame';
     var xml = HTTP.get(url).content;
     var gamesFound = [];
     xml2js.parseString(xml, function (error, result) {
@@ -120,7 +120,7 @@ Meteor.methods({
   },
   getBoardGameImageById: function (query) {
     this.unblock();
-    var url = 'http://bgg-json.azurewebsites.net/thing/'+query;
+    var url = 'https://bgg-json.azurewebsites.net/thing/'+query;
     try {
       var gameFound = HTTP.get(url, {headers: {"User-Agent": "Meteor/1.0"}});
       if (gameFound.statusCode === 200) {
