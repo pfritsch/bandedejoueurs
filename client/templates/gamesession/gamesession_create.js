@@ -234,7 +234,7 @@ AutoForm.hooks({
       Meteor.call('joinGamesession', this.docId);
 
       // Redirect to confirmation page
-      FlowRouter.go('gamesessionPreview', {gamesessionId: this.docId}, {sendMail: true});
+      FlowRouter.go('gamesessionPreview', {gamesessionId: this.docId});
     },
     onError: function(formType, error) {
       return throwNotification(error.message);
