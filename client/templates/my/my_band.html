@@ -1,0 +1,41 @@
+<template name="myBand">
+{{#with currentUser}}
+
+  <!-- My Band -->
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section has-space-bottom">
+      <h2 class="h1">{{_ "myProfileBand"}}</h2>
+      <div class="grid-section">
+        {{#if myGroup}}
+          {{#each myGroup}}
+            {{> playerItem}}
+          {{/each}}
+        {{else}}
+          <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <!-- My Parties -->
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section">
+      <h2 class="h1">{{_ "myProfileParties"}}</h2>
+    </div>
+    <div class="grid-section">
+      {{#if myGamesessions}}
+        {{#each myGamesessions}}
+          {{> gamesessionItem}}
+        {{/each}}
+      {{else}}
+        <div class="msg">{{{_ "myProfileNoGamesessions"}}}</div>
+      {{/if}}
+    </div>
+  </div>
+
+  <!-- My Games -->
+  <!-- <div>
+    <h2>{{_ "navTabMyGames"}}</h2>
+  </div> -->
+{{/with}}
+</template>

@@ -26,8 +26,9 @@ Template.myProfile.helpers({
     // Every tab object MUST have a name and a slug!
     return [
       { name: TAPi18n.__('myProfileProfile'), slug: 'profile' },
-      { name: TAPi18n.__('myProfileBand'), slug: 'band' },
-      { name: TAPi18n.__('myProfileParties'), slug: 'parties' },
+      // { name: TAPi18n.__('myProfileBand'), slug: 'band' },
+      // { name: TAPi18n.__('myProfileParties'), slug: 'parties' },
+      { name: TAPi18n.__('myProfileNotifications'), slug: 'notifications' },
       { name: TAPi18n.__('helper.logout'), slug: 'logout', onRender: function() {
         AccountsTemplates.logout();
       }}

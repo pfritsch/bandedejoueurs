@@ -37,8 +37,8 @@
             }
           },
           "additional": {
-            "label": "Identifiant ou URL",
-            "placeholder": "Ton identifiant ou une URL pour se retrouver"
+            "label": "Précisions pour se retrouver:",
+            "placeholder": "Ton identifiant ou un lien par exemple"
           }
         }
       },
@@ -80,7 +80,7 @@
         }
       },
       "emailCheck": {
-        "label": "J'accepte de recevoir des e-mails de la parte de la bande."
+        "label": "J'accepte de recevoir des e-mails de la part de la bande."
       },
       "profile": {
         "name": {
@@ -135,11 +135,6 @@
   "navAbout": "À Propos",
   "navOrganize": "Organiser une partie",
 
-  "navTabMyProfile": "Mon Profil",
-  "navTabMyBand": "Ma bande",
-  "navTabMyParties": "Mes parties",
-  "navTabMyGames": "Mes jeux",
-
   "homeTitle": "Bande de joueurs",
   "homeClaim": "C’est quand même mieux à plusieurs!",
   "homeHeraAlt": "Bande de joueurs, rencontrer d'autres joueurs pour du multiplayer",
@@ -177,6 +172,7 @@
   "accountChangePassword": "Modifier mon mot de passe",
 
   "myProfileProfile": "Mon profil",
+  "myProfileNotifications": "Notifications",
   "myProfileBand": "Ma bande",
   "myProfileParties": "Mes parties",
   "myProfileGames": "Mes jeux",

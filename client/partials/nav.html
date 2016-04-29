@@ -1,14 +1,22 @@
 <template name="navOff">
   <nav id="nav-off" class="nav-off">
     <div class="nav-off-header">
-      {{> myPreview}}
+      {{#if currentUser}}
+        {{> myPreview}}
+      {{else}}
+        <div class="button-well">
+          <a href="{{pathFor '/sign-in'}}">{{_ "headerLogin"}}</a><a href="{{pathFor '/sign-up'}}">{{_ "headerJoin"}}</a>
+        </div>
+      {{/if}}
     </div>
     <ul class="nav-off-menu">
       <li><a href="{{pathFor 'home'}}" class="nav-off-link {{activeRouteClass 'home'}}">Home</a></li>
       <li><a href="{{pathFor 'playerList'}}" class="nav-off-link {{activeRouteClass 'playerList'}}">Joueurs</a></li>
       <li><a href="{{pathFor 'gamesessions'}}" class="nav-off-link {{activeRouteClass 'gamesessionList'}}">Prochaines parties</a></li>
+      {{#if currentUser}}
+        <li><a href="{{pathFor 'myBand'}}" class="nav-off-link {{activeRouteClass 'myBand'}}">{{_ "myProfileBand"}}</a></li>
+      {{/if}}
       <!-- <li><a href="{{pathFor 'about'}}" class="nav-off-link {{activeRouteClass 'about'}}">À propos</a></li> -->
-      <li>{{> navLang}}</li>
       <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-off-link">{{_ "navOrganize"}}</a></li>
     </ul>
   </nav>
@@ -20,6 +28,9 @@
       <ul class="nav-main-first">
         <li><a href="{{pathFor 'playerList'}}" class="nav-main-link {{activeRouteClass 'playerList'}}">{{_ "navPlayers"}}</a></li>
         <li><a href="{{pathFor 'gamesessionList'}}" class="nav-main-link {{activeRouteClass 'gamesessionList'}}">{{_ "navParties"}}</a></li>
+        {{#if currentUser}}
+          <li><a href="{{pathFor 'myBand'}}" class="nav-main-link {{activeRouteClass 'myBand'}}">{{_ "myProfileBand"}}</a></li>
+        {{/if}}
         <!-- <li><a href="{{pathFor 'about'}}" class="nav-main-link {{activeRouteClass 'about'}}">{{_ "navAbout"}}</a></li> -->
       </ul>
       <ul class="nav-main-second">

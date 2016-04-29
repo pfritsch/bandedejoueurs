@@ -24,6 +24,7 @@ body {
 #__blaze-root {
   display: flex;
   min-height: 100%;
+  overflow: hidden;
   @media #{$medium-up} {
     display: block;
   }
@@ -31,7 +32,7 @@ body {
 img {
   max-width: 100%;
   height: auto;
-} 
+}
 
 main {
   // padding-bottom: rem-calc(120);

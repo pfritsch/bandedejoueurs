@@ -25,7 +25,7 @@
   color: white;
   border-color: white;
 }
-.nav-header-first, 
+.nav-header-first,
 .nav-header-my-preview {
   display: none;
   @include reset-list;
@@ -187,8 +187,9 @@
   @include reset-list;
 }
 .nav-off-header {
-  padding: rem-calc(48 24 12); 
+  padding: rem-calc(48 24 12);
   background: #13B169;
+  color: white;
 }
 
 // Main navigation
@@ -210,14 +211,17 @@
     }
   }
 }
-.nav-main-first, 
+.nav-main-first,
 .nav-main-second {
   @include reset-list;
   & > li {
     display: inline-block;
-    margin-left: rem-calc(24);
+    margin-left: rem-calc(6);
     &:first-child {
       margin-left: 0;
+    }
+    @media #{$medium-up} {
+      margin-left: rem-calc(24);
     }
     @media #{$large-up} {
       margin-left: rem-calc(36);
@@ -249,7 +253,7 @@
 a.nav-main-link,
 a.nav-off-link,
 .nav-main .nav-lang-current {
-  padding: rem-calc(18 24);
+  padding: rem-calc(18 12);
   opacity: 0.8;
   font-size: rem-calc(14);
   line-height: rem-calc(24);
@@ -262,6 +266,10 @@ a.nav-off-link,
   &:hover,
   &:focus {
     background: #FFF28C;
+  }
+
+  @media #{$medium-up} {
+    padding: rem-calc(18 24);
   }
 }
 .nav-main-button {
@@ -290,7 +298,7 @@ a.nav-main-link {
     display: block;
     position: absolute;
     background: #4E4930;
-  }  
+  }
 }
 .nav-main-link.is-current {
   &:after {
@@ -298,7 +306,7 @@ a.nav-main-link {
     left: rem-calc(12);
     right: rem-calc(12);
     height: rem-calc(2);
-  }  
+  }
 }
 .nav-off-link.is-current {
   &:after {
@@ -306,7 +314,7 @@ a.nav-main-link {
     top: 0;
     bottom: 0;
     width: rem-calc(4);
-  }  
+  }
 }
 
 // Lang switch
@@ -379,23 +387,22 @@ a.nav-main-link {
   margin: auto;
 }
 .nav-tabs-item {
-  display: inline-block;
-  margin-left: rem-calc(3);
-  &:first-child {
-    margin-left: 0;
+  & > a {
+    opacity: 0.5;
+    display: block;
   }
   &.active a {
     opacity: 1;
-    border-bottom: 2px solid #4E4930;
-  }
-  @media #{$small-up} {
-    margin-left: rem-calc(24);
-    &:first-child {
-      margin-left: 0;
-    }
   }
   @media #{$medium-up} {
     margin-left: rem-calc(48);
+    &,
+    & > a {
+      display: inline-block;
+    }
+    &.active > a {
+      border-bottom: 2px solid #4E4930;
+    }
     &:first-child {
       margin-left: 0;
     }
