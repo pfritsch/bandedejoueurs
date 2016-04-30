@@ -12,6 +12,7 @@ Template.navLang.events({
   'click [data-lang]': function(e, tpl, doc) {
     e.preventDefault();
     var newLang = $(e.currentTarget).attr('data-lang');
+    localStorage.setItem('userLocale', newLang);
     Session.set('lang', newLang)
     TAPi18n.setLanguage(newLang);
   }

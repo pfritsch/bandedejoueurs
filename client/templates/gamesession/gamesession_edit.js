@@ -56,7 +56,7 @@ Template.gamesessionEdit.helpers({
     };
   },
   onRemoveSuccess: function () {
-    return function (result) { 
+    return function (result) {
       FlowRouter.go('gamesessionList');
     };
   }

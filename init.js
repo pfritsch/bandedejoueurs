@@ -13,14 +13,14 @@ if (Meteor.isClient) {
     Session.setDefault('showGame', {boardgameTags: 1, videogameTags: 1});
 
     // Init Lang
-    Session.setDefault('lang', getUserLanguage());
+    if(!localStorage.getItem('userLocale')) {
+      localStorage.setItem('userLocale', getUserLanguage());
+    }
+    Session.setDefault('lang', localStorage.getItem('userLocale'));
     TAPi18n.setLanguage(Session.get('lang'))
-      .done(function () {
-
-      })
-      .fail(function (error_message) {
-        console.log(error_message);
-      });
+    .fail(function (error_message) {
+      console.log(error_message);
+    });
 
     // Init Moment js
     moment.locale(Session.get('lang'));
