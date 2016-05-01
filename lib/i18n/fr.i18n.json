@@ -46,7 +46,7 @@
         "label": "Date du rendez-vous"
       },
       "spots": {
-        "label": "Nombre de places (toi y compris)"
+        "label": "Nombre de joueurs (toi y compris)"
       },
       "description": {
         "label": "Quelques mot pour décrire la partie"
@@ -164,7 +164,7 @@
   "homeReadyTextOnline": "Ca fait bien plaisir de te compter parmis nous. ",
   "homeReadyAlt": "Un dragon joue à la gameboy",
   "homeWhoTitle": "Qui sommes-nous?",
-  "homeWhoText": "Une bande de passionnés qui fait ça pour le plaisir: <br>Aline, Elodie, Frank, Guillaume, Max, Philou, Pierre, Roland et Sam.",
+  "homeWhoText": "Une bande de passionnés qui fait ça pour le plaisir. Porteur du projet: <a href=\"https://twitter.com/pierrefritsch\">Pierre</a>, aide à la conception: Philou et Roland, aide au développement: Maximilien, Sam, Thomu et Max, illustrations: Guillaume, couleurs: Aline, soutien: Val, Elodie et Frank. Hébergement: <a href=\"https://www.puzzle.ch/\">Puzzle ITC</a>",
   "homeWhoContact": "Retrouve-nous sur Twitter: <a href=\"https://twitter.com/bandedejoueurs\" target=\"_blank\">@bandedejoueurs</a><br> Une question, un commentaire? <a href=\"mailto:hello@bandedejoueurs.com\">hello@bandedejoueurs.com</a>",
 
   "accountErrorUsername": "Nom d'utilisateur déjà pris",
@@ -176,7 +176,7 @@
   "myProfileBand": "Ma bande",
   "myProfileParties": "Mes parties",
   "myProfileGames": "Mes jeux",
-  "myProfileSubtitle": "Ici, tu peux modifier ton profil et nous en dire un peu plus sur toi.",
+  "myProfileSubtitle": "Ici tu peux modifier ton profil et nous en dire un peu plus sur toi.",
   "myProfileAboutYou": "A propos de toi",
   "myProfileVisibleData": "À part ton adresse exacte, ces données seront visibles par les autres joueurs.",
   "myProfileSave": "Sauvegarder mon profil",
@@ -196,8 +196,10 @@
   "playerDetailStyle": "Le style de jeu de %s est plutôt...",
   "playerDetailGamesessions": "Prochaine partie",
   "playerDetailGamesessions_plural": "Prochaines parties (__count__)",
-  "playerDetailSee": "Voir le profile",
+  "playerDetailSee": "Voir le profil",
   "playerListSearch": "Où veux-tu jouer?",
+
+  "playerInviteExample": "Salut %s, ",
 
   "gamesessionOrganizedBy": "Organisé par",
   "gamesessionEdit": "Éditer",
@@ -226,9 +228,9 @@
   "gamesessionCreateAddGame": "Ajouter un jeu",
   "gamesessionCreateOnlyVisible": "L'adresse exacte du rendez-vous ne sera visible que par les participants.",
   "gamesessionCreateSuggest": "Aha, ce ne serait pas un de ces jeux?",
-  "gamesessionCreateSuggestData": "<small>Ces données viennent de <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> et <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a></small>",
+  "gamesessionCreateSuggestData": "<small>Merci à <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> et <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a> pour ces infos.</small>",
 
-  "gamesessionFilterWhat": "Â quoi on joue ?",
+  "gamesessionFilterWhat": "À quoi on joue ?",
   "gamesessionFilterWhere": "On se retrouve où?",
   "gamesessionFilterWhereIRL": "Près de...",
   "gamesessionFilterWhereOnline": "En ligne...",
@@ -285,7 +287,7 @@
     "less": "-"
   },
   "errorNotUser": "Pour aller plus loin, tu dois faire partie de la bande... <a href=\"/sign-up\">Rejoindre la bande</a>",
-  "errorProfile": "Finalise ton profile avant d'aller plus loin: <a href=\"/profile\">Finaliser mon profile</a>",
+  "errorProfile": "Finalise ton profil avant d'aller plus loin: <a href=\"/profile\">Finaliser mon profile</a>",
   "errorNoEmail": "Il manque juste une addresse e-mail pour qu'on puisse te contacter.<br />C'est promis, pas de spam!",
   "errorNotVerified": "On aimerait bien une confirmation. Regarde dans ta boite de réception.",
 
@@ -325,5 +327,5 @@
   "strategist": "Stratège",
   "leader": "Leader",
   "support": "Soutien",
-  "infiltration": "Infiltré"
+  "infiltration": "Furtif"
 }

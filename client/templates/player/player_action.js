@@ -23,4 +23,9 @@ Template.playerAction.events({
       Meteor.call('userAddPlayer', this._id);
     }
   }
+  // TODO: contact player?
+  // 'click .player-contact': function(e){
+  //   e.preventDefault();
+  //   FlowRouter.go("playerDetail", {userId: this._id}, {invite: true});
+  // }
 });

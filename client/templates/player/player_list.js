@@ -95,7 +95,7 @@ Template.playerList.onCreated(function() {
 
       Meteor.users.find().observe({
         added: function(document) {
-          if(!markers[document._id]) {
+          if(!markers[document._id] && document.profile) {
             var iconMarker = 'images/marker_default.png';
             if(document._id === Meteor.userId()) iconMarker = 'images/marker_me.png';
             // Create a marker for this document

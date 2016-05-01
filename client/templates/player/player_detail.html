@@ -34,7 +34,16 @@
           </ul>
         </div>
         {{/if}}
+
       </div>
+
+      {{#if invitePlayer}}
+        <textarea>
+          {{_ 'playerInviteExample'}}
+        </textarea>
+
+      {{/if}}
+
       {{#if myGamesessions}}
       <ul class="player-detail-gamesessions catalog-list">
         <li class="catalog-group">

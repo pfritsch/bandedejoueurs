@@ -51,6 +51,9 @@ Template.playerDetail.helpers({
     } else {
       return false
     }
+  },
+  invitePlayer: function(){
+    return FlowRouter.getQueryParam("invite");
   }
 });
 

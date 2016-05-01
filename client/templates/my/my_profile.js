@@ -102,26 +102,6 @@ Template.myProfile.events({
     if(!hash && hash !== tab) {
       Session.set('activeTab', tab);
     }
-  },
-  'click .testMail': function(e){
-    e.preventDefault();
-    var emailData = {
-      template: 'email_gamesession_confirm',
-      subject: TAPi18n.__('gamesessionPreviewTitle'),
-      title: TAPi18n.__('emailCongrats', getName(Meteor.user())),
-      subtitle: 'Une super partie',
-      text: TAPi18n.__('emailGamesessionSendLink'),
-      url: Meteor.absoluteUrl()+'gamesessions/393938485',
-      rdv: TAPi18n.__('emailGamesessionRDV'),
-      rdvDate: 'demain ou je sais pas',
-      rdvLocation: 'ici',
-      callToActionUrl: Meteor.absoluteUrl()+'gamesessions/8204985u4285u',
-      callToAction: TAPi18n.__('gamesessionDetailSee'),
-      ciao: TAPi18n.__('emailCiao'),
-      followUs: TAPi18n.__('emailFollowUs'),
-      feedback: TAPi18n.__('emailFeedback')
-    };
-    Meteor.call('sendUserEmail', emailData);
   }
 });
 
