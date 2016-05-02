@@ -18,6 +18,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 # DEV Helper
 meteortoys:allthings
+force-ssl
 # meteorhacks:kadira
 
 # EMAILS
