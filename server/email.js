@@ -2,7 +2,7 @@ Meteor.startup(function () {
   var login = Meteor.settings.private.mailgun.login;
   var password = Meteor.settings.private.mailgun.password;
   process.env.MAIL_FROM = "Bande de joueurs <hello@bandedejoueurs.com>";
-  process.env.MAIL_URL = "smtp://"+login+":"+password+"@smtp.mailgun.org:587";
+  process.env.MAIL_URL = "smtp://"+login+":"+password+"@smtp.mailgun.org:2525";
 });
 Meteor.methods({
   sendUserEmail: function (emailData) {
@@ -23,9 +23,12 @@ Meteor.methods({
       subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
+    console.log("Mail sent to: " + user.emails[0].address)
   },
   sendAuthorEmail: function (emailData, authorId) {
     this.unblock();
+
+    console.log(emailData)
 
     user = Meteor.user();
     check(user, Object);
@@ -45,5 +48,6 @@ Meteor.methods({
       subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
+    console.log("Mail sent to: " + author.emails[0].address)
   }
 });

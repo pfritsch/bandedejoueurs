@@ -4,7 +4,7 @@ Meteor.publish('currentUserData', function() {
 
 Meteor.publish('somePlayers', function(filters) {
   return Meteor.users.find(filters, {fields: {
-    username: 1, 
+    username: 1,
     'profile.name': 1,
     'profile.birthday': 1,
     'profile.gender': 1,
@@ -20,7 +20,7 @@ Meteor.publish('mapPlayers', function(box) {
   var filters = {};
   if(box) filters = {
     $and: [
-      {'profile.location':{$exists:true}}, 
+      {'profile.location':{$exists:true}},
       {'profile.location.coordinates': {
           $geoWithin: {
             $box: box
@@ -30,7 +30,7 @@ Meteor.publish('mapPlayers', function(box) {
     ]
   };
   return Meteor.users.find(filters, {fields: {
-    username: 1, 
+    username: 1,
     'profile.name': 1,
     'profile.birthday': 1,
     'profile.gender': 1,
