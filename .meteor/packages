@@ -20,6 +20,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 meteortoys:allthings
 force-ssl
 meteorhacks:kadira
+kadira:debug
 
 # EMAILS
 email                   # The email package allows sending email from you app
