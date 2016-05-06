@@ -14,6 +14,7 @@ Template.navLang.events({
     var newLang = $(e.currentTarget).attr('data-lang');
     localStorage.setItem('userLocale', newLang);
     Session.set('lang', newLang)
+    T9n.setLanguage(newLang);
     TAPi18n.setLanguage(newLang);
   }
 });
