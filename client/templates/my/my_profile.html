@@ -15,12 +15,6 @@
       <p class="msg is-important">
         {{{_ 'errorNoEmail'}}}
       </p>
-      {{else}}
-        {{#if emailNotValidated}}
-        <p class="msg is-important">
-          {{{_ 'errorNotVerified'}}}
-        </p>
-        {{/if}}
       {{/if}}
       {{#autoForm id="userEditProfile" doc=currentUser schema=userSchema type="update" collection="Meteor.users" }}
         {{> afQuickField name='username'}}

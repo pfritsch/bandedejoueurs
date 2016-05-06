@@ -3,7 +3,7 @@ Template.gamesessionItem.helpers({
     return (this.boardgameTags)? this.boardgameTags : this.videogameTags;
   },
   gameCover: function() {
-    return (this.cover === '/images/cover_video.svg' || this.cover === '/images/cover_board.svg')? false : this.cover;
+    return (this.cover === Meteor.absoluteUrl()+'/images/cover_video.svg' || this.cover === Meteor.absoluteUrl()+'/images/cover_board.svg')? false : this.cover;
   },
   dateFormated: function() {
     return formatDate(this.meetingDate);
@@ -18,7 +18,7 @@ Template.gamesessionItem.helpers({
   playersLeft: function() {
     if(this.spots) {
       var availableSlots = this.spots - this.players.length;
-      if(availableSlots > 0) { 
+      if(availableSlots > 0) {
         return TAPi18n.__('gamesessionItemSpots', {count: availableSlots});
       } else {
         return TAPi18n.__('gamesessionItemSpotsFull');

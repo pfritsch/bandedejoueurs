@@ -11,14 +11,6 @@ Template.myProfile.helpers({
       return false
     }
   },
-  emailNotValidated: function() {
-    if(Meteor.user().emails) {
-      if(Meteor.user().emails[0]) return !(Meteor.user().emails[0].verified)
-      return false
-    } else {
-      return false
-    }
-  },
   userSchema: function() {
     return Schema.user;
   },

@@ -11,8 +11,8 @@ Meteor.methods({
     user = Meteor.user();
     check(user, Object);
     check(user.emails[0], {
-      address:String,
-      verified:true
+      address: String,
+      verified: Boolean
     });
 
     SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
@@ -35,8 +35,8 @@ Meteor.methods({
     var author = Meteor.users.findOne(authorId);
     check(author, Object);
     check(author.emails[0], {
-      address:String,
-      verified:true
+      address: String,
+      verified: Boolean
     });
     check(author.emailCheck, true);
 

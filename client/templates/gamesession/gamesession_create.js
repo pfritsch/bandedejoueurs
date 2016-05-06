@@ -168,7 +168,7 @@ AutoForm.hooks({
         doc.meetingDate = moment(meetingDate).unix();
 
         // Choose a cover
-        var newCover = (form.category === 'videogame')? '/images/cover_video.svg' : '/images/cover_board.svg';
+        var newCover = (form.category === 'videogame')? Meteor.absoluteUrl()+'/images/cover_video.svg' : Meteor.absoluteUrl()+'/images/cover_board.svg';
         if(form.games && form.games.length > 0) newCover = form.games[0].cover;
         doc.cover = newCover;
 
@@ -213,16 +213,18 @@ AutoForm.hooks({
     onSuccess: function(t, result) {
 
       var emailData = {
-        template: 'email_gamesession_confirm',
+        template: 'email_event',
+        absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
         subject: TAPi18n.__('gamesessionPreviewTitle'),
-        title: TAPi18n.__('emailCongrats', getName(Meteor.user())),
-        subtitle: formatTitle(this.insertDoc)+' '+formatDate(this.insertDoc.meetingDate),
+        gameThumbnail: this.insertDoc.cover,
+        title: formatTitle(this.insertDoc)+' '+formatDate(this.insertDoc.meetingDate),
+        subtitle: TAPi18n.__('emailCongrats', getName(Meteor.user())),
         text: TAPi18n.__('emailGamesessionSendLink'),
-        url: Meteor.absoluteUrl()+'gamesessions/'+this.docId,
+        url: FlowRouter.url('gamesessionDetail', {gamesessionId: this.docId}),
         rdv: TAPi18n.__('emailGamesessionRDV'),
         rdvDate: TAPi18n.__('helper.onDate', moment(this.insertDoc.meetingDate, 'X').format('LLLL')),
         rdvLocation: formatLocation(this.insertDoc.meetingPlace),
-        callToActionUrl: Meteor.absoluteUrl()+'gamesessions/'+this.docId,
+        callToActionUrl: FlowRouter.url('gamesessionDetail', {gamesessionId: this.docId}),
         callToAction: TAPi18n.__('gamesessionDetailSee'),
         ciao: TAPi18n.__('emailCiao'),
         followUs: TAPi18n.__('emailFollowUs'),

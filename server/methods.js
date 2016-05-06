@@ -21,7 +21,8 @@ Meteor.methods({
         email = user.services.google.email;
         user.emails = [{ address: email, verified: true } ];
         user.profile.name = user.services.google.name;
-        user.profile.gender = user.services.google.gender;
+        if(user.services.google.gender === 'female') user.profile.gender = 'XX';
+        if(user.services.google.gender === 'male') user.profile.gender = 'XY';
         user.avatar = user.services.google.picture;
         if(!user.username) user.username = user.services.facebook.email.substring(0, user.services.facebook.email.indexOf("@"));
       }

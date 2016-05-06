@@ -10,6 +10,12 @@
     padding: rem-calc(6);
     background-color: #E5E1CF;
     border: 1px solid #D9D4BA;
+    @media #{$small-up} {
+      padding: rem-calc(12);
+    }
+    @media #{$large-up} {
+      padding: rem-calc(24);
+    }
   }
 }
 .game-item {

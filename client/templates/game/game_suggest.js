@@ -7,10 +7,6 @@ Template.gameSuggest.helpers({
     } else {
       return thumbnail.thumb_url;
     }
-  },
-  hasCover: function(){
-    if(!this.game.image) return false;
-    if(this.game.image.thumb_url !== '/images/cover_board.svg' && this.game.image.thumb_url !== '/images/cover_video.svg') return true;
   }
 });
 Template.gameSuggest.events({
@@ -50,7 +46,7 @@ Template.gameSuggest.onCreated(function () {
       if (!error && result.data) {
         var suggests = Session.get('suggests');
         if(!result.data.image) {
-          suggests[index].image = {thumb_url: '/images/cover_board.svg'};
+          suggests[index].image = {thumb_url: Meteor.absoluteUrl()+'/images/cover_board.svg'};
         } else {
           suggests[index].image = {thumb_url: 'https:'+result.data.thumbnail};
         }
@@ -59,9 +55,13 @@ Template.gameSuggest.onCreated(function () {
         return false;
       }
     });
-  } else if(!game.image && this.data.game.category === 'videogame'){
+  } else if(this.data.game.category === 'videogame'){
     var suggests = Session.get('suggests');
-    suggests[index].image = {thumb_url: '/images/cover_video.svg'};
+    if(!game.image) {
+      suggests[index].image = {thumb_url: Meteor.absoluteUrl()+'/images/cover_video.svg'};
+    } else {
+      suggests[index].image = {thumb_url: 'http://static.giantbomb.com/'+game.image.thumb_url};
+    }
     Session.set('suggests', suggests);
   }
 });

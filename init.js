@@ -17,6 +17,7 @@ if (Meteor.isClient) {
       localStorage.setItem('userLocale', getUserLanguage());
     }
     Session.setDefault('lang', localStorage.getItem('userLocale'));
+    T9n.setLanguage(Session.get('lang'));
     TAPi18n.setLanguage(Session.get('lang'))
     .fail(function (error_message) {
       console.log(error_message);

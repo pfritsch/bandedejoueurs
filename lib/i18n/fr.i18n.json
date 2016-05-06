@@ -228,7 +228,7 @@
   "gamesessionCreateAddGame": "Ajouter un jeu",
   "gamesessionCreateOnlyVisible": "L'adresse exacte du rendez-vous ne sera visible que par les participants.",
   "gamesessionCreateSuggest": "Aha, ce ne serait pas un de ces jeux?",
-  "gamesessionCreateSuggestData": "<small>Merci à <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> et <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a> pour ces infos.</small>",
+  "gamesessionCreateSuggestData": "<small>Merci à <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> et <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a> pour ces infos!</small>",
 
   "gamesessionFilterWhat": "À quoi on joue ?",
   "gamesessionFilterWhere": "On se retrouve où?",
@@ -256,6 +256,12 @@
   "gamesessionDetailSee": "Voir la partie",
 
   "gameAdd": "Ajouter le jeu",
+
+  "emailWelcomeSubject": "Bienvenue dans la bande",
+  "emailWelcomeTitle": "Félicitations %s, tu fais maintenant partie de la bande!",
+  "emailWelcomeSubtitle": "Les jeux sont faits, on attendait plus que toi.",
+  "emailWelcomeText": "Tu peux commencer par jeter un oeil à la liste des <a href=\"__urlGamesessions__\" target=\"_blank\">prochaines parties</a>, ou chercher <a href=\"__urlPlayers__\" target=\"_blank\">des joueurs près de chez toi</a>. Ou bien tu pourrais <a href=\"__urlProfile__\" target=\"_blank\">compléter ton profil</a>, c'est mieux de se connaitre un peu lorsqu'on joue ensemble, n'est-ce pas?",
+  "emailWelcomeCTA": "Voir mon profil",
 
   "emailCongrats": "Félicitations %s !",
   "emailGamesessionSendLink": "Tu seras informé dès que d'autres joueurs se seront inscrits à la partie. N'oublies pas d'inviter tes amis en leur envoyant ce lien:",

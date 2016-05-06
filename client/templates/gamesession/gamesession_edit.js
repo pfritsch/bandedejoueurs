@@ -159,7 +159,7 @@ AutoForm.hooks({
         doc.$set.meetingDate = moment(meetingDate).unix();
 
         // Choose a cover
-        var newCover = (form.category === 'videogame')? '/images/cover_video.svg' : '/images/cover_board.svg';
+        var newCover = (form.category === 'videogame')? Meteor.absoluteUrl()+'/images/cover_video.svg' : Meteor.absoluteUrl()+'/images/cover_board.svg';
         if(form.games && form.games.length > 0) newCover = form.games[0].cover;
         doc.$set.cover = newCover;
 

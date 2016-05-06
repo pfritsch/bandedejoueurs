@@ -11,10 +11,10 @@ $cover-padding: 12;
   line-height: 100%;
 
   @media #{$small-up} {
-    padding: rem-calc($cover-padding/2);   
+    padding: rem-calc($cover-padding/2);
   }
   @media #{$medium-up} {
-    padding: rem-calc($cover-padding);   
+    padding: rem-calc($cover-padding);
   }
 
   &:before {
@@ -25,14 +25,13 @@ $cover-padding: 12;
 .cover {
   $cover-size-small: 72;
   $cover-size: 168;
-
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+  
   margin: auto;
   vertical-align: middle;
   max-height: rem-calc($cover-size-small - ($cover-padding*2));
 
   @media #{$small-up} {
-    max-height: rem-calc($cover-size - ($cover-padding*2));    
+    max-height: rem-calc($cover-size - ($cover-padding*2));
   }
 }
 .cover-labels {
@@ -45,6 +44,6 @@ $cover-padding: 12;
     top: 0;
     left: 2px;
     right: 1px;
-    bottom: 2px;    
+    bottom: 2px;
   }
 }

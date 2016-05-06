@@ -257,6 +257,12 @@
 
   "gameAdd": "Add this game",
 
+  "emailWelcomeSubject": "Welcom in the Bande",
+  "emailWelcomeTitle": "Congrats %s, you're now part of the Bande!",
+  "emailWelcomeSubtitle": "The die is cast, we were just waiting for you.",
+  "emailWelcomeText": "Youo can start by taking a look on the <a href=\"__urlGamesessions__\" target=\"_blank\">next events</a>, or by seeking for <a href=\"__urlPlayers__\" target=\"_blank\">players nearby you</a>. Or you also could <a href=\"__urlProfile__\" target=\"_blank\">complete your profile</a>, it's well better to know each other to play together, isn't it?",
+  "emailWelcomeCTA": "Voir mon profil",
+
   "emailCongrats": "Congratulations %s !",
   "emailGamesessionSendLink": "You will be notified as soon as other players have registered in the game <br /> Don't forget to invite your friends by sending them this link:",
   "emailGamesessionRDV": "The appointment is taken:",
