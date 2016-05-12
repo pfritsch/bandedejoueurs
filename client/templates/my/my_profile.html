@@ -63,7 +63,17 @@
       <div class="grid-section">
         {{#if myGroup}}
           {{#each myGroup}}
-            {{> playerItem}}
+            {{#if memberStatus.pendingInvitation}}
+              {{_ 'playerGroupInvitationMessage' username}}
+              <a href="" class="button acceptInvitation"> accepter</a>
+              <a href="" class="button declineInvitation"> décliner</a>
+            {{/if}}
+            {{#if memberStatus.invited}}
+              tu as invité {{username}}
+            {{/if}}
+            {{#if memberStatus.accepted}}
+              {{> playerItem}}
+            {{/if}}
           {{/each}}
         {{else}}
           <div class="msg">{{{_ "myProfileNoGroup"}}}</div>

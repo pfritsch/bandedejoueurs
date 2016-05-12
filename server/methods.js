@@ -73,7 +73,47 @@ Meteor.methods({
     check(doc, Schema.user);
     Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
   },
-  userAddPlayer: function(playerId) {
+  userInvitePlayer: function(playerId) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
+    if(!user.group) user.group = [];
+    if(user.group.contains(playerId, 'userId') < 0) {
+      // Add invitation to player pending invites
+      Meteor.users.update(playerId, {$addToSet: {'group': {
+        'userId': Meteor.userId(),
+        'status': 'pendingInvitation'
+      }}});
+      // Add invitation to user group
+      Meteor.users.update(Meteor.userId(), {$addToSet: {'group': {
+        'userId': playerId,
+        'status': 'invited'
+      }}});
+    }
+    //   Meteor.users.update(Meteor.userId(), {$pull: {'profile.group': playerId}});
+    // } else {
+    //   Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.group': playerId}});
+    // }
+  },
+  acceptInvitation: function(playerId) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
+
+    // Add invitation to player pending invites
+    // Meteor.users.update(playerId, {$set: {'group': {
+    //   'userId': Meteor.userId(),
+    //   'status': 'accepted'
+    // }}});
+
+    // Add invitation to user group
+    Meteor.users.update(Meteor.userId(), {$set: {'group': {
+      'userId': playerId,
+      'status': 'accepted'
+    }}});
+
+  },
+  userAddPlayer: function(invitation) {
     user = Meteor.user();
     check(user, Object);
     if(!user.profile.group) user.profile.group = [];

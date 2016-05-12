@@ -6,6 +6,9 @@ Template.playerList.helpers({
     var error = Geolocation.error();
     return error && error.message;
   },
+  mapLoaded: function() {
+    return GoogleMaps.loaded();
+  },
   mapOptions: function() {
     var latLng = {
       lat: 46,
@@ -153,4 +156,10 @@ Template.playerList.onCreated(function() {
     });
 
   });
+
+  setTimeout(function(){
+    if(!GoogleMaps.loaded()) {
+      Meteor.subscribe('somePlayers', {});
+    }
+  }, 1000);
 });

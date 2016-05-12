@@ -1,6 +1,6 @@
 <template name="playerItem">
   <div id="{{username}}" class="player-item {{#if itsMe}}is-currentuser{{/if}} {{#if isSelected}}is-selected{{/if}}">
-    <a href="{{pathFor 'playerDetail' username=username}}" class="player-item-avatar">
+    <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-avatar">
       {{> avatar user=this}}
     </a>
     <div class="player-item-content">

@@ -1,12 +1,14 @@
 <template name="playerList">
 {{#if Template.subscriptionsReady}}
   <div class="player-container">
+    {{#if mapLoaded}}
     <div class="filter-container player-search">
       <input type="text" name="searchPlayerList" placeholder="{{_ 'playerListSearch'}}">
     </div>
     <div class="player-map">
       {{> googleMap name="map" options=mapOptions}}
     </div>
+    {{/if}}
     <div class="player-list">
       {{#each allPlayers}}
         {{> playerItem}}

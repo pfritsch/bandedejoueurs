@@ -36,14 +36,20 @@ Template.myProfile.helpers({
       return moment(birthday, "X").format('DD/MM/YYYY');
     }
   },
+  myInvitations: function() {
+    return Meteor.user().pendingInvitation;
+  },
   myGroup: function() {
-    var myGroup = Meteor.user().profile.group;
+    var myGroup = Meteor.user().group;
     if(myGroup) {
       if(myGroup.length > 0) {
+        var playersInMyGroup = myGroup.map(function(player,index){
+          return player.userId;
+        });
         Tracker.autorun(function() {
           Meteor.subscribe('somePlayers',
           {
-            '_id': {'$in': myGroup}
+            '_id': {'$in': playersInMyGroup}
           },{
             fields: {
               username: 1,
@@ -51,10 +57,32 @@ Template.myProfile.helpers({
             }
           });
         });
-        return Meteor.users.find({'_id': {'$in': myGroup}}, {}) || {};
+        var myGroup = myGroup.map(function(player, index) {
+          var member = Meteor.users.findOne({'_id': {'$in': playersInMyGroup}});
+          member.status = player.status;
+          if(player.messages) member.messages = player.messages;
+          console.log(member);
+          return member;
+        });
+        return myGroup;
       } else {
         return false
       }
+    }
+  },
+  memberStatus: function() {
+    switch (this.status) {
+      case 'pendingInvitation':
+        return {pendingInvitation: true}
+      break;
+      case 'invited':
+        return {invited: true}
+      break;
+      case 'accepted':
+        return {accepted: true}
+      break;
+      default:
+        return false
     }
   },
   myGamesessions: function() {
@@ -94,6 +122,17 @@ Template.myProfile.events({
     if(!hash && hash !== tab) {
       Session.set('activeTab', tab);
     }
+  },
+  'click .acceptInvitation': function(e){
+    e.preventDefault();
+    // Meteor.call("acceptInvitation", this._id, function(error, result){
+    //   if(error){
+    //     console.log("error", error);
+    //   }
+    //   if(result){
+    //
+    //   }
+    // });
   }
 });
 

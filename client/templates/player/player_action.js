@@ -1,9 +1,9 @@
 Template.playerAction.helpers({
   'inMyGroup': function() {
     if(Meteor.user()) {
-      var myGroup = Meteor.user().profile.group;
+      var myGroup = Meteor.user().group;
       if(myGroup) {
-        return myGroup.indexOf(this._id) > -1;
+        return myGroup.contains(this._id, 'userId') > -1;
       }
     }
   },
@@ -20,7 +20,7 @@ Template.playerAction.events({
     if(!Meteor.user()) {
       return throwNotification(TAPi18n.__('errorNotUser'));
     } else {
-      Meteor.call('userAddPlayer', this._id);
+      Meteor.call('userInvitePlayer', this._id);
     }
   }
   // TODO: contact player?
