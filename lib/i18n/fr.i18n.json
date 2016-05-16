@@ -84,7 +84,7 @@
       },
       "profile": {
         "name": {
-          "label": "Véritable nom",
+          "label": "Nom à afficher",
           "placeholder": "Devra t'on t'appeller John Doe?"
         },
         "birthday": {
@@ -131,7 +131,7 @@
   "headerLogin": "Connexion",
 
   "navPlayers": "Joueurs",
-  "navParties": "Prochaines parties",
+  "navParties": "Parties",
   "navAbout": "À Propos",
   "navOrganize": "Organiser une partie",
 
@@ -171,8 +171,7 @@
   "accountErrorEmail": "E-mail non valide",
   "accountChangePassword": "Modifier mon mot de passe",
 
-  "myProfileProfile": "Mon profil",
-  "myProfileNotifications": "Notifications",
+  "myProfile": "Mon profil",
   "myProfileBand": "Ma bande",
   "myProfileParties": "Mes parties",
   "myProfileGames": "Mes jeux",
@@ -189,7 +188,8 @@
   "playerSeeProfile": "Voir mon profil",
   "playerGroupRemove": "Retirer de ma bande",
   "playerGroupInvite": "Inviter dans ma bande",
-  "playerGroupInvitationMessage": "%s vous invite à rejoindre sa bande",
+  "playerGroupPendingInvitation": "%s t'invites à rejoindre sa bande",
+  "playerGroupInvited": "%s n'a pas encore répondu à l'invitation",
   "playerGroupAccept": "Accepter",
   "playerGroupDecline": "Décliner",
   "playerGroupContact": "Envoyer un message",
@@ -204,6 +204,9 @@
   "playerListSearch": "Où veux-tu jouer?",
 
   "playerInviteExample": "Salut %s, ",
+  "pendingInvitation": "Invitations reçues",
+  "invited": "Invitations envoyées",
+  "accepted": "Les membres de ma bande",
 
   "gamesessionOrganizedBy": "Organisé par",
   "gamesessionEdit": "Éditer",

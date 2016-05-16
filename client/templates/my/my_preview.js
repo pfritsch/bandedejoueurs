@@ -15,6 +15,13 @@ Template.myPreview.helpers({
   }
 });
 
+Template.myPreview.events({
+  'click .my-preview-logout': function(e) {
+    e.preventDefault();
+    AccountsTemplates.logout();
+  }
+});
+
 Template.myPreview.onCreated(function() {
   var self = this;
   self.autorun(function() {

@@ -2,7 +2,7 @@
   <div class="my-preview">
       <div class="my-preview-content">
         <span class="my-preview-name">{{currentUserName}}</span>
-        <a href="{{pathFor 'myProfile'}}" class="my-preview-email">Mon profil</a>
+        <a href="#" class="my-preview-logout">{{_ 'helper.logout'}}</a>
       </div>
       <a href="{{pathFor 'myProfile'}}" class="my-preview-avatar">{{> avatar user=currentUser}}</a>
   </div>

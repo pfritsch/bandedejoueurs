@@ -14,7 +14,7 @@
       <li><a href="{{pathFor 'playerList'}}" class="nav-off-link {{activeRouteClass 'playerList'}}">Joueurs</a></li>
       <li><a href="{{pathFor 'gamesessions'}}" class="nav-off-link {{activeRouteClass 'gamesessionList'}}">Prochaines parties</a></li>
       {{#if currentUser}}
-        <li><a href="{{pathFor 'myBand'}}" class="nav-off-link {{activeRouteClass 'myBand'}}">{{_ "myProfileBand"}}</a></li>
+        <li><a href="{{pathFor 'myProfile'}}" class="nav-off-link {{activeRouteClass 'myProfile'}}">{{_ "myProfile"}}</a></li>
       {{/if}}
       <!-- <li><a href="{{pathFor 'about'}}" class="nav-off-link {{activeRouteClass 'about'}}">À propos</a></li> -->
       <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-off-link">{{_ "navOrganize"}}</a></li>
@@ -29,9 +29,8 @@
         <li><a href="{{pathFor 'playerList'}}" class="nav-main-link {{activeRouteClass 'playerList'}}">{{_ "navPlayers"}}</a></li>
         <li><a href="{{pathFor 'gamesessionList'}}" class="nav-main-link {{activeRouteClass 'gamesessionList'}}">{{_ "navParties"}}</a></li>
         {{#if currentUser}}
-          <li><a href="{{pathFor 'myBand'}}" class="nav-main-link {{activeRouteClass 'myBand'}}">{{_ "myProfileBand"}}</a></li>
+          <li><a href="{{pathFor 'myProfile'}}" class="nav-main-link {{activeRouteClass 'myProfile'}}">{{_ "myProfile"}}</a></li>
         {{/if}}
-        <!-- <li><a href="{{pathFor 'about'}}" class="nav-main-link {{activeRouteClass 'about'}}">{{_ "navAbout"}}</a></li> -->
       </ul>
       <ul class="nav-main-second">
         <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-main-button button">{{_ "navOrganize"}}</a></li>

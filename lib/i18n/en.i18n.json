@@ -171,8 +171,7 @@
   "accountErrorEmail": "You're email is not valid",
   "accountChangePassword": "Change my password",
 
-  "myProfileProfile": "My profile",
-  "myProfileNotifications": "Notifications",
+  "myProfile": "My profile",
   "myProfileBand": "My Bande",
   "myProfileParties": "My game events",
   "myProfileGames": "My games",

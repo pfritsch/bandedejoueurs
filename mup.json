@@ -1,0 +1,22 @@
+{
+  "servers": [
+    {
+      "host": "159.100.251.77",
+      "username": "root",
+      "password": "kD6egfcsc"
+    }
+  ],
+
+  "setupMongo": true,
+  "setupNode": true,
+  "nodeVersion": "0.10.41",
+  "appName": "bdjapp",
+  "app": ".",
+
+  "env": {
+    "ROOT_URL": "http://159.100.251.77"
+  },
+
+  "deployCheckWaitTime": 60,
+  "enableUploadProgressBar": true
+}

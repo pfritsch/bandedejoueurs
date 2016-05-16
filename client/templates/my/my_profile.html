@@ -1,4 +1,5 @@
 <template name="myProfile">
+{{#if Template.subscriptionsReady}}
 {{#with currentUser}}
 
   {{#navTabs tabs=myProfileTabs activeTab=activeTab}}
@@ -56,24 +57,19 @@
     </div>
   </div>
 
-  <!-- My Notifications -->
+  <!-- My Band -->
   <div class="grid-container has-space-bottom">
     <div class="grid-section has-space-bottom">
-      <h2 class="h1">{{_ "myProfileNotifications"}}</h2>
+      <h2 class="h1">{{_ "navTabMyBand"}}</h2>
       <div class="grid-section">
-        {{#if myGroup}}
-          {{#each myGroup}}
-            {{#if memberStatus.pendingInvitation}}
-              {{_ 'playerGroupInvitationMessage' username}}
-              <a href="" class="button acceptInvitation"> accepter</a>
-              <a href="" class="button declineInvitation"> décliner</a>
-            {{/if}}
-            {{#if memberStatus.invited}}
-              tu as invité {{username}}
-            {{/if}}
-            {{#if memberStatus.accepted}}
-              {{> playerItem}}
-            {{/if}}
+        {{#if playersByStatus}}
+          {{#each playersByStatus}}
+            {{_ status}}
+            {{#each players}}
+              {{#with playerData}}
+                {{> playerBand status=../status messages=../messages player=this}}
+              {{/with}}
+            {{/each}}
           {{/each}}
         {{else}}
           <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
@@ -82,24 +78,8 @@
     </div>
   </div>
 
-  <!-- My Band -->
-  <!-- <div class="grid-container has-space-bottom">
-    <div class="grid-section has-space-bottom">
-      <h2 class="h1">{{_ "navTabMyBand"}}</h2>
-      <div class="grid-section">
-        {{#if myGroup}}
-          {{#each myGroup}}
-            {{> playerItem}}
-          {{/each}}
-        {{else}}
-          <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
-        {{/if}}
-      </div>
-    </div>
-  </div> -->
-
   <!-- My Parties -->
-  <!-- <div class="grid-container has-space-bottom">
+  <div class="grid-container has-space-bottom">
     <div class="grid-section">
       <h2 class="h1">{{_ "navTabMyParties"}}</h2>
     </div>
@@ -112,19 +92,17 @@
         <div class="msg">{{{_ "myProfileNoGamesessions"}}}</div>
       {{/if}}
     </div>
-  </div> -->
-
-  <!-- Logout -->
-  <div>
-    <div class="grid-section">
-      {{> spinner}}
-    </div>
   </div>
 
   <!-- My Games -->
-  <!-- <div>
+  <div>
     <h2>{{_ "navTabMyGames"}}</h2>
-  </div> -->
+  </div>
 {{/navTabs}}
 {{/with}}
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
 </template>

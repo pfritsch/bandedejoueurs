@@ -103,6 +103,22 @@ splitDay = function(time) {
   if(time >= 18) return TAPi18n.__('time.evening');
 }
 
+groupPlayersByStatus = function(players) {
+  var groupedByStatus = _.groupBy(players,
+    function(player) {
+      return player.status;
+    });
+  var rplayers = [];
+  for(status in groupedByStatus){
+    rplayers.push({
+      status: status,
+      players: groupedByStatus[status],
+      count: groupedByStatus[status].length
+    })
+  }
+  return rplayers;
+}
+
 groupGamesessionsByDate = function(sessions) {
   var groupedByDates = _.groupBy(sessions,
     function(session) {

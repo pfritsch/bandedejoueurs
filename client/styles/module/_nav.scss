@@ -216,15 +216,14 @@
   @include reset-list;
   & > li {
     display: inline-block;
-    margin-left: rem-calc(6);
     &:first-child {
       margin-left: 0;
     }
     @media #{$medium-up} {
-      margin-left: rem-calc(24);
+      margin-left: rem-calc(6);
     }
     @media #{$large-up} {
-      margin-left: rem-calc(36);
+      margin-left: rem-calc(24);
     }
   }
 }
@@ -234,6 +233,9 @@
   @media #{$medium-up} {
     display: block;
     float: right;
+    margin-right: rem-calc(12);
+  }
+  @media #{$large-up} {
     margin-right: rem-calc(24);
   }
 }
@@ -387,19 +389,20 @@ a.nav-main-link {
   margin: auto;
 }
 .nav-tabs-item {
+  display: inline-block;
+  margin-left: rem-calc(6);
+  &:first-child {
+    margin-left: 0;
+  }
   & > a {
     opacity: 0.5;
-    display: block;
+    display: inline-block;
   }
   &.active a {
     opacity: 1;
   }
   @media #{$medium-up} {
     margin-left: rem-calc(48);
-    &,
-    & > a {
-      display: inline-block;
-    }
     &.active > a {
       border-bottom: 2px solid #4E4930;
     }

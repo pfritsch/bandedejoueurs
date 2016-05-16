@@ -24,10 +24,8 @@
           <li><a href="{{pathFor 'playerList'}}" class="nav-header-link">{{_ "navPlayers"}}</a></li>
           <li><a href="{{pathFor 'gamesessionList'}}" class="nav-header-link">{{_ "navParties"}}</a></li>
           {{#if currentUser}}
-            <li><a href="{{pathFor 'myBand'}}" class="nav-header-link">{{_ "myProfileBand"}}</a></li>
+            <li><a href="{{pathFor 'myProfile'}}" class="nav-header-link">{{_ "myProfile"}}</a></li>
           {{/if}}
-          <!-- <li><a href="{{pathFor 'gamesessionCreate'}}" class="nav-header-link">{{_ "navOrganize"}}</a></li> -->
-          <!-- <li><a href="{{pathFor 'about'}}" class="nav-header-link">{{_ "navAbout"}}</a></li> -->
         </ul>
         <div class="nav-header-my-preview">
         {{#if currentUser}}

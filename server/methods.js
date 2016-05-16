@@ -90,28 +90,57 @@ Meteor.methods({
         'status': 'invited'
       }}});
     }
-    //   Meteor.users.update(Meteor.userId(), {$pull: {'profile.group': playerId}});
-    // } else {
-    //   Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.group': playerId}});
-    // }
   },
   acceptInvitation: function(playerId) {
     user = Meteor.user();
     check(user, Object);
     check(playerId, String);
+    var player = Meteor.users.findOne(playerId);
 
-    // Add invitation to player pending invites
-    // Meteor.users.update(playerId, {$set: {'group': {
-    //   'userId': Meteor.userId(),
-    //   'status': 'accepted'
-    // }}});
+    var playerGroup = player.group.map(function(player,index){
+      if(player.userId === Meteor.userId()) player.status = 'accepted'
+      return player;
+    });
+    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
 
-    // Add invitation to user group
-    Meteor.users.update(Meteor.userId(), {$set: {'group': {
-      'userId': playerId,
-      'status': 'accepted'
-    }}});
+    var myGroup = user.group.map(function(player,index){
+      if(player.userId === playerId) player.status = 'accepted'
+      return player;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
+  },
+  declineInvitation: function(playerId) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
+    var player = Meteor.users.findOne(playerId);
 
+    var playerGroup = player.group.map(function(player,index){
+      if(player.userId === Meteor.userId()) player.status = 'refused'
+      return player;
+    });
+    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
+
+    var myGroup = user.group.map(function(player,index){
+      if(player.userId !== playerId) return player;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
+  },
+  cancelInvitation: function(playerId) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
+    var player = Meteor.users.findOne(playerId);
+
+    var playerGroup = player.group.map(function(player,index){
+      if(player.userId !== Meteor.userId()) return player;
+    });
+    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
+
+    var myGroup = user.group.map(function(player,index){
+      if(player.userId !== playerId) return player;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
   },
   userAddPlayer: function(invitation) {
     user = Meteor.user();
