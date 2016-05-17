@@ -2,33 +2,33 @@
   "schemas": {
     "gamesession": {
       "meetingType": {
-        "label": "Where do we meet?",
+        "label": "Wo treffen wir uns?",
         "options": {
-          "irl": "IRL",
+          "irl": "Ort",
           "online": "Online"
         }
       },
       "meetingPlace": {
-        "label": "Where exactly?",
+        "label": "Wo genau?",
         "address": {
           "country": {
-            "label": "Country"
+            "label": "Land"
           },
           "city": {
-            "label": "City"
+            "label": "Stadt"
           },
           "zipCode": {
-            "label": "Zip Code"
+            "label": "PLZ"
           },
           "street": {
-            "label": "Address"
+            "label": "Adresse"
           }
         },
         "service": {
           "title": {
-            "label": "Plateform",
+            "label": "Plattform",
             "options": {
-              "other": "Other",
+              "other": "Andere",
               "skype": "Skype",
               "steam": "Steam",
               "teamspeak": "Teamspeak",
@@ -37,32 +37,32 @@
             }
           },
           "additional": {
-            "label": "Additionnal information to find ourselves:",
-            "placeholder": "Your ID or a link, for example"
+            "label": "Zus�tliche Informationen um sich zu finden:",
+            "placeholder": "Z.B. eine ID oder ein Link"
           }
         }
       },
       "meetingDate": {
-        "label": "Date of the event"
+        "label": "Zeitpunkt f�r die Partie"
       },
       "spots": {
-        "label": "Number of players (including you)"
+        "label": "Anzahl Spieler (du inbegriffen)"
       },
       "description": {
-        "label": "A few words to describe the event"
+        "label": "Eine Beschreibung der Partie"
       },
       "boardgameTags": {
-        "label": "Rather boardgames?"
+        "label": "Eher Brettspiele?"
       },
       "videogameTags": {
-        "label": "or videogames?"
+        "label": "Eher Videospiele"
       },
       "games": {
-        "label": "A specific game in mind?",
+        "label": "Ein bestimmtes Spiel im Kopf?",
         "$": {
           "title": {
-            "label": "Add a game",
-            "placeholder": "Title of the game"
+            "label": "Ein Spiel hinzuf�gen",
+            "placeholder": "Titel des Spiels"
           }
         }
       }
@@ -72,28 +72,28 @@
         "label": "Login"
       },
       "emails": {
-        "label": "Email",
+        "label": "E-mail",
         "$": {
           "address": {
-            "label": "Email address"
+            "label": "E-mail"
           }
         }
       },
       "emailCheck": {
-        "label": "I agree to receive emails from Bande de Joueurs."
+        "label": "Ich bin damit einverstanden, E-Mails von Bande de Joueurs zu bekommen."
       },
       "profile": {
         "name": {
-          "label": "Real name",
-          "placeholder": "Do we have to call you John Doe?"
+          "label": "Echter Name",
+          "placeholder": "Sollen wir dich John Doe nennen?"
         },
         "birthday": {
-          "label": "Birthday",
-          "placeholder": "DD/MM/YYYY"
+          "label": "Geburtsdatum",
+          "placeholder": "TT/MM/JJJJ"
         },
         "gender": {
-          "label": "Chromosomes",
-          "placeholder": "Pick one",
+          "label": "Chromosomen",
+          "placeholder": "W�hle ein Chromosomenpaar",
           "options": {
             "XY": "XY",
             "XX": "XX"
@@ -101,205 +101,205 @@
         },
         "address": {
           "country": {
-            "label": "Country"
+            "label": "Land"
           },
           "city": {
-            "label": "City",
+            "label": "Stadt",
             "placeholder": ""
           },
           "zipCode": {
-            "label": "Zip Code",
+            "label": "PLZ",
             "placeholder": ""
           },
           "street": {
-            "label": "Address",
-            "placeholder": ""
+            "label": "Adresse",
+            "placeholder": "Strasse und Nr."
           }
         },
         "bio": {
-          "label": "A final word to introduce you",
-          "placeholder": "You surely have something to tell... When are you aivalable to play? What are your favorite games? Do you have a game station? a big round table?"
+          "label": "Ein Satz um dich vorzustellen",
+          "placeholder": "Du hast sicher irgendwas �ber dich zu erz�hlen... Wann sind deine Spielzeiten? Welche sind deine Lieblingsspiele? Hast du eine Spielekonsole oder ein grosser runder Tisch?"
         },
         "style": {
-          "label": "What kind of gamer are you?"
+          "label": "Was f�r ein Spielertyp bist du?"
         }
       }
     }
   },
 
-  "headerJoin": "Join the Bande",
+  "headerJoin": "Schliess dich der Bande an",
   "headerLogin": "Login",
 
-  "navPlayers": "Players",
-  "navParties": "Next games",
-  "navAbout": "About",
-  "navOrganize": "Let's play!",
+  "navPlayers": "Spieler",
+  "navParties": "Die n�chsten Spielpartien",
+  "navAbout": "�ber",
+  "navOrganize": "Eine Spielpartie organisieren",
 
   "homeTitle": "Bande de joueurs",
-  "homeClaim": "It's far better playing together!",
-  "homeHeraAlt": "Bande de joueurs, meet other gamers for multiplayer",
-  "homeWhatTitle": "Don't play alone again!",
-  "homeWhatSubtitle": "Bande de Joueurs is an open community for boardgames and videogames players",
-  "homeWhatText": "If you think, like us, that games are not meant to isolate, but bring people together, then you're very welcome. Here you can find teammate players for all kind of games.",
-  "homeHowTitle": "How does it work?",
-  "homeHowOrganize": "Organize or subscribe to an event, when you want.",
-  "homeHowMeet":"Meet other players, online or nearby you.",
-  "homeHowStart": "Game's on! Start playing with nice people.",
-  "homeDescFindAlt": "Other gamers are seeking for mates",
-  "homeDescFindTitle": "Nothing special this week-end ?",
-  "homeDescFindText": "Take part in a game evening close to your home",
-  "homeDescTestAlt": "It's not easy to find people to play all the games in my collection",
-  "homeDescTestTitle": "A new game to test?",
-  "homeDescTestText": "Organize a game event and find new mates to test it.",
-  "homeDescGameAlt": "Multiplayer and videogames",
-  "homeDescGameTitle": "You've finished the single player mode?",
-  "homeDescGameText": "Got in touch with other gamers for the multi and coop modes!",
-  "homeJoinTitle": "Join the Bande",
-  "homeJoinSubtitle": "We'll tell you as soon as it's ready.",
-  "homeJoinText": "Send your email, you will be one of the first members of the Bande",
-  "homeReadyTitle": "Ready to play?",
-  "homeReadySubtitle": "Join us!",
-  "homeReadyText": "It's totally free and won't take you a while. Infact, you're already almost one of us...",
-  "homeReadySubtitleOnline": "Hi %s, how are you playing?",
-  "homeReadyTextOnline": "We're are really glad to have you in the Bande.",
-  "homeReadyAlt": "Dragons are also not playing alone anymore",
-  "homeWhoTitle": "Who are we?",
-  "homeWhoText": "A group of enthusiasts that does it for fun. Project lead: <a href=\"https://twitter.com/pierrefritsch\"> Pierre </a>, concept: Philou and Roland, dev: Maximilian, Sam and Max Thomu, illustrations Guillaume colors: Aline, support: Val, Elodie and Frank. Hosting: <a href=\"https://www.puzzle.ch/\"> Puzzle ITC </a>",
-  "homeWhoContact": "Follow us on Twitter: <a href=\"https://twitter.com/bandedejoueurs\">@bandedejoueurs</a><br>Feedback? Question? <a href=\"mailto:hello@bandedejoueurs.com\">hello@bandedejoueurs.com</a>",
+  "homeClaim": "Es ist viel besser zusammen zu spielen!",
+  "homeHeraAlt": "Bande de joueurs, triff andere Spieler f�r Multiplayer",
+  "homeWhatTitle": "Nie mehr wieder alleine spielen!",
+  "homeWhatSubtitle": "Bande de Joueurs ist eine Online Community f�r Brett- und Videospieler.",
+  "homeWhatText": "Wenn du wie wir denkst, dass Spiele da sind um sie zusammen zu spielen, Gleichgesinnte zusammenzubringen, dann bist du hier genau richtig. Hier kannst du Mitspieler f�r alle Arten von Spielen findne.",
+  "homeHowTitle": "Wie funktioniert es?",
+  "homeHowOrganize": "Organisiere oder melde dich an f�r eine Spielpartie an einem Datum deiner Wahl.",
+  "homeHowMeet":"Triff andere Spieler online oder in deiner N�he.",
+  "homeHowStart": "Das Spiel ist bereit, let's play!",
+  "homeDescFindAlt": "Andere Spieler suchen nach Mitspielern",
+  "homeDescFindTitle": "Nichts vor dieses Wochenende?",
+  "homeDescFindText": "Nimm an einem Spielabend in deiner N�he teil",
+  "homeDescTestAlt": "Es ist nicht einfach Mitspieler f�r alle meine Spiele in meiner Sammlung zu finden...",
+  "homeDescTestTitle": "Ein neues Spiel anspielen?",
+  "homeDescTestText": "Organisiere eine Spielpartie und triff neue Leute um das Spiel zu testen",
+  "homeDescGameAlt": "Multiplayer und Videospiele",
+  "homeDescGameTitle": "Single Player Mode schon durchgezockt?",
+  "homeDescGameText": "Triff andere Spieler f�r Multiplayer oder <span class=\"no-hyphen\">Co-Op!</span> Modi.",
+  "homeJoinTitle": "Schliess dich der Bande an",
+  "homeJoinSubtitle": "Wir halten dich auf dem Laufenden ab wann es bereit ist.",
+  "homeJoinText": "Gib deine Email-Adresse an und du wirst eines der ersten Mitglieder der Bande sein.",
+  "homeReadyTitle": "Bereit um zu spielen?",
+  "homeReadySubtitle": "Schliess dich uns an!",
+  "homeReadyText": "Es ist komplett kostenfrei und geht auch nicht lange. Du bist schon fast Teil der Bande...",
+  "homeReadySubtitleOnline": "Hallo, wie gehts?",
+  "homeReadyTextOnline": "Es freut uns dich bei uns zu haben.",
+  "homeReadyAlt": "Un dragon joue à la gameboy",
+  "homeWhoTitle": "Wer wir sind?",
+  "homeWhoText": "Wir sind eine Bande von Spieleliebhabern, die das zum Spass machen. Projektleiter: <a href=\"https://twitter.com/pierrefritsch\">Pierre</a>, Unterst�tzung bei der Konzeption: Philou und Roland, Unterst�tzung bei der Entwicklung: Maximilien, Sam, Thomu und Max, Illustrationen: Guillaume, Farben: Aline, Support: Val, Elodie und Frank. Hosting: <a href=\"https://www.puzzle.ch/\">Puzzle ITC</a>",
+  "homeWhoContact": "Finde uns auf Twitter: <a href=\"https://twitter.com/bandedejoueurs\" target=\"_blank\">@bandedejoueurs</a><br> Une question, un commentaire? <a href=\"mailto:hello@bandedejoueurs.com\">hello@bandedejoueurs.com</a>",
 
-  "accountErrorUsername": "Sorry, this username is already taken",
-  "accountErrorEmail": "You're email is not valid",
-  "accountChangePassword": "Change my password",
+  "accountErrorUsername": "Sorry, der Benutzername wird bereits von jemand anderem verwendet",
+  "accountErrorEmail": "E-mail ung�ltig",
+  "accountChangePassword": "Mein Passwort �ndern",
 
-  "myProfileProfile": "My profile",
-  "myProfileNotifications": "Notifications",
-  "myProfileBand": "My Bande",
-  "myProfileParties": "My game events",
-  "myProfileGames": "My games",
-  "myProfileSubtitle": "Here you can modify your prorfile and tell us a little bit more about you.",
-  "myProfileAboutYou": "About you",
-  "myProfileVisibleData": "Except for your address, those datas will be visible by the others players.",
-  "myProfileSave": "Save",
-  "myProfileDelete": "Delete my profile",
-  "myProfileRemoveConfirm": "Are you really sure to leave the Bande for good? It will also remove all you game events. (This action is irreversible)",
-  "myProfileNoGamesessions": "<strong>Nothing planned at the moment...</strong> Why not <a href=\"gamesessions\">see what comes next</a>?",
-  "myProfileNoGroup": "<strong>Yet no player in your Bande...</strong> Maybe you could <a href=\"players\">invite some</a>?",
+  "myProfileProfile": "Mein Profil",
+  "myProfileNotifications": "Benachrichtigungen",
+  "myProfileBand": "Meine Bande",
+  "myProfileParties": "Meine Spielpartien",
+  "myProfileGames": "Meine Spiele",
+  "myProfileSubtitle": "Hier kannst du dein Profil anpassen und uns ein bisschen mehr von dir erz�hlen.",
+  "myProfileAboutYou": "�ber dich",
+  "myProfileVisibleData": "Bis auf deine Adresse werden alle diese Daten f�r die �brigen Spieler sichtbar sein.",
+  "myProfileSave": "Mein Profil speichern",
+  "myProfileDelete": "Mein Konto l�schen",
+  "myProfileRemoveConfirm": "Bist du sicher, dass du dein Konto l�schen m�chtest? Dies wird auch alle deine Spielpartien l�schen. (Diese Aktion kann nicht r�ckg�ngig gemacht werden)",
+  "myProfileNoGamesessions": "<strong>Keine Spielpartien geplant f�r den Moment...</strong> Wieso nicht <a href=\"gamesessions\">die n�chsten Spielpartien anschauen</a>?",
+  "myProfileNoGroup": "<strong>Noch keine anderen Mitspieler in deiner Bande...</strong> Wieso nicht <a href=\"players\">jemanden einladen</a>?",
 
-  "playerAge": "%s years old",
-  "playerSeeProfile": "See my profile",
-  "playerGroupRemove": "Remove from my Bande",
-  "playerGroupInvite": "Invite in my Bande",
-  "playerItemThatsyou": "(that's you)",
-  "playerDetailallPlayers": "All players",
-  "playerDetailItsYou": "<strong>Yeah, that's you !</strong> Here is the page that introduces you to the others. <br />You can modifiy it <a href=\"/profile\">in your profile</a>.",
-  "playerDetailNone": "We don't know much about this player...",
-  "playerDetailStyle": "%s is a kind of a player rather...",
-  "playerDetailGamesessions": "Next game",
-  "playerDetailGamesessions_plural": "Next games (__count__)",
-  "playerDetailSee": "See the profile",
-  "playerListSearch": "Where do you want to play?",
+  "playerAge": "%s Jahre alt",
+  "playerSeeProfile": "Mein Profil anschauen",
+  "playerGroupRemove": "Von meiner Bande entfernen",
+  "playerGroupInvite": "In meine Bande einladen",
+  "playerItemThatsyou": "(das bist du)",
+  "playerDetailallPlayers": "Alle Spieler",
+  "playerDetailItsYou": "<strong>Ja, das bist du!</strong> Schau dir die Seite an, die dich den anderen Mitspielern vorstellt. <br />Du kannst die Angaben in <a href=\"/profile\">dein Profil</a> anpassen.",
+  "playerDetailNone": "Wir wissen nicht viel �ber diesen Spieler...",
+  "playerDetailStyle": "Der Spielstil von %s ist eher...",
+  "playerDetailGamesessions": "N�chste Spielpartien",
+  "playerDetailGamesessions_plural": "N�chste Spielpartien (__count__)",
+  "playerDetailSee": "Profil anschauen",
+  "playerListSearch": "Wo m�chtest du spielen?",
 
-  "playerInviteExample": "Hello %s, ",
+  "playerInviteExample": "Hallo %s, ",
 
-  "gamesessionOrganizedBy": "Organised by",
-  "gamesessionEdit": "Edit",
-  "gamesessionJoin": "Join the game",
-  "gamesessionLeave": "Withdraw from the game",
-  "gamesessionPlayersRegistered": "Registered players",
-  "gamesessionGames": "Intended game",
-  "gamesessionGames_plural": "Intended games",
-  "gamesessionRemoveGame": "Remove this game",
-  "gamesessionAddGame": "Add this game",
-  "gamesessionRemove": "Cancel the game event",
-  "gamesessionRemoveConfirm": "Are you sure you want to cancel this game event?",
+  "gamesessionOrganizedBy": "Organisiert von",
+  "gamesessionEdit": "Bearbeiten",
+  "gamesessionJoin": "Sich der Spielpartie anschliessen",
+  "gamesessionLeave": "Sich von der Spielpartie zur�ckziehen",
+  "gamesessionPlayersRegistered": "Eingeschrieben Spieler",
+  "gamesessionGames": "Beabsichtigte Spielpartie",
+  "gamesessionGames_plural": "Beabsichtigte Spielpartie",
+  "gamesessionRemoveGame": "Diese Spielpartie entfernen",
+  "gamesessionAddGame": "Eine Spielpartie hinzuf�gen",
+  "gamesessionRemove": "Die Spielpartie abbrechen",
+  "gamesessionRemoveConfirm": "Bist du sicher, dass du die Spielpartie abbrechen m�chtest?",
   "gamesessionShareMsgTwitter": "%s @bandedejoueurs",
 
-  "gamesessionCreateGo": "Go published",
-  "gamesessionCreateTitle": "Organize a game",
-  "gamesessionCreateSubtitle": "Awesome! You're now about to meet other frindly gamers. To find you, they'll need some additionnal informations.",
-  "gamesessionCreateWhen": "When?",
-  "gamesessionCreateWhere": "Where do we meet?",
-  "gamesessionCreateMore": "Some details (optional)",
-  "gamesessionCreateWho": "Which is part of the game?",
-  "gamesessionCreateWhat": "What are we playing ? (optional)",
-  "gamesessionCreateGames": "Games",
-  "gamesessionCreateVideoGames": "Videogames",
-  "gamesessionCreateBoardGames": "Boardgames",
-  "gamesessionCreateAddGame": "Add a game",
-  "gamesessionCreateOnlyVisible": "The actual addresse will only be visible by the participants.",
-  "gamesessionCreateSuggest": "Aha, wouldn't it be one of those games?",
-  "gamesessionCreateSuggestData": "<small>Those datas nicely comes from <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> and <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a></small>",
+  "gamesessionCreateGo": "Publizieren",
+  "gamesessionCreateTitle": "Organisiere eine Spielpartie",
+  "gamesessionCreateSubtitle": "Super! Du bist nun im Begriff andere sympathische Spieler zu treffen. Damit sicher dich finden k�nnen, brauchen sie noch ein paar zus�tzliche Infos.",
+  "gamesessionCreateWhen": "Wann?",
+  "gamesessionCreateWhere": "Treffen um?",
+  "gamesessionCreateMore": "Ein paar Details (optional)",
+  "gamesessionCreateWho": "Wer ist mit von der Spielpartie?",
+  "gamesessionCreateWhat": "Was spielen wir? (optional)",
+  "gamesessionCreateGames": "Spiel",
+  "gamesessionCreateVideoGames": "Videospiel",
+  "gamesessionCreateBoardGames": "Gesellschaftsspiel/Brettspiel",
+  "gamesessionCreateAddGame": "Ein Spiel hinzuf�gen",
+  "gamesessionCreateOnlyVisible": "Die genaue Adresse des Treffpunktes wird nur den Mitspielern angezeigt.",
+  "gamesessionCreateSuggest": "Wie w�r's mit einem von diesen Spielen?",
+  "gamesessionCreateSuggestData": "<small>Diese Vorschl�ge werden freundlicherweise von <a href=\"http://www.giantbomb.com/\" target=\"_blank\">GiantBomb</a> und <a href=\"https://boardgamegeek.com/\" target=\"_blank\">Boardgame Geek</a> bereitgestellt.</small>",
 
-  "gamesessionFilterWhat": "What are we going to play?",
-  "gamesessionFilterWhere": "Where do we meet?",
-  "gamesessionFilterWhereIRL": "Nearby...",
+  "gamesessionFilterWhat": "Was spielen wir?",
+  "gamesessionFilterWhere": "Wo treffen wir uns?",
+  "gamesessionFilterWhereIRL": "In der N�he von...",
   "gamesessionFilterWhereOnline": "Online...",
 
-  "gamesessionPreviewTitle": "Congratulations! The event was created successfully",
-  "gamesessionPreviewText": "You can see it in the next games list. It should look so:",
-  "gamesessionPreviewInvite": "You will be notified as soon as other players have registered in the game <br /> Don't forget to invite your friends by sending them this link:",
+  "gamesessionPreviewTitle": "Gl�ckwunsch! Die Spielpartie wurde erfolgreich erstellt",
+  "gamesessionPreviewText": "Sie wird nun in der Liste der n�chsten Spiele aufgef�hrt. So sieht es aus:",
+  "gamesessionPreviewInvite": "Du wirst benachrichtigt, sobald sich andere Spieler f�r deine Spielpartie eingeschrieben haben.<br />Vergiss nicht deine Freunde einzuladen, in dem du ihnen den folgenden Link schickst:",
 
-  "gamesessionUpdateTitle": "Modify %s",
-  "gamesessionUpdateSubtitle": "You're about to modifiy this event. All registered players will recieve a notification.",
-  "gamesessionUpdateGo": "Modify",
+  "gamesessionUpdateTitle": "Die Spielpartie �ndern %s",
+  "gamesessionUpdateSubtitle": "Du bist im Begriff die Spielpartie zu �ndern. Alle eingeschriebenen Spieler werden eine Benachrichtigung erhalten.",
+  "gamesessionUpdateGo": "�ndern",
 
-  "gamesessionListParty": "One game",
-  "gamesessionListParty_plural": "__count__ games",
-  "gamesessionListNotFound": "<strong>Con's find any game?</strong> Why not <a href=\"/gamesession/create\">organize one!</a>",
+  "gamesessionListParty": "Eine Spielpartie",
+  "gamesessionListParty_plural": "__count__ Spielpartien",
+  "gamesessionListNotFound": "<strong>Du findest keine Spielpartie?</strong> Wieso nicht einfach selber <a href=\"/gamesession/create\">eine Spielpartie erstellen!</a>",
 
-  "gamesessionItemSpots": "One spot left !",
-  "gamesessionItemSpots_plural": "Still __count__ spots.",
-  "gamesessionItemSpotsFull": "The game is full.",
-  "gamesessionItemSpotsSorry": "Sorry, too late, we are full!",
+  "gamesessionItemSpots": "Ein Platz frei",
+  "gamesessionItemSpots_plural": "Noch __count__ Pl�tze.",
+  "gamesessionItemSpotsFull": "Spielpartie voll.",
+  "gamesessionItemSpotsSorry": "Zu sp�t, die Spielpartie ist bereits voll!",
 
-  "gamesessionDetailallSessions": "All games",
-  "gamesessionDetailSee": "See the game",
+  "gamesessionDetailallSessions": "Alle Spielpartien",
+  "gamesessionDetailSee": "Die Spielpartie sehen",
 
-  "gameAdd": "Add this game",
+  "gameAdd": "Eine Spielpartie hinzuf�gen",
 
-  "emailCongrats": "Congratulations %s !",
-  "emailGamesessionSendLink": "You will be notified as soon as other players have registered in the game <br /> Don't forget to invite your friends by sending them this link:",
-  "emailGamesessionRDV": "The appointment is taken:",
-  "emailCiao": "Good game!",
-  "emailFollowUs": "Follow us on Twitter:",
-  "emailFeedback": "A question, feedback?",
-  "emailGamesessionJoinSubject": "Join the event: %s",
-  "emailGamesessionJoinTitle": "Great %s,<br> you are in!",
-  "emailGamesessionNewplayerTitle": "%s just joined the party!<br> ",
-  "emailGamesessionNewplayerText": "A mate from the bande has registered to the game event.",
+  "emailCongrats": "Gl�ckwunsch %s !",
+  "emailGamesessionSendLink": "Du wirst benachrichtigt, sobald sich andere Spieler f�r deine Spielpartie eingeschrieben haben. Vergiss nicht deine Freunde einzuladen, in dem du ihnen den folgenden Link schickst:",
+  "emailGamesessionRDV": "Das Datum f�r die Spielpartie wurde abgemacht:",
+  "emailCiao": "Gutes Spiel!",
+  "emailFollowUs": "Finde uns auf Twitter:",
+  "emailFeedback": "Eine Frage, ein Kommentar?",
+  "emailGamesessionJoinSubject": "Sich der Spielpartie %s anschliessen",
+  "emailGamesessionJoinTitle": "Super %s,<br> du hast dich f�r die Spielpartie eingeschrieben!",
+  "emailGamesessionNewplayerTitle": "Ein neuer Spieler hat sich eingeschrieben!<br> %s",
+  "emailGamesessionNewplayerText": "Ein Spieler hat sich der Spielpartie angeschlossen.",
 
   "time": {
-    "morning": "Morning",
-    "afternoon": "Afternoon",
-    "evening": "Evening",
-    "at": "at"
+    "morning": "Morgen",
+    "afternoon": "Nachmittag",
+    "evening": "Abend",
+    "at": "um"
   },
   "helper": {
     "address": "__street__, __zipCode__ __city__",
-    "onDate": "on %s",
-    "inCity": "in %s",
-    "inZipCode": "in the %s",
-    "platform": "Look on __title__, search for __additional__",
-    "onPlatform": "on %s",
-    "logout": "Logout",
-    "loading": "Loading...",
+    "onDate": "Am %s",
+    "inCity": "In� %s",
+    "inZipCode": "In %s",
+    "platform": "Suche nach __title__, suche __additional__",
+    "onPlatform": "Auf %s",
+    "logout": "Ausloggen",
+    "loading": "L�dt...",
     "more": "+",
     "less": "-"
   },
-  "errorNotUser": "To go further, you need to be part of the Bande... <a href=\"/sign-up\">Join us!</a>",
-  "errorProfile": "Finish your profile before you go further: <a href=\"/profile\">Finalize my profile</a>",
-  "errorNoEmail": "We just only need your email address, so we can let you in touch.<br />We promise, no SPAM!",
-  "errorNotVerified": "We'd like a confirmation. Pleas have a look in your mailbox.",
+  "errorNotUser": "Um weiterzufahren, musst du Teil der Bande sein... <a href=\"/sign-up\">Sich der Bande anschliessen</a>",
+  "errorProfile": "Stelle zuerst dein Profil fertig, bevor du weitergehst: <a href=\"/profile\">Mein Profil fertigstellen</a>",
+  "errorNoEmail": "Es fehlt nur noch deine E-Mailadresse, damit wir in Kontakt bleiben k�nnen.<br />Versprochen, keine SPAM!",
+  "errorNotVerified": "Wir h�tten gerne eine Best�tigung. Schau bitte in deine Mailbox.",
 
-  "board": "Boardgame",
-  "cards": "Cards",
-  "dices": "Dices",
-  "outside": "Outside",
+  "board": "Brettspiel",
+  "cards": "Karten",
+  "dices": "W�rfel",
+  "outside": "Draussen",
   "wargame": "Wargames",
   "rpg": "RPG",
-  "party": "Party-games",
+  "party": "Party Games",
   "puzzle": "Puzzles",
-  "quizz": "Quizz",
+  "quizz": "Quiz",
   "pc": "PC",
   "mac": "MAC",
   "linux": "Linux",
@@ -314,18 +314,18 @@
   "3ds": "3DS",
   "psvita": "PS Vita",
 
-  "discussion": "Chatty",
-  "immersion": "In the character",
-  "occasional": "Occasional",
+  "discussion": "Gespr�chig",
+  "immersion": "Rollenspiel",
+  "occasional": "Gelegenheitsspiel",
   "hardcore": "Hard-core",
   "oldschool": "Old-school",
   "relaxation": "Relax",
   "competition": "Competitor",
-  "cooperation": "Cooperative",
+  "cooperation": "Kooperativ",
   "sniper": "Sniper",
   "brute": "Brute",
-  "strategist": "Strategist",
+  "strategist": "Strategie",
   "leader": "Leader",
   "support": "Support",
-  "infiltration": "Stealthy"
+  "infiltration": "Schleichen"
 }
