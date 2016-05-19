@@ -164,7 +164,7 @@
   "homeReadyTextOnline": "We're are really glad to have you in the Bande.",
   "homeReadyAlt": "Dragons are also not playing alone anymore",
   "homeWhoTitle": "Who are we?",
-  "homeWhoText": "A group of enthusiasts that does it for fun. Project lead: <a href=\"https://twitter.com/pierrefritsch\"> Pierre </a>, concept: Philou and Roland, dev: Maximilian, Sam and Max Thomu, illustrations Guillaume colors: Aline, support: Val, Elodie and Frank. Hosting: <a href=\"https://www.puzzle.ch/\"> Puzzle ITC </a>",
+  "homeWhoText": "A group of enthusiasts that does it for fun. Lead: <a href=\"https://twitter.com/pierrefritsch\"> Pierre </a>, concept: Philou and Roland, dev: Maximilian, Sam and Max Thomu, illustrations Guillaume and Aline, translations: Jürgen, support: Val, Mayra, Elodie and Frank.",
   "homeWhoContact": "Follow us on Twitter: <a href=\"https://twitter.com/bandedejoueurs\">@bandedejoueurs</a><br>Feedback? Question? <a href=\"mailto:hello@bandedejoueurs.com\">hello@bandedejoueurs.com</a>",
 
   "accountErrorUsername": "Sorry, this username is already taken",
@@ -259,7 +259,7 @@
   "emailWelcomeSubject": "Welcom in the Bande",
   "emailWelcomeTitle": "Congrats %s, you're now part of the Bande!",
   "emailWelcomeSubtitle": "The die is cast, we were just waiting for you.",
-  "emailWelcomeText": "Youo can start by taking a look on the <a href=\"__urlGamesessions__\" target=\"_blank\">next events</a>, or by seeking for <a href=\"__urlPlayers__\" target=\"_blank\">players nearby you</a>. Or you also could <a href=\"__urlProfile__\" target=\"_blank\">complete your profile</a>, it's well better to know each other to play together, isn't it?",
+  "emailWelcomeText": "You can start by taking a look on the <a href=\"__urlGamesessions__\" target=\"_blank\">next events</a>, or by seeking for <a href=\"__urlPlayers__\" target=\"_blank\">players nearby you</a>. Or you also could <a href=\"__urlProfile__\" target=\"_blank\">complete your profile</a>, it's well better to know each other to play together, isn't it?",
   "emailWelcomeCTA": "Voir mon profil",
 
   "emailCongrats": "Congratulations %s !",
