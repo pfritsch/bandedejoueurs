@@ -5,7 +5,7 @@ Template.playerDetail.helpers({
     return player;
   },
   'playerName': function() {
-    if(this.profile && this.profile.name ) return this.profile.name +' <em>alias</em> '+this.username;
+    if(this.profile && this.profile.name ) return this.profile.name;
     return this.username;
   },
   'playerInfos': function() {
@@ -17,12 +17,12 @@ Template.playerDetail.helpers({
       }
 
       var gender = (this.profile.gender)? this.profile.gender : false;
-      profileInfos += (gender)? ', '+gender : '';
+      profileInfos += (gender)? ' '+gender : '';
 
       if(this.profile.birthday) {
         var birthday = moment(this.profile.birthday, 'X');
         var age = rangeAge(moment().diff(birthday, 'years'));
-        profileInfos += ', '+TAPi18n.__('playerAge', age);
+        profileInfos += ' '+TAPi18n.__('playerAge', age);
       }
 
       return (profileInfos != "")? profileInfos : TAPi18n.__('playerDetailNone');

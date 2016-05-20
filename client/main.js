@@ -59,6 +59,21 @@ getUserCoordinates = function() {
     }
   }
 }
+getPlayerStatus = function(status){
+  switch (status) {
+    case 'pendingInvitation':
+      return {pendingInvitation: true}
+    break;
+    case 'invited':
+      return {invited: true}
+    break;
+    case 'accepted':
+      return {accepted: true}
+    break;
+    default:
+      return false
+  }
+}
 rangeAge = function(age) {
  switch (true) {
   case age > 60:

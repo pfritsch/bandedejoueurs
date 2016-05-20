@@ -3,7 +3,17 @@ Template.playerAction.helpers({
     if(Meteor.user()) {
       var myGroup = Meteor.user().group;
       if(myGroup) {
-        return myGroup.contains(this._id, 'userId') > -1;
+        var userId = this._id;
+        var playerPosition = myGroup.contains(userId, 'userId');
+        console.log(playerPosition)
+        // _.find(myGroup, function(item) {
+        //   return item.userId == userId
+        // })
+      //   console.log(this._id)
+      //   if(playerPosition > -1) {
+      //     this.status = myGroup[playerPosition].status;
+      //     return this;
+      //   }
       }
     }
   },
@@ -11,6 +21,9 @@ Template.playerAction.helpers({
     if(Meteor.user()) {
       return this._id === Meteor.userId();
     }
+  },
+  'status': function() {
+    return getPlayerStatus(this.status);
   }
 });
 

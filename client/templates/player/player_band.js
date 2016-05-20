@@ -3,20 +3,8 @@ Template.playerBand.helpers({
     return getName(this);
   },
   'status': function() {
-    switch (this.status) {
-      case 'pendingInvitation':
-        return {pendingInvitation: true}
-      break;
-      case 'invited':
-        return {invited: true}
-      break;
-      case 'accepted':
-        return {accepted: true}
-      break;
-      default:
-        return false
-    }
-  },
+    return getPlayerStatus(this.status);
+  }
 });
 
 Template.playerBand.events({

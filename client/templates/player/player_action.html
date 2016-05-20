@@ -3,12 +3,14 @@
   {{#if itsMe}}
     <a href="{{pathFor 'myProfile'}}#profile" class="button {{../btnClass}} player-item-action">{{_ 'playerSeeProfile'}}</a>
   {{else}}
-    {{#if inMyGroup}}
+    {{#with inMyGroup}}
+      {{status}}
       <a href="#" class="button {{../btnClass}} player-item-action player-contact">{{_ 'playerGroupContact'}}</a>
       <a href="#" class="button-link is-danger player-item-action player-invite">{{_ 'playerGroupRemove'}}</a>
+
     {{else}}
       <a href="#" class="button {{../btnClass}} player-item-action player-invite">{{_ 'playerGroupInvite'}}</a>
-    {{/if}}
+    {{/with}}
   {{/if}}
 {{/with}}
 </template>

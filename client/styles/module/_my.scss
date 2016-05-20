@@ -18,6 +18,13 @@
 .my-preview-name,
 .my-preview-email {
   display: block;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: white;
+  }
 }
 .my-preview-avatar {
   margin: rem-calc(6 0 0 12);
@@ -33,7 +40,7 @@
     transition: border 300ms ease;
   }
   &:hover .avatar {
-    border-color: rgba(0,0,0,0.5); 
+    border-color: rgba(0,0,0,0.5);
   }
 }
 .my-profil-actions {

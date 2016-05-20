@@ -19,10 +19,13 @@
           {{> avatar user=this}}
         </div>
         <div class="player-detail-infos">
-          <p class="is-highlight">{{playerInfos}} {{#if profile.bio}}<br> "{{profile.bio}}"{{/if}}</p>
-          <p>
-          {{> playerAction player=this btnClass='button-big'}}
-          </p>
+          <ul>
+            {{#if profile.address.city}}<li class="player-detail-city">{{profile.address.city}}</li>{{/if}}
+            {{#if profile.gender}}<li class="player-detail-gender">{{profile.gender}}</li>{{/if}}
+            {{#if profile.birthday}}<li class="player-detail-age">{{age}}</li>{{/if}}
+            {{#if profile.bio}}<li class="player-detail-games">"{{profile.bio}}"</li>{{/if}}
+          </ul>
+          <p>{{> playerAction player=this btnClass='button-big'}}</p>
         </div>
         {{#if profile.style}}
         <div class="player-detail-style">

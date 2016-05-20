@@ -60,11 +60,11 @@
   <!-- My Band -->
   <div class="grid-container has-space-bottom">
     <div class="grid-section has-space-bottom">
-      <h2 class="h1">{{_ "navTabMyBand"}}</h2>
+      <h2 class="h1">{{_ "myProfileBand"}}</h2>
       <div class="grid-section">
         {{#if playersByStatus}}
           {{#each playersByStatus}}
-            {{_ status}}
+            <h3 class="catalog-group-title">{{_ status}}</h3>
             {{#each players}}
               {{#with playerData}}
                 {{> playerBand status=../status messages=../messages player=this}}
@@ -81,7 +81,7 @@
   <!-- My Parties -->
   <div class="grid-container has-space-bottom">
     <div class="grid-section">
-      <h2 class="h1">{{_ "navTabMyParties"}}</h2>
+      <h2 class="h1">{{_ "myProfileParties"}}</h2>
     </div>
     <div class="grid-section">
       {{#if myGamesessions}}
@@ -96,7 +96,7 @@
 
   <!-- My Games -->
   <div>
-    <h2>{{_ "navTabMyGames"}}</h2>
+    <h2>{{_ "myProfileGames"}}</h2>
   </div>
 {{/navTabs}}
 {{/with}}
