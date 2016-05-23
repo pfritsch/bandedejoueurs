@@ -121,10 +121,7 @@ Meteor.methods({
     });
     Meteor.users.update(playerId, {$set: {'group': playerGroup}});
 
-    var myGroup = user.group.map(function(player,index){
-      if(player.userId !== playerId) return player;
-    });
-    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
+    Meteor.users.update(Meteor.userId(), {$pull: {'group': {userId: playerId}}});
   },
   cancelInvitation: function(playerId) {
     user = Meteor.user();
@@ -132,25 +129,8 @@ Meteor.methods({
     check(playerId, String);
     var player = Meteor.users.findOne(playerId);
 
-    var playerGroup = player.group.map(function(player,index){
-      if(player.userId !== Meteor.userId()) return player;
-    });
-    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
-
-    var myGroup = user.group.map(function(player,index){
-      if(player.userId !== playerId) return player;
-    });
-    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
-  },
-  userAddPlayer: function(invitation) {
-    user = Meteor.user();
-    check(user, Object);
-    if(!user.profile.group) user.profile.group = [];
-    if(user.profile.group.indexOf(playerId) > -1) {
-      Meteor.users.update(Meteor.userId(), {$pull: {'profile.group': playerId}});
-    } else {
-      Meteor.users.update(Meteor.userId(), {$addToSet: {'profile.group': playerId}});
-    }
+    Meteor.users.update(playerId, {$pull: {'group': {userId: Meteor.userId()}}});
+    Meteor.users.update(Meteor.userId(), {$pull: {'group': {userId: playerId}}});
   },
   geoLocalizePlace: function(place) {
     var geo = new GeoCoder();

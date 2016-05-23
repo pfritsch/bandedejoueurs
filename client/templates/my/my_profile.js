@@ -20,7 +20,7 @@ Template.myProfile.helpers({
       { name: TAPi18n.__('myProfile'), slug: 'profile' },
       { name: TAPi18n.__('myProfileBand'), slug: 'band' },
       { name: TAPi18n.__('myProfileParties'), slug: 'parties' },
-      { name: TAPi18n.__('myProfileGames'), slug: 'games'}
+      // { name: TAPi18n.__('myProfileGames'), slug: 'games'}
     ];
   },
   activeTab: function() {
@@ -39,7 +39,6 @@ Template.myProfile.helpers({
     return member;
   },
   playersByStatus: function() {
-    console.log(groupPlayersByStatus(Meteor.user().group))
     return groupPlayersByStatus(Meteor.user().group);
   },
   myGamesessions: function() {

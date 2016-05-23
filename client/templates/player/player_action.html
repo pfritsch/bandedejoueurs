@@ -4,12 +4,17 @@
     <a href="{{pathFor 'myProfile'}}#profile" class="button {{../btnClass}} player-item-action">{{_ 'playerSeeProfile'}}</a>
   {{else}}
     {{#with inMyGroup}}
-      {{status}}
-      <a href="#" class="button {{../btnClass}} player-item-action player-contact">{{_ 'playerGroupContact'}}</a>
-      <a href="#" class="button-link is-danger player-item-action player-invite">{{_ 'playerGroupRemove'}}</a>
-
+      {{#if playerStatus.pendingInvitation}}
+        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-accept">{{_ 'playerGroupAccept'}}</a> <a href="#" class="player-item-action player-decline">{{_ 'playerGroupDecline'}}</a></p>
+      {{/if}}
+      {{#if playerStatus.invited}}
+        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-cancel">{{_ 'playerGroupCancel'}}</a></p>
+      {{/if}}
+      {{#if playerStatus.accepted}}
+        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-cancel">{{_ 'playerGroupRemove'}}</a></p>
+      {{/if}}
     {{else}}
-      <a href="#" class="button {{../btnClass}} player-item-action player-invite">{{_ 'playerGroupInvite'}}</a>
+      <a href="#" class="button {{../btnClass}} player-invite">{{_ 'playerGroupInvite'}}</a>
     {{/with}}
   {{/if}}
 {{/with}}

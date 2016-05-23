@@ -32,7 +32,7 @@ input[type='submit'] {
   font-family: 'Halis Rounded', 'Helvetica Neue', helvetica, arial, sans;
 }
 
-.button, 
+.button,
 a.button,
 button,
 input[type='submit'] {
@@ -63,14 +63,29 @@ input[type='submit'] {
       background: #D0021B;
     }
   }
+  &.is-success {
+    &:hover,
+    &:focus {
+      background: #0E995A;
+    }
+  }
 }
-.button:not(.button-big), 
+
+.button:not(.button-big),
 a.button:not(.button-big),
 button:not(.button-big),
 input[type='submit']:not(.button-big){
   &.is-danger {
     border-color: #D0021B;
     color: #D0021B;
+    &:hover,
+    &:focus {
+      color: white;
+    }
+  }
+  &.is-success {
+    border-color: #0E995A;
+    color: #0E995A;
     &:hover,
     &:focus {
       color: white;

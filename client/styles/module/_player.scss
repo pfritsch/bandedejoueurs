@@ -129,12 +129,13 @@
     margin-left: 0;
   }
 }
+
 .player-item-infos {
   font-size: rem-calc(14);
 }
 
 .player-item-action {
-  margin-top: rem-calc(6);
+  float: right;
 }
 
 .player-detail-avatar {
@@ -187,4 +188,8 @@
     clear: none;
     margin-top: 0;
   }
+}
+
+.player-action-status {
+  margin: rem-calc(12) 0 0;
 }

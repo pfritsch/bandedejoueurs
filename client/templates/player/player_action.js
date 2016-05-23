@@ -4,16 +4,9 @@ Template.playerAction.helpers({
       var myGroup = Meteor.user().group;
       if(myGroup) {
         var userId = this._id;
-        var playerPosition = myGroup.contains(userId, 'userId');
-        console.log(playerPosition)
-        // _.find(myGroup, function(item) {
-        //   return item.userId == userId
-        // })
-      //   console.log(this._id)
-      //   if(playerPosition > -1) {
-      //     this.status = myGroup[playerPosition].status;
-      //     return this;
-      //   }
+        return _.find(myGroup, function(item) {
+          if(item != null) return item.userId == userId
+        })
       }
     }
   },
@@ -22,7 +15,7 @@ Template.playerAction.helpers({
       return this._id === Meteor.userId();
     }
   },
-  'status': function() {
+  'playerStatus': function() {
     return getPlayerStatus(this.status);
   }
 });
@@ -35,7 +28,31 @@ Template.playerAction.events({
     } else {
       Meteor.call('userInvitePlayer', this._id);
     }
-  }
+  },
+  'click .player-cancel': function(e){
+    e.preventDefault();
+    if(!Meteor.user()) {
+      return throwNotification(TAPi18n.__('errorNotUser'));
+    } else {
+      Meteor.call('cancelInvitation', this._id);
+    }
+  },
+  'click .player-accept': function(e){
+    e.preventDefault();
+    if(!Meteor.user()) {
+      return throwNotification(TAPi18n.__('errorNotUser'));
+    } else {
+      Meteor.call('acceptInvitation', this._id);
+    }
+  },
+  'click .player-decline': function(e){
+    e.preventDefault();
+    if(!Meteor.user()) {
+      return throwNotification(TAPi18n.__('errorNotUser'));
+    } else {
+      Meteor.call('declineInvitation', this._id);
+    }
+  },
   // TODO: contact player?
   // 'click .player-contact': function(e){
   //   e.preventDefault();
