@@ -11,6 +11,8 @@ Meteor.publish('somePlayers', function(filters) {
     'profile.address.city': 1,
     'profile.bio': 1,
     'profile.location': 1,
+    'profile.style': 1,
+    'profile.gamesessions': 1,
     avatar: 1
   }});
 });

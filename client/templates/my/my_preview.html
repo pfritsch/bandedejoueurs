@@ -1,9 +1,14 @@
 <template name="myPreview">
-  <div class="my-preview">
-      <div class="my-preview-content">
-        <a href="{{pathFor 'myProfile'}}" class="my-preview-name">{{currentUserName}}</a>
-        <a href="#" class="my-preview-logout">{{_ 'helper.logout'}}</a>
-      </div>
-      <a href="{{pathFor 'myProfile'}}" class="my-preview-avatar">{{> avatar user=currentUser}}</a>
+  <div class="my-preview {{#if hasNewMessage}}has-new-message{{/if}}">
+    <div class="my-preview-content">
+      <a href="{{pathFor 'myProfile'}}" class="my-preview-name">
+        {{currentUserName}}
+        {{#if hasNoEmail}}
+          <svg class="icon is-inline" alt="{{_ 'errorNoEmail'}}"><use xlink:href="#icon-warning" /></svg>
+        {{/if}}
+      </a>
+      <a href="#" class="my-preview-logout">{{_ 'helper.logout'}}</a>
+    </div>
+    <a href="{{pathFor 'myProfile'}}" class="my-preview-avatar">{{> avatar user=currentUser}}</a>
   </div>
 </template>

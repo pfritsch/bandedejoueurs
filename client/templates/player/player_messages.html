@@ -1,0 +1,70 @@
+<template name="playerMessages">
+{{#if Template.subscriptionsReady}}
+  {{#with player}}
+  <nav class="nav-sub">
+    <div class="grid-container">
+      <a href="{{pathFor 'playerDetail' userId=_id}}" class="nav-sub-link"><svg class="icon is-inline"><use xlink:href="#icon-chevron-left" /></svg> {{_ 'playerDetailSeeName' playerName}}</a>
+    </div>
+  </nav>
+  <div class="grid-container has-space-bottom">
+    <div class="grid-section">
+      <div class="player-message-header grid-row">
+        <div class="player-message-face">
+          {{> avatar user=this}}
+        </div>
+        <form id="message" class="player-message-form">
+          <label for="playerMessage">{{_ 'playerContactName' playerName}}</label>
+          <input name="playerMessage" type="text" autofocus="true" placeholder="{{_ 'playerSendMessagePlaceholder'}}">
+          <p class="player-message-button"><input type="submit" class="button button-big player-send-message" value="{{_ 'playerSendMessage'}}"></p>
+        </form>
+      </div>
+    </div>
+    <div class="grid-section">
+
+      <ul class="chat-list">
+      {{#each messagesFromPlayer}}
+        {{#if fromUser}}
+        <li class="chat-item is-from-me">
+          <div class="chat-message">
+            <p>{{text}}</p>
+            <small class="is-muted">{{dateFormatted}}</small>
+            <div class="avatar avatar-circle is-mini">
+              <img class="avatar-image" src="{{#if currentUser.avatar}}{{currentUser.avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="{{#if currentUser.userColor}}background-color:{{currentUser.userColor}}{{/if}}">
+            </div>
+          </div>
+        </li>
+        {{else}}
+        <li class="chat-item">
+          <div class="chat-message">
+            <p>{{text}}</p>
+              <small class="is-muted">{{dateFormatted}}</small>
+            <div class="avatar avatar-circle is-mini">
+              <img class="avatar-image" src="{{#if ../avatar}}{{../avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="{{#if ../userColor}}background-color:{{../userColor}}{{/if}}">
+            </div>
+          </div>
+        </li>
+        {{/if}}
+      {{/each}}
+      </ul>
+
+      {{#if myGamesessions}}
+      <ul class="player-detail-gamesessions catalog-list">
+        <li class="catalog-group">
+          <h3 class="catalog-group-title">{{_ 'playerDetailGamesessions' count=myGamesessions.count}}</h3>
+          <section class="catalog-group-list gamesession-list">
+            {{#each myGamesessions.sessions}}
+              {{> gamesessionItem}}
+            {{/each}}
+          </section>
+        </li>
+      </ul>
+      {{/if}}
+    </div>
+  </div>
+  {{/with}}
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>

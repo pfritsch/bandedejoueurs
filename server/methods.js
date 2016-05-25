@@ -73,6 +73,31 @@ Meteor.methods({
     check(doc, Schema.user);
     Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
   },
+  userSendMessage: function(playerId, text) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
+    check(text, String);
+    var now = moment().unix();
+
+    // Add message to player
+    Meteor.users.update(playerId, {$addToSet: {'messages': {
+      'playerId': Meteor.userId(),
+      'date': now,
+      'text': text,
+      'status': "new"
+    }}});
+
+    // Add message to user
+    Meteor.users.update(Meteor.userId(), {$addToSet: {'messages': {
+      'playerId': playerId,
+      'date': now,
+      'text': text,
+      'fromUser': true,
+      'status': "read"
+    }}});
+
+  },
   userInvitePlayer: function(playerId) {
     user = Meteor.user();
     check(user, Object);

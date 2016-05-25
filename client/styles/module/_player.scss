@@ -151,17 +151,19 @@
     text-align: left;
   }
 }
-.player-detail-face {
+.player-detail-face,
+.player-message-face {
   @media #{$medium-up} {
     @include span(4 of 12)
   }
   @media #{$large-up} {
     @include span(2 of 12)
   }
-}
-.player-detail-face .avatar {
-  width: rem-calc(120);
-  height: rem-calc(120);
+
+  & > .avatar {
+    width: rem-calc(120);
+    height: rem-calc(120);
+  }
 }
 .player-detail-infos {
   font-weight: 300;
@@ -192,4 +194,38 @@
 
 .player-action-status {
   margin: rem-calc(12) 0 0;
+}
+
+.player-message-header {
+  text-align: center;
+  background: #E5E1CF;
+  margin: rem-calc(24) auto;
+  padding: rem-calc(12);
+  text-align: center;
+  border-radius: 3px;
+  @media #{$medium-up} {
+    @include clearfix;
+    padding: rem-calc(24);
+    text-align: left;
+  }
+}
+
+.player-message-form {
+  margin-top: rem-calc(24);
+  @media #{$medium-up} {
+    @include span(8 last of 12)
+    margin-top: 0;
+  }
+  @media #{$large-up} {
+    @include span(10 last of 12)
+    margin-top: 0;
+  }
+
+  & > label {
+    margin-top: 0;
+  }
+}
+
+.player-message-button {
+  margin-top: rem-calc(12);
 }

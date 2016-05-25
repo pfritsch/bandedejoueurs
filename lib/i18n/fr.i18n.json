@@ -117,7 +117,7 @@
           }
         },
         "bio": {
-          "label": "Un dernier mot pour te présenter",
+          "label": "Un petit mot pour te présenter",
           "placeholder": "Tu dois bien avoir un truc à raconter... Quelles sont tes disponibilités pour jouer? Quel sont tes jeux préférés? As-tu une console, une grande table ronde?"
         },
         "style": {
@@ -173,11 +173,12 @@
 
   "myProfile": "Mon profil",
   "myProfileBand": "Ma bande",
+  "myProfileMessages": "Messages",
   "myProfileParties": "Mes parties",
   "myProfileGames": "Mes jeux",
   "myProfileSubtitle": "Ici tu peux modifier ton profil et nous en dire un peu plus sur toi.",
   "myProfileAboutYou": "A propos de toi",
-  "myProfileVisibleData": "À part ton adresse exacte, ces données seront visibles par les autres joueurs.",
+  "myProfileVisibleData": "Important: ces données seront visibles par les autres joueurs.",
   "myProfileSave": "Sauvegarder mon profil",
   "myProfileDelete": "Supprimer mon compte",
   "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte? Cela va également effacer toutes tes parties. (Cette action est irreversible)",
@@ -185,6 +186,10 @@
   "myProfileNoGroup": "<strong>Pas encore de joueur dans ta bande...</strong> Pourquoi ne pas <a href=\"players\">en inviter</a>?",
 
   "playerAge": "%s ans",
+  "playerContact": "Contacter",
+  "playerContactName": "Contacter %s",
+  "playerSendMessage": "Envoyer",
+  "playerSendMessagePlaceholder": "Ton message",
   "playerSeeProfile": "Voir mon profil",
   "playerGroupRemove": "retirer",
   "playerGroupInvite": "Inviter dans ma bande",
@@ -202,6 +207,7 @@
   "playerDetailGamesessions": "Prochaine partie",
   "playerDetailGamesessions_plural": "Prochaines parties (__count__)",
   "playerDetailSee": "Voir le profil",
+  "playerDetailSeeName": "Profil de %s",
   "playerListSearch": "Où veux-tu jouer?",
 
   "playerInviteExample": "Salut %s, ",

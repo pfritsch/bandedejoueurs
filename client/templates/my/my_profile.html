@@ -38,7 +38,7 @@
             {{> afQuickField name='profile.birthday' formgroup-class='grid-col medium-6' type='text' value=birthdayValue}}
             {{> afQuickField name='profile.gender' type='select' options='allowed' formgroup-class='grid-col medium-6'}}
           </div>
-          {{> afQuickField name='profile.address.street'}}
+          <!-- {{> afQuickField name='profile.address.street'}} -->
           <div class="grid-row">
             {{> afQuickField name='profile.address.zipCode' formgroup-class='grid-col medium-4'}}
             {{> afQuickField name='profile.address.city' formgroup-class='grid-col medium-8'}}
@@ -57,12 +57,12 @@
     </div>
   </div>
 
-  <!-- My Band -->
+  <!-- My Messages -->
   <div class="grid-container has-space-bottom">
     <div class="grid-section has-space-bottom">
-      <h2 class="h1">{{_ "myProfileBand"}}</h2>
+      <h2 class="h1">{{_ "myProfileMessages"}}</h2>
       <div class="grid-section">
-        {{#if playersByStatus}}
+        <!-- {{#if playersByStatus}}
           {{#each playersByStatus}}
             <h3 class="catalog-group-title">{{_ status}}</h3>
             {{#each players}}
@@ -73,7 +73,7 @@
           {{/each}}
         {{else}}
           <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
-        {{/if}}
+        {{/if}} -->
       </div>
     </div>
   </div>

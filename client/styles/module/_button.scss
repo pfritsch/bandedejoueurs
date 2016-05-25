@@ -94,6 +94,7 @@ input[type='submit']:not(.button-big){
 }
 .button-big,
 a.button-big,
+input.button-big,
 .at-btn.submit,
 .button-well > a {
   display: inline-block;
@@ -106,6 +107,7 @@ a.button-big,
 }
 .button-big,
 a.button-big,
+input.button-big,
 .at-btn.submit {
   padding: rem-calc(12 36);
   font-size: rem-calc(16);

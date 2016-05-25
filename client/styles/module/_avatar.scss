@@ -6,7 +6,12 @@
   border-radius: 50%;
   transition: border 300ms ease;
   overflow: hidden;
-  margin: 0 auto; 
+  margin: 0 auto;
+
+  &.is-mini {
+    width: rem-calc(36);
+    height: rem-calc(36);
+  }
 }
 .avatar-circle {
   border-radius: 50%;

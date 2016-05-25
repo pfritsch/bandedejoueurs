@@ -1,8 +1,7 @@
 Template.myProfile.helpers({
   currentUserName: function(){
     var currentUser = Meteor.user();
-    if(currentUser.profile && currentUser.profile.name) return currentUser.profile.name;
-    return currentUser.username;
+    if(currentUser) return getName(currentUser);
   },
   hasNoEmail: function(){
     if(Meteor.user().emails) {
@@ -18,7 +17,7 @@ Template.myProfile.helpers({
     // Every tab object MUST have a name and a slug!
     return [
       { name: TAPi18n.__('myProfile'), slug: 'profile' },
-      { name: TAPi18n.__('myProfileBand'), slug: 'band' },
+      { name: TAPi18n.__('myProfileMessages'), slug: 'messages' },
       { name: TAPi18n.__('myProfileParties'), slug: 'parties' },
       // { name: TAPi18n.__('myProfileGames'), slug: 'games'}
     ];

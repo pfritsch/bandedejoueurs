@@ -1,21 +1,9 @@
 <template name="playerAction">
 {{#with player}}
   {{#if itsMe}}
-    <a href="{{pathFor 'myProfile'}}#profile" class="button {{../btnClass}} player-item-action">{{_ 'playerSeeProfile'}}</a>
+    <a href="{{pathFor 'myProfile'}}#profile" class="button {{../btnClass}} player-action-profile">{{_ 'playerSeeProfile'}}</a>
   {{else}}
-    {{#with inMyGroup}}
-      {{#if playerStatus.pendingInvitation}}
-        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-accept">{{_ 'playerGroupAccept'}}</a> <a href="#" class="player-item-action player-decline">{{_ 'playerGroupDecline'}}</a></p>
-      {{/if}}
-      {{#if playerStatus.invited}}
-        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-cancel">{{_ 'playerGroupCancel'}}</a></p>
-      {{/if}}
-      {{#if playerStatus.accepted}}
-        <p class="player-action-status"><span>{{_ status}}</span> <a href="#" class="button {{../../btnClass}} player-cancel">{{_ 'playerGroupRemove'}}</a></p>
-      {{/if}}
-    {{else}}
-      <a href="#" class="button {{../btnClass}} player-invite">{{_ 'playerGroupInvite'}}</a>
-    {{/with}}
+    <a href="{{pathFor 'playerMessages' userId=this._id}}" class="button {{../btnClass}} player-action-contact">{{_ 'playerContact'}}</a>
   {{/if}}
 {{/with}}
 </template>
