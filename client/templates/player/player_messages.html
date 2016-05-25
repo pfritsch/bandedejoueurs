@@ -12,11 +12,15 @@
         <div class="player-message-face">
           {{> avatar user=this}}
         </div>
-        <form id="message" class="player-message-form">
-          <label for="playerMessage">{{_ 'playerContactName' playerName}}</label>
-          <input name="playerMessage" type="text" autofocus="true" placeholder="{{_ 'playerSendMessagePlaceholder'}}">
-          <p class="player-message-button"><input type="submit" class="button button-big player-send-message" value="{{_ 'playerSendMessage'}}"></p>
-        </form>
+        {{#if onlyFromUser}}
+          {{_ 'playerSendMessageWait'}}
+        {{else}}
+          <form id="message" class="player-message-form">
+            <label for="playerMessage">{{_ 'playerContactName' playerName}}</label>
+            <input name="playerMessage" type="text" autofocus="true" placeholder="{{_ 'playerSendMessagePlaceholder'}}">
+            <p class="player-message-button"><input type="submit" class="button button-big player-send-message" value="{{_ 'playerSendMessage'}}"></p>
+          </form>
+        {{/if}}
       </div>
     </div>
     <div class="grid-section">
@@ -29,7 +33,9 @@
             <p>{{text}}</p>
             <small class="is-muted">{{dateFormatted}}</small>
             <div class="avatar avatar-circle is-mini">
-              <img class="avatar-image" src="{{#if currentUser.avatar}}{{currentUser.avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="{{#if currentUser.userColor}}background-color:{{currentUser.userColor}}{{/if}}">
+              {{#with currentUser}}
+              <img class="avatar-image" src="{{#if avatar}}{{avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor username}}">
+              {{/with}}
             </div>
           </div>
         </li>
@@ -39,7 +45,7 @@
             <p>{{text}}</p>
               <small class="is-muted">{{dateFormatted}}</small>
             <div class="avatar avatar-circle is-mini">
-              <img class="avatar-image" src="{{#if ../avatar}}{{../avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="{{#if ../userColor}}background-color:{{../userColor}}{{/if}}">
+              <img class="avatar-image" src="{{#if ../avatar}}{{../avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor ../username}}">
             </div>
           </div>
         </li>

@@ -7,6 +7,9 @@ Template.playerMessages.helpers({
   'playerName': function() {
     return this.profile.name || this.username;
   },
+  'userColor': function(pUsername){
+    return hashStringToColor(pUsername);
+  },
   'messagesFromPlayer': function() {
     var playerId = this._id;
     var playerMessages = Meteor.user().messages.filter(function(msg){
@@ -16,9 +19,24 @@ Template.playerMessages.helpers({
         return false;
       }
     });
+
+    // mark as read
+    Meteor.call('userReadMessage', playerId);
+
     return playerMessages.sort(function(x, y){
       return y.date - x.date;
     })
+  },
+  'onlyFromUser': function() {
+    var playerId = this._id;
+    var messagesFromPlayer = Meteor.user().messages.filter(function(msg){
+     if ('playerId' in msg && msg.playerId === playerId && !msg.fromUser) {
+       return true;
+     } else {
+       return false;
+     }
+    });
+    return Meteor.user().messages.length > 0 && messagesFromPlayer.length <= 0;
   },
   'dateFormatted': function() {
     return moment(this.date, 'X').fromNow();

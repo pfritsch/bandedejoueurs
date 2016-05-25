@@ -133,7 +133,6 @@ groupPlayersByStatus = function(players) {
   }
   return rplayers;
 }
-
 groupGamesessionsByDate = function(sessions) {
   var groupedByDates = _.groupBy(sessions,
     function(session) {

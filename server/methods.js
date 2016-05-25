@@ -80,6 +80,15 @@ Meteor.methods({
     check(text, String);
     var now = moment().unix();
 
+    var messagesFromPlayer = user.messages.filter(function(msg){
+     if ('playerId' in msg && msg.playerId === playerId && !msg.fromUser) {
+       return true;
+     } else {
+       return false;
+     }
+    });
+    if(Meteor.user().messages.length > 0 && messagesFromPlayer.length <= 0) return false;
+
     // Add message to player
     Meteor.users.update(playerId, {$addToSet: {'messages': {
       'playerId': Meteor.userId(),
@@ -96,7 +105,19 @@ Meteor.methods({
       'fromUser': true,
       'status': "read"
     }}});
+  },
+  userReadMessage: function(playerId) {
+    user = Meteor.user();
+    check(user, Object);
+    check(playerId, String);
 
+    var messages = user.messages;
+
+    var readMessages = messages.map(function(msg,index){
+      if(msg.playerId === playerId) msg.status = 'read'
+      return msg;
+    });
+    Meteor.users.update(Meteor.userId(), {$set: {'messages': readMessages}});
   },
   userInvitePlayer: function(playerId) {
     user = Meteor.user();

@@ -62,18 +62,25 @@
     <div class="grid-section has-space-bottom">
       <h2 class="h1">{{_ "myProfileMessages"}}</h2>
       <div class="grid-section">
-        <!-- {{#if playersByStatus}}
-          {{#each playersByStatus}}
-            <h3 class="catalog-group-title">{{_ status}}</h3>
-            {{#each players}}
-              {{#with playerData}}
-                {{> playerBand status=../status messages=../messages player=this}}
-              {{/with}}
-            {{/each}}
-          {{/each}}
-        {{else}}
-          <div class="msg">{{{_ "myProfileNoGroup"}}}</div>
-        {{/if}} -->
+        {{#each lastMessageFromPlayer}}
+          {{#with player}}
+          <div id="{{username}}" class="player-item">
+            <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-avatar">
+              {{> avatar user=this}}
+            </a>
+            <div class="player-item-content">
+              <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-name">{{playerName}}</a>
+              <p class="player-item-message">
+                {{#if ../lastMessage.fromUser}}<svg class="icon is-inline is-muted"><use xlink:href="#icon-reply" /></svg>{{/if}}
+                {{../lastMessage.text}}
+              </p>
+            </div>
+            <div class="player-item-action">
+              {{> playerAction player=this}}
+            </div>
+          </div>
+          {{/with}}
+        {{/each}}
       </div>
     </div>
   </div>

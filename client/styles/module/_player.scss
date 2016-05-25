@@ -112,8 +112,11 @@
   background: #13B169;
 }
 .player-item-content {
-  float: left;
-  margin-left: rem-calc(24);
+  margin-left: rem-calc(96);
+  @media #{$medium-up} {
+    float: left;
+    margin-left: rem-calc(24);
+  }
 }
 .player-item-name {
   text-decoration: none;
@@ -129,13 +132,24 @@
     margin-left: 0;
   }
 }
+.player-item-message {
+  margin-top: rem-calc(6);
+}
 
 .player-item-infos {
   font-size: rem-calc(14);
 }
 
 .player-item-action {
-  float: right;
+  @media #{$medium-up} {
+    float: right;
+  }
+  & > .button {
+    margin: rem-calc(12 0 0 24);
+    @media #{$medium-up} {
+      margin: rem-calc(0 0 12 12);
+    }
+  }
 }
 
 .player-detail-avatar {

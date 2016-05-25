@@ -18,7 +18,7 @@ Template.myProfile.helpers({
     return [
       { name: TAPi18n.__('myProfile'), slug: 'profile' },
       { name: TAPi18n.__('myProfileMessages'), slug: 'messages' },
-      { name: TAPi18n.__('myProfileParties'), slug: 'parties' },
+      { name: TAPi18n.__('myProfileParties'), slug: 'parties' }
       // { name: TAPi18n.__('myProfileGames'), slug: 'games'}
     ];
   },
@@ -31,11 +31,14 @@ Template.myProfile.helpers({
       return moment(birthday, "X").format('DD/MM/YYYY');
     }
   },
-  playerData: function(){
+  'playerData': function(){
     var member = Meteor.users.findOne(this.userId);
     member.status = this.status;
     member.messages = this.messages;
     return member;
+  },
+  'playerName': function() {
+    return getName(this);
   },
   playersByStatus: function() {
     return groupPlayersByStatus(Meteor.user().group);
@@ -67,7 +70,44 @@ Template.myProfile.helpers({
         }
       }
     };
+  },
+  'lastMessageFromPlayer': function() {
+    var groupByPlayer = _.groupBy(Meteor.user().messages, function(msg){
+      return msg.playerId;
+    });
+    var rGroupByPlayer = [];
+    for(playerId in groupByPlayer){
+      rGroupByPlayer.push({
+        player: Meteor.users.findOne(playerId),
+        lastMessage: groupByPlayer[playerId][groupByPlayer[playerId].length - 1]
+      })
+    }
+    return rGroupByPlayer;
   }
+    // var rsessions = [];
+    // for(date in groupedByDates){
+    //   rsessions.push({
+    //     date: date,
+    //     gamesessions: groupedByDates[date],
+    //     count: groupedByDates[date].length
+    //   })
+    // }
+    // return rsessions;
+    // var playerId = this._id;
+    // var playerMessages = Meteor.user().messages.filter(function(msg){
+    //   if ('playerId' in msg && msg.playerId === playerId) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+    //
+    // // mark as read
+    // Meteor.call('userReadMessage', playerId);
+    //
+    // return playerMessages.sort(function(x, y){
+    //   return y.date - x.date;
+    // })
 });
 
 Template.myProfile.events({
@@ -100,10 +140,10 @@ Template.myProfile.rendered = function() {
 Template.myProfile.onCreated(function() {
   var self = this;
   self.autorun(function() {
-    var myGroup = Meteor.user().group;
-    if(myGroup){
-      var playersInMyGroup = myGroup.map(function(player,index){
-        return player.userId;
+    var messages = Meteor.user().messages;
+    if(messages){
+      var playersInMyGroup = messages.map(function(msg,index){
+        return msg.playerId;
       });
       self.subscribe('somePlayers', {
         '_id': {'$in': playersInMyGroup}

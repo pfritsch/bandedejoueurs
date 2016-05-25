@@ -190,6 +190,7 @@
   "playerContactName": "Contacter %s",
   "playerSendMessage": "Envoyer",
   "playerSendMessagePlaceholder": "Ton message",
+  "playerSendMessageWait": "Message envoyé. On va attendre une première réponse avant de poursuivre la discussion...",
   "playerSeeProfile": "Voir mon profil",
   "playerGroupRemove": "retirer",
   "playerGroupInvite": "Inviter dans ma bande",
