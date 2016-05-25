@@ -60,15 +60,20 @@
     border-left: 3px solid #7D385C;
   }
   &.is-selected {
-    margin-top: rem-calc(6);
-    margin-bottom: rem-calc(6);
+    margin: rem-calc(6);
     z-index: 1;
     animation-name: tada;
     animation-duration: 750ms;
     animation-fill-mode: both;
-    border-left: 3px solid #CD5213;
+    border: 2px solid #13B169;
     backface-visibility: hidden;
     box-shadow: 0px 2px 6px 0px rgba(119,117,104,0.50);
+  }
+  &.is-message {
+    cursor: pointer;
+  }
+  &.is-message:hover {
+    box-shadow: 0px 2px 6px 0px rgba(119,117,104,0.70);
   }
 }
 @keyframes fadeInUp {

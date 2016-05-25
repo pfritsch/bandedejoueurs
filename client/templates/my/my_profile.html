@@ -64,19 +64,16 @@
       <div class="grid-section">
         {{#each lastMessageFromPlayer}}
           {{#with player}}
-          <div id="{{username}}" class="player-item">
-            <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-avatar">
+          <div id="{{username}}" class="player-item is-message">
+            <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-avatar">
               {{> avatar user=this}}
             </a>
             <div class="player-item-content">
-              <a href="{{pathFor 'playerDetail' userId=_id}}" class="player-item-name">{{playerName}}</a>
+              <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-name">{{playerName}}</a>
               <p class="player-item-message">
                 {{#if ../lastMessage.fromUser}}<svg class="icon is-inline is-muted"><use xlink:href="#icon-reply" /></svg>{{/if}}
                 {{../lastMessage.text}}
               </p>
-            </div>
-            <div class="player-item-action">
-              {{> playerAction player=this}}
             </div>
           </div>
           {{/with}}

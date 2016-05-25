@@ -84,30 +84,6 @@ Template.myProfile.helpers({
     }
     return rGroupByPlayer;
   }
-    // var rsessions = [];
-    // for(date in groupedByDates){
-    //   rsessions.push({
-    //     date: date,
-    //     gamesessions: groupedByDates[date],
-    //     count: groupedByDates[date].length
-    //   })
-    // }
-    // return rsessions;
-    // var playerId = this._id;
-    // var playerMessages = Meteor.user().messages.filter(function(msg){
-    //   if ('playerId' in msg && msg.playerId === playerId) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // });
-    //
-    // // mark as read
-    // Meteor.call('userReadMessage', playerId);
-    //
-    // return playerMessages.sort(function(x, y){
-    //   return y.date - x.date;
-    // })
 });
 
 Template.myProfile.events({
@@ -117,6 +93,10 @@ Template.myProfile.events({
     if(!hash && hash !== tab) {
       Session.set('activeTab', tab);
     }
+  },
+  'click .player-item.is-message': function(e) {
+    var playerId = this._id;
+    FlowRouter.go('/messages/'+playerId);
   }
 });
 
@@ -200,8 +180,5 @@ AutoForm.hooks({
 });
 
 ReactiveTabs.createInterface({
-  template: 'navTabs',
-  onChange: function (slug, template) {
-    // console.log('[tabs] Tab has changed! Current tab:', slug);
-  }
+  template: 'navTabs'
 });

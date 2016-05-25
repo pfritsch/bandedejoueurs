@@ -51,7 +51,13 @@ Documentation
 
 Deployment
 ==============
-https://github.com/sachinbhutani/meteor-openshift
+
+		mupx setup
+		mupx deploy
+
+__Doesn't yet work with npm v6+ (have to select npm 5.11.1 on nvm)__
+
+<!-- https://github.com/sachinbhutani/meteor-openshift
 
 		cd bandedejoueurs
 		meteor build tarball
@@ -68,4 +74,4 @@ https://github.com/sachinbhutani/meteor-openshift
 		rm bandedejoueurs.tar.gz
 		git add --all
 		git commit -a -m 'meteor-openshift'
-		git push
+		git push -->
