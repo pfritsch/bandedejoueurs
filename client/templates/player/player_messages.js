@@ -56,7 +56,8 @@ Template.playerMessages.events({
       } finally {
         var emailData = {
           template: 'email_msg',
-          avatar: Meteor.user().avatar || Meteor.absoluteUrl()+'/images/default.svg',
+          absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
+          avatar: Meteor.user().avatar || Meteor.absoluteUrl('', {secure: true})+'/images/default.svg',
           subject: TAPi18n.__('emailMessageNew'),
           subtitle: TAPi18n.__('emailMessageFrom', getName(Meteor.user())),
           message: text,

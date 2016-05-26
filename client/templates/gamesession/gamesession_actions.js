@@ -23,6 +23,7 @@ Template.gamesessionActions.events({
         // Send email to new player
         var emailData = {
           template: 'email_event',
+          absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
           title: TAPi18n.__('emailGamesessionJoinTitle', getName(Meteor.user())),
           subtitle: formatTitle(this)+' '+formatDate(this.meetingDate),
@@ -41,6 +42,7 @@ Template.gamesessionActions.events({
         var author = Meteor.users.findOne(this.authorId);
         var emailData = {
           template: 'email_simple',
+          absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
           title: TAPi18n.__('emailGamesessionNewplayerTitle', getName(author)),
           subtitle: formatTitle(this)+' '+formatDate(this.meetingDate),
