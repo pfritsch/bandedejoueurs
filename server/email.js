@@ -19,29 +19,29 @@ Meteor.methods({
     });
     console.log("Mail sent to: " + user.emails[0].address)
   },
-  sendAuthorEmail: function (emailData, authorId) {
+  sendPlayerEmail: function (emailData, playerId) {
     this.unblock();
 
     console.log(emailData)
 
     user = Meteor.user();
     check(user, Object);
-    var author = Meteor.users.findOne(authorId);
-    check(author, Object);
-    check(author.emails[0], {
+    var player = Meteor.users.findOne(playerId);
+    check(player, Object);
+    check(player.emails[0], {
       address: String,
       verified: Boolean
     });
-    check(author.emailCheck, true);
+    check(player.emailCheck, true);
 
     SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
 
     Email.send({
-      to: author.emails[0].address,
+      to: player.emails[0].address,
       from: process.env.MAIL_FROM,
       subject: emailData.subject,
       html: SSR.render( 'htmlEmail', emailData )
     });
-    console.log("Mail sent to: " + author.emails[0].address)
+    console.log("Mail sent to: " + player.emails[0].address)
   }
 });

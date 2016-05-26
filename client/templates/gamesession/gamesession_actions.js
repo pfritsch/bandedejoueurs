@@ -51,7 +51,7 @@ Template.gamesessionActions.events({
           followUs: TAPi18n.__('emailFollowUs'),
           feedback: TAPi18n.__('emailFeedback')
         };
-        Meteor.call('sendAuthorEmail', emailData, this.authorId);
+        Meteor.call('sendPlayerEmail', emailData, this.authorId);
       }
       FlowRouter.go('gamesessionDetail', {gamesessionId: this._id});
     }

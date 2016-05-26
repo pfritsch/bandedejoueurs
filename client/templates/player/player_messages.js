@@ -48,7 +48,26 @@ Template.playerMessages.events({
     e.preventDefault();
     var text = e.target.playerMessage.value;
     if(text != '') {
-      Meteor.call('userSendMessage', this._id, text);
+
+      try {
+        Meteor.call('userSendMessage', this._id, text);
+      } catch (e) {
+        throwNotification(e);
+      } finally {
+        var emailData = {
+          template: 'email_msg',
+          avatar: Meteor.user().avatar || Meteor.absoluteUrl()+'/images/default.svg',
+          subject: TAPi18n.__('emailMessageNew'),
+          subtitle: TAPi18n.__('emailMessageFrom', getName(Meteor.user())),
+          message: text,
+          callToActionUrl: FlowRouter.url('playerMessages', {userId: Meteor.userId()}),
+          callToAction: TAPi18n.__('emailMessageAnswer'),
+          ciao: TAPi18n.__('emailCiao'),
+          followUs: TAPi18n.__('emailFollowUs'),
+          feedback: TAPi18n.__('emailFeedback')
+        };
+        Meteor.call('sendPlayerEmail', emailData, this._id);
+      }
       e.target.playerMessage.value = ''
     }
   }
