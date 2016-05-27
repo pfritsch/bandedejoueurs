@@ -1,22 +1,31 @@
 .gamesession-item {
-  @include clearfix;
+  display: flex;
   background: white;
   box-shadow: 0px 2px 4px 0px rgba(119,117,104,0.30);
 }
 .gamesession-item-cover {
+  flex: none;
   line-height: 0;
   position: relative;
-  @include span(2);
-  img {
-    max-width: 100%;
+  width: span(2);
+  background: #C1BFB7;
+  text-decoration: none !important;
+
+  @media #{$medium-up} {
+    .cover-frame {
+      line-height: rem-calc(132);
+    }
+    img {
+      max-height: rem-calc(132);
+    }
   }
 }
 .gamesession-item-content {
-  @include span(last 10);
+  flex: 1;
   padding: rem-calc(12);
   @media #{$medium-up} {
     position: relative;
-    padding: rem-calc(24 12);
+    padding: rem-calc(24);
   }
 }
 .gamesession-item-headline {
@@ -111,8 +120,11 @@
   @media #{$medium-up} {
     @include span(2 of 12);
   }
+  .cover-frame {
+    line-height: rem-calc(132);
+  }
   img {
-    max-width: 100%;
+    max-height: rem-calc(132);
   }
 }
 .gamesession-detail-infos {

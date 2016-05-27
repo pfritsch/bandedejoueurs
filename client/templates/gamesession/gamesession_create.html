@@ -50,12 +50,14 @@
           {{> afQuickField name='games.$.title' class='game-title' optionsMethod='getGamesTitleOptions' optionsMethodParams=gamesTitleParams uniPlaceholder=gamesTitlePlaceholder createOnBlur=true create=true}}
 
           {{#if gamesSuggests}}
-            <p>{{_ 'gamesessionCreateSuggest'}}</p>
+            <p>
+              {{_ 'gamesessionCreateSuggest'}} <br>
+              <small>{{{_ 'gamesessionCreateSuggestData'}}}</small>
+            </p>
             <div class="game-list is-framed catalog-group">
             {{#each gamesSuggests}}
               {{> gameSuggest game=this index=@index}}
             {{/each}}
-            <p>{{{_ 'gamesessionCreateSuggestData'}}}</p>
             </div>
           {{/if}}
           {{#if games}}

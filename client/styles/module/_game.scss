@@ -35,13 +35,13 @@
   }
   .cover-frame {
     padding: rem-calc($cover-padding/4);
+    line-height: rem-calc(72);
     @media #{$small-up} {
       padding: rem-calc($cover-padding/2);
     }
   }
-  img {
-    max-height: rem-calc(60);
-    max-width: 100%;
+  .cover {
+    max-height: rem-calc(72);
   }
 }
 .game-item-content {

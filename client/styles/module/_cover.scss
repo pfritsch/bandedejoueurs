@@ -3,7 +3,6 @@ $cover-padding: 12;
   position: relative;
   background: #C1BFB7;
   padding: rem-calc($cover-padding/4);
-  width: 100%;
   text-align: center;
 
   @media #{$small-up} {
@@ -12,24 +11,11 @@ $cover-padding: 12;
   @media #{$medium-up} {
     padding: rem-calc($cover-padding);
   }
-
-  &:before {
-    content: '';
-    padding-top: 100%;
-  }
 }
 .cover {
-  $cover-size-small: 72;
-  $cover-size: 168;
-
+  object-fit: cover;
   margin: auto;
-  vertical-align: top;
-  height: auto;
-  // max-height: rem-calc($cover-size-small - ($cover-padding*2));
-
-  // @media #{$small-up} {
-  //   max-height: rem-calc($cover-size - ($cover-padding*2));
-  // }
+  vertical-align: middle;
 }
 .cover-labels {
   position: absolute;

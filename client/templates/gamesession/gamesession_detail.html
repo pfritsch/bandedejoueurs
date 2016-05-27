@@ -14,7 +14,7 @@
       <div class="gamesession-detail-content">
         <div class="gamesession-detail-cover">
           <figure class="cover-frame">
-            <img alt="{{title}}" src="{{cover}}" class="{{#if gameCover}}cover{{/if}}" />
+            <img alt="{{title}}" src="{{cover}}" class="cover" />
             <ul class="cover-labels label-list">
             {{#each gamesessionTags}}
               <li class="label is-{{this}}">
@@ -24,7 +24,7 @@
             </ul>
           </figure>
         </div>
-        
+
         <div class="gamesession-detail-infos">
           <section class="gamesession-detail-owner">
             {{#with author}}
@@ -53,7 +53,7 @@
         {{> playerItem}}
       {{/each}}
       </section>
-      
+
       {{#if games}}
         <h3 class="catalog-group-title">{{_ 'gamesessionGames' count=games.length}}</h3>
         <section class="catalog-group-list gamesession-detail-games game-list">
