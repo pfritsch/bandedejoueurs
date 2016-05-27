@@ -10,7 +10,7 @@ Meteor.methods({
 
     if(user.emails) {
       email = user.emails[0].address;
-      var urlDefault = encodeURIComponent('https://'+Meteor.absoluteUrl()+'images/default.svg');
+      var urlDefault = encodeURIComponent(Meteor.absoluteUrl()+'images/default.png');
       user.avatar = 'https://secure.gravatar.com/avatar/'+Gravatar.hash(email)+'?d='+urlDefault;
     } else {
       user.emails = [];
