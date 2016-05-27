@@ -290,7 +290,7 @@
   "emailGamesessionNewplayerTitle": "Un nouveau joueur s'est inscrit!<br> %s",
   "emailGamesessionNewplayerText": "Un joueur de la bande a rejoint la partie.",
 
-  "emailMessageNewFrom": "Un nouveau message sur Bande de Joueurs",
+  "emailMessageNew": "Un nouveau message sur Bande de Joueurs",
   "emailMessageFrom": "Tu as reçu un nouveau message de %s",
   "emailMessageAnswer": "Répondre",
 
