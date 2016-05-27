@@ -216,7 +216,7 @@
   "invited": "Invitation envoyée",
   "accepted": "Dans ma bande",
 
-  "gamesessionOrganizedBy": "Organisé par",
+  "gamesessionOrganizedBy": "Organisé par %s",
   "gamesessionEdit": "Éditer",
   "gamesessionJoin": "Rejoindre la partie",
   "gamesessionLeave": "Se retirer",
@@ -293,6 +293,10 @@
   "emailMessageNew": "Un nouveau message sur Bande de Joueurs",
   "emailMessageFrom": "Tu as reçu un nouveau message de %s",
   "emailMessageAnswer": "Répondre",
+
+  "emailNewsSubject": "Des nouvelles de la Bande de Joueurs",
+  "emailNewsTitle": "À quoi on joue cette semaine?",
+  "emailNewsCTA": "C'est parti!",
 
   "time": {
     "morning": "Matinée",

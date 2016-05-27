@@ -7,14 +7,9 @@ checkUser = function() {
     return true
   }
 }
-formatTitle = function(gamesession) {
-  var title = gamesession.title+' ';
-  if(!gamesession.boardgameTags && !gamesession.videogameTags) title = splitDay(moment(gamesession.meetingDate, 'X').hour())+' '+title;
-  return title;
-}
 formatDate = function(meetingDate) {
   var date = moment(meetingDate, 'X');
-  return (date.isAfter(moment(), 'day'))? date.calendar()+' '+TAPi18n.__('time.at')+' '+date.format('HH:mm') : date.fromNow();
+  return (date.isAfter(moment(), 'day'))? date.calendar() : date.fromNow();
 }
 formatLocation = function(meetingPlace) {
   if(meetingPlace.address) {
@@ -39,8 +34,7 @@ hashStringToColor = function(str) {
   return "#" + ("0" + r.toString(16)).substr(-2) + ("0" + g.toString(16)).substr(-2) + ("0" + b.toString(16)).substr(-2);
 }
 getName = function(user) {
-  if(user.profile && user.profile.name) return user.profile.name;
-  return user.username;
+  return user.profile.name || user.username;
 }
 getUserCoordinates = function() {
   if(!Geolocation.error()) {

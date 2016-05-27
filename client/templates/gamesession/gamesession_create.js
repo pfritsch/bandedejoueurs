@@ -160,6 +160,9 @@ AutoForm.hooks({
         // Add Author
         doc.authorId = Meteor.userId();
 
+        // Add Author Name
+        doc.authorName = getName(Meteor.user());
+
         // Add Author as player
         doc.players = [Meteor.userId()];
 
@@ -202,6 +205,9 @@ AutoForm.hooks({
         }
         doc.title = newTitle.what + ' ' + newTitle.where;
 
+        var title = gamesession.title+' ';
+        if(!doc.boardgameTags && !doc.videogameTags) title = splitDay(moment(doc.meetingDate, 'X').hour())+' '+title;
+
         // Add games
         doc.games = form.games.map(function(item,index){
           item.gameId = item._id;
@@ -217,8 +223,8 @@ AutoForm.hooks({
         absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
         subject: TAPi18n.__('gamesessionPreviewTitle'),
         gameThumbnail: this.insertDoc.cover,
-        title: formatTitle(this.insertDoc)+' '+formatDate(this.insertDoc.meetingDate),
-        subtitle: TAPi18n.__('emailCongrats', getName(Meteor.user())),
+        title: this.insertDoc.title+' '+formatDate(this.insertDoc.meetingDate),
+        subtitle: TAPi18n.__('emailCongrats', this.insertDoc.authorName),
         text: TAPi18n.__('emailGamesessionSendLink'),
         url: FlowRouter.url('gamesessionDetail', {gamesessionId: this.docId}),
         rdv: TAPi18n.__('emailGamesessionRDV'),

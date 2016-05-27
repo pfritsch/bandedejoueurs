@@ -73,6 +73,11 @@ Meteor.methods({
     check(doc, Schema.user);
     Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
   },
+  userEditLang: function(lang) {
+    user = Meteor.user();
+    check(user, Object);
+    Meteor.users.update(Meteor.userId(), {$set: {'lang' : lang}});
+  },
   userSendMessage: function(playerId, text) {
     user = Meteor.user();
     check(user, Object);

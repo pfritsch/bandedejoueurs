@@ -13,9 +13,13 @@ Template.navLang.events({
     e.preventDefault();
     var newLang = $(e.currentTarget).attr('data-lang');
     localStorage.setItem('userLocale', newLang);
-    Session.set('lang', newLang)
+    Session.set('lang', newLang);
     T9n.setLanguage(newLang);
     TAPi18n.setLanguage(newLang);
+    moment.locale(newLang);
+    if(Meteor.user()){
+      Meteor.call('userEditLang', newLang);
+    }
   }
 });
 

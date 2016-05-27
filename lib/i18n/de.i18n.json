@@ -201,7 +201,7 @@
 
   "playerInviteExample": "Hallo %s, ",
 
-  "gamesessionOrganizedBy": "Organisiert von",
+  "gamesessionOrganizedBy": "Organisiert von %s",
   "gamesessionEdit": "Bearbeiten",
   "gamesessionJoin": "Sich der Spielpartie anschliessen",
   "gamesessionLeave": "Sich von der Spielpartie zurückziehen",

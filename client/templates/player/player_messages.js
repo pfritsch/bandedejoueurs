@@ -5,7 +5,7 @@ Template.playerMessages.helpers({
     return player;
   },
   'playerName': function() {
-    return this.profile.name || this.username;
+    return getName(this);
   },
   'userColor': function(pUsername){
     return hashStringToColor(pUsername);

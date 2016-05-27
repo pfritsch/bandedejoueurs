@@ -200,7 +200,7 @@
 
   "playerInviteExample": "Hello %s, ",
 
-  "gamesessionOrganizedBy": "Organised by",
+  "gamesessionOrganizedBy": "Organised by %s",
   "gamesessionEdit": "Edit",
   "gamesessionJoin": "Join the game",
   "gamesessionLeave": "Withdraw from the game",

@@ -9,7 +9,7 @@ Template.gamesessionItem.helpers({
     return formatDate(this.meetingDate);
   },
   titleFormated: function() {
-    return formatTitle(this);
+    return this;
   },
   author: function() {
     var author = Meteor.users.findOne({_id: this.authorId}) || {};

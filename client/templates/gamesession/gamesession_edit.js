@@ -191,6 +191,7 @@ AutoForm.hooks({
           if(form.games.length > 0) newTitle.what = form.games[0].title;
         }
         doc.$set.title = newTitle.what + ' ' + newTitle.where;
+        if(!doc.$set.boardgameTags && !doc.$set.videogameTags) doc.$set.title = splitDay(moment(doc.$set.meetingDate, 'X').hour())+' '+doc.$set.title;
 
         // Add games
         doc.$set.games = form.games.map(function(item,index){

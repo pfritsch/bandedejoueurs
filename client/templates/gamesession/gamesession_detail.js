@@ -18,9 +18,6 @@ Template.gamesessionDetail.helpers({
     var author = Meteor.users.findOne({_id: this.authorId});
     return author;
   },
-  titleFormated: function() {
-    return formatTitle(this);
-  },
   dateFormated: function() {
     return formatDate(this.meetingDate);
   },
@@ -56,7 +53,7 @@ Template.gamesessionDetail.helpers({
     if(this.spots) {
       details += '<span class="gamesession-detail-info"><svg class="icon is-inline"><use xlink:href="#icon-cooperation" /></svg>';
       var availableSlots = this.spots - this.players.length;
-      if(availableSlots > 0) { 
+      if(availableSlots > 0) {
         details += TAPi18n.__('gamesessionItemSpots', {count: availableSlots});
       } else {
         details += TAPi18n.__('gamesessionItemSpotsFull');

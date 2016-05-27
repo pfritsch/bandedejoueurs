@@ -9,7 +9,7 @@
   <div class="grid-container has-space-bottom">
     <div class="grid-section">
 
-      <h1 class="gamesession-detail-title is-centered">{{titleFormated}} {{dateFormated}}</h1>
+      <h1 class="gamesession-detail-title is-centered">{{title}} {{dateFormated}}</h1>
 
       <div class="gamesession-detail-content">
         <div class="gamesession-detail-cover">
@@ -33,7 +33,7 @@
               </a>
             {{/with}}
             <div class="gamesession-detail-desc">
-              <span class="gamesession-detail-owner-name is-muted">{{_ 'gamesessionOrganizedBy'}} {{author.username}}</span>
+              <span class="gamesession-detail-owner-name is-muted">{{_ 'gamesessionOrganizedBy' authorName}}</span>
               {{#if description}}
                 <p>{{description}}</p>
               {{/if}}

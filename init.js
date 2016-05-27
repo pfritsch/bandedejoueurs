@@ -6,6 +6,7 @@ getUserLanguage = function () {
     return 'en';
   }
 };
+
 if (Meteor.isClient) {
   Meteor.startup(function () {
 
@@ -15,6 +16,9 @@ if (Meteor.isClient) {
     // Init Lang
     if(!localStorage.getItem('userLocale')) {
       localStorage.setItem('userLocale', getUserLanguage());
+      if(Meteor.user()){
+        Meteor.call('userEditLang', getUserLanguage());
+      }
     }
     Session.setDefault('lang', localStorage.getItem('userLocale'));
     T9n.setLanguage(Session.get('lang'));

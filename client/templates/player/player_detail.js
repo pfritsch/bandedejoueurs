@@ -5,8 +5,7 @@ Template.playerDetail.helpers({
     return player;
   },
   'playerName': function() {
-    if(this.profile && this.profile.name ) return this.profile.name;
-    return this.username;
+    return getName(this);
   },
   'playerInfos': function() {
     if(this.profile) {
