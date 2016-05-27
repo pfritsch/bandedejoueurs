@@ -56,16 +56,13 @@
   &:first-child{
     margin-top: 0;
   }
-  &.is-selected.is-currentuser {
-    border-left: 3px solid #7D385C;
-  }
   &.is-selected {
     margin: rem-calc(6);
     z-index: 1;
     animation-name: tada;
     animation-duration: 750ms;
     animation-fill-mode: both;
-    border: 2px solid #13B169;
+    border: 2px solid #7D385C;
     backface-visibility: hidden;
     box-shadow: 0px 2px 6px 0px rgba(119,117,104,0.50);
   }

@@ -101,7 +101,6 @@ Template.playerList.onCreated(function() {
           if(document._id && document.profile) {
             if(!markers[document._id] && document.profile.location) {
               var iconMarker = 'images/marker_default.png';
-              if(document._id === Meteor.userId()) iconMarker = 'images/marker_me.png';
               // Create a marker for this document
               var latLng = new google.maps.LatLng(document.profile.location.coordinates.lat, document.profile.location.coordinates.lng);
               var marker = new google.maps.Marker({
