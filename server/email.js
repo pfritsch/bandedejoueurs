@@ -63,7 +63,7 @@ Meteor.methods({
 
       var gamesessionsFormated = gamesessions.map(function(gamesession){
         gamesession.dateFormated = moment(gamesession.meetingDate, 'X').calendar();
-        gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', gamesession.authorName, lang);
+        gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {'name': gamesession.authorName}, lang);
         return gamesession;
       });
 

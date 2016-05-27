@@ -26,7 +26,7 @@
           </a>
         {{/with}}
         <div class="gamesession-item-desc">
-          <span class="gamesession-item-owner-name is-muted">{{_ 'gamesessionOrganizedBy' authorName}}</span>
+          <span class="gamesession-item-owner-name is-muted">{{_ 'gamesessionOrganizedBy' name=authorName}}</span>
           <p>
             {{#if playersLeft}}<span class="gamesession-item-spots">{{playersLeft}}</span> {{/if}}
             {{description}}

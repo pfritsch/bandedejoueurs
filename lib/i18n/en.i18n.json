@@ -173,6 +173,7 @@
 
   "myProfile": "My profile",
   "myProfileBand": "My Bande",
+  "myProfileMessages": "Messages",
   "myProfileParties": "My game events",
   "myProfileGames": "My games",
   "myProfileSubtitle": "Here you can modify your prorfile and tell us a little bit more about you.",
@@ -185,9 +186,12 @@
   "myProfileNoGroup": "<strong>Yet no player in your Bande...</strong> Maybe you could <a href=\"players\">invite some</a>?",
 
   "playerAge": "%s years old",
+  "playerContact": "Contact",
+  "playerContactName": "Contact %s",
+  "playerSendMessage": "Send",
+  "playerSendMessagePlaceholder": "Your message",
+  "playerSendMessageWait": "Message sent. We'll wait for a first answer...",
   "playerSeeProfile": "See my profile",
-  "playerGroupRemove": "Remove from my Bande",
-  "playerGroupInvite": "Invite in my Bande",
   "playerItemThatsyou": "(that's you)",
   "playerDetailallPlayers": "All players",
   "playerDetailItsYou": "<strong>Yeah, that's you !</strong> Here is the page that introduces you to the others. <br />You can modifiy it <a href=\"/profile\">in your profile</a>.",
@@ -196,11 +200,10 @@
   "playerDetailGamesessions": "Next game",
   "playerDetailGamesessions_plural": "Next games (__count__)",
   "playerDetailSee": "See the profile",
+  "playerDetailSeeName": "Profile of %s",
   "playerListSearch": "Where do you want to play?",
 
-  "playerInviteExample": "Hello %s, ",
-
-  "gamesessionOrganizedBy": "Organised by %s",
+  "gamesessionOrganizedBy": "Organised by __name__",
   "gamesessionEdit": "Edit",
   "gamesessionJoin": "Join the game",
   "gamesessionLeave": "Withdraw from the game",
@@ -268,10 +271,19 @@
   "emailCiao": "Good game!",
   "emailFollowUs": "Follow us on Twitter:",
   "emailFeedback": "A question, feedback?",
+
   "emailGamesessionJoinSubject": "Join the event: %s",
   "emailGamesessionJoinTitle": "Great %s,<br> you are in!",
   "emailGamesessionNewplayerTitle": "%s just joined the party!<br> ",
   "emailGamesessionNewplayerText": "A mate from the bande has registered to the game event.",
+
+  "emailMessageNew": "A new message on Bande de Joueurs",
+  "emailMessageFrom": "You got a new message from %s",
+  "emailMessageAnswer": "Answer",
+
+  "emailNewsSubject": "Fresh news from Bande de Joueurs",
+  "emailNewsTitle": "What are we playing this week?",
+  "emailNewsCTA": "Let's game!",
 
   "time": {
     "morning": "Morning",
