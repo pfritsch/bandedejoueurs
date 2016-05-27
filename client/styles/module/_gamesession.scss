@@ -169,20 +169,6 @@
     margin-left: rem-calc(12);
   }
 }
-.gamesession-detail-games {
-  @media #{$medium-up} {
-    &.game-list {
-      flex-wrap: wrap;
-      flex-direction: row;
-    }
-    .game-item {
-      flex: 1;
-      min-width: 50%;
-      max-width: 50%;
-      margin: rem-calc(2 0)
-    }
-  } 
-}
 
 .gamesession-delete.button {
   opacity: 0.4;

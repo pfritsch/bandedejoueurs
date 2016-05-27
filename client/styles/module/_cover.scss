@@ -1,14 +1,10 @@
 $cover-padding: 12;
 .cover-frame {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: #C1BFB7;
   padding: rem-calc($cover-padding/4);
   width: 100%;
   text-align: center;
-  line-height: 100%;
 
   @media #{$small-up} {
     padding: rem-calc($cover-padding/2);
@@ -25,14 +21,15 @@ $cover-padding: 12;
 .cover {
   $cover-size-small: 72;
   $cover-size: 168;
-  
-  margin: auto;
-  vertical-align: middle;
-  max-height: rem-calc($cover-size-small - ($cover-padding*2));
 
-  @media #{$small-up} {
-    max-height: rem-calc($cover-size - ($cover-padding*2));
-  }
+  margin: auto;
+  vertical-align: top;
+  height: auto;
+  // max-height: rem-calc($cover-size-small - ($cover-padding*2));
+
+  // @media #{$small-up} {
+  //   max-height: rem-calc($cover-size - ($cover-padding*2));
+  // }
 }
 .cover-labels {
   position: absolute;
