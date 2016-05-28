@@ -13,8 +13,7 @@ Template.playerItem.helpers({
   },
   'age': function() {
     if(this.profile.birthday) {
-      var birthday = moment(this.profile.birthday, 'X');
-      var age = rangeAge(moment().diff(birthday, 'years'));
+      var age = rangeAge(this.profile.birthday);
       return TAPi18n.__('playerAge', age);
     }
   }

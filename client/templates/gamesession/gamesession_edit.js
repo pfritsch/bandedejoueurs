@@ -164,7 +164,8 @@ AutoForm.hooks({
         doc.$set.cover = newCover;
 
         // Generate a title
-        var newTitle = { what: TAPi18n.__('gamesessionCreateGames'), where: ''};
+        var newTitle = { what: TAPi18n.__('gamesessionCreateGames'), where: '', when: ''};
+
         // Where
         if(doc.$set.meetingType) {
           if(doc.$set.meetingType === 'irl') {
@@ -188,10 +189,13 @@ AutoForm.hooks({
           newTitle.what = TAPi18n.__('gamesessionCreateBoardGames');
         } else if(form.category === 'videogame') {
           newTitle.what = TAPi18n.__('gamesessionCreateVideoGames');
-          if(form.games.length > 0) newTitle.what = form.games[0].title;
         }
-        doc.$set.title = newTitle.what + ' ' + newTitle.where;
-        if(!doc.$set.boardgameTags && !doc.$set.videogameTags) doc.$set.title = splitDay(moment(doc.$set.meetingDate, 'X').hour())+' '+doc.$set.title;
+        if(form.games.length === 1) {
+          newTitle.what = form.games[0].title;
+        } else {
+          newTitle.when = splitDay(moment(doc.$set.meetingDate, 'X').hour());
+        }
+        doc.$set.title = newTitle.when + ' ' + newTitle.what + ' ' + newTitle.where;
 
         // Add games
         doc.$set.games = form.games.map(function(item,index){

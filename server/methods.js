@@ -207,9 +207,11 @@ Meteor.methods({
     xml2js.parseString(xml, function (error, result) {
       if(!error && result.items) {
         for (i in result.items.item) {
-          var id = result.items.item[i].$.id;
-          var name = result.items.item[i].name[0].$.value;
-          if(i < 30) gamesFound.push({id: id, name: name, category: 'boardgame'});
+          if(i < 30) gamesFound.push({
+            id: result.items.item[i].$.id,
+            name: result.items.item[i].name[0].$.value,
+            category: 'boardgame'
+          });
         }
       } else if(error) {
         return {error: error.message};

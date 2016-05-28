@@ -35,7 +35,7 @@
           <p>{{_ "myProfileVisibleData"}}</p>
           {{> afQuickField name='profile.name'}}
           <div class="grid-row">
-            {{> afQuickField name='profile.birthday' formgroup-class='grid-col medium-6' type='text' value=birthdayValue}}
+            {{> afQuickField name='profile.birthday' formgroup-class='grid-col medium-6' type='number' min='1900' max='2100'}}
             {{> afQuickField name='profile.gender' type='select' options='allowed' formgroup-class='grid-col medium-6'}}
           </div>
           <!-- {{> afQuickField name='profile.address.street'}} -->

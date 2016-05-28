@@ -88,8 +88,8 @@
           "placeholder": "Devra t'on t'appeller John Doe?"
         },
         "birthday": {
-          "label": "Date de naissance",
-          "placeholder": "JJ/MM/AAAA"
+          "label": "Génération",
+          "placeholder": "Année de naissance"
         },
         "gender": {
           "label": "Chromosomes",

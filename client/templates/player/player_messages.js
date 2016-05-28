@@ -58,6 +58,7 @@ Template.playerMessages.events({
           template: 'email_msg',
           absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           avatar: Meteor.user().avatar || Meteor.absoluteUrl('', {secure: true})+'/images/default.svg',
+          bgColor: hashStringToColor(Meteor.user().username),
           subject: TAPi18n.__('emailMessageNew'),
           subtitle: TAPi18n.__('emailMessageFrom', getName(Meteor.user())),
           message: text,

@@ -68,8 +68,10 @@ getPlayerStatus = function(status){
       return false
   }
 }
-rangeAge = function(age) {
- switch (true) {
+rangeAge = function(birthday) {
+  var year = moment().year();
+  var age = Math.floor(year - birthday);
+  switch (true) {
   case age > 60:
     return "60+";
     break;

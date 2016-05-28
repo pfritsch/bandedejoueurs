@@ -63,7 +63,8 @@ Meteor.methods({
 
       var gamesessionsFormated = gamesessions.map(function(gamesession){
         gamesession.dateFormated = moment(gamesession.meetingDate, 'X').calendar();
-        gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {'name': gamesession.authorName}, lang);
+        gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
+        console.log(gamesession.organisedBy);
         return gamesession;
       });
 
@@ -74,7 +75,7 @@ Meteor.methods({
         titleNewSessions: TAPi18n.__('emailNewsTitle', {}, lang),
         gamesessions: gamesessionsFormated,
         callToActionUrl: FlowRouter.url('gamesessionList'),
-        callToAction: TAPi18n.__('emailNewsTitle', {}, lang),
+        callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
         ciao: TAPi18n.__('emailCiao', {}, lang),
         followUs: TAPi18n.__('emailFollowUs', {}, lang),
         feedback: TAPi18n.__('emailFeedback', {}, lang)

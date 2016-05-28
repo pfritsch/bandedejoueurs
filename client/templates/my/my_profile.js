@@ -25,12 +25,6 @@ Template.myProfile.helpers({
   activeTab: function() {
     return Session.get('activeTab');
   },
-  birthdayValue: function() {
-    var birthday = Meteor.user().profile.birthday;
-    if(birthday) {
-      return moment(birthday, "X").format('DD/MM/YYYY');
-    }
-  },
   'playerData': function(){
     var member = Meteor.users.findOne(this.userId);
     member.status = this.status;
@@ -101,17 +95,6 @@ Template.myProfile.events({
 });
 
 Template.myProfile.rendered = function() {
-  var self = this;
-  Tracker.autorun(function () {
-    var lang = Session.get('lang');
-    self.$('[name="profile.birthday"]').datetimepicker({
-      format: 'DD/MM/YYYY',
-      timepicker:false,
-      formatDate: 'DD/MM/YYYY',
-      dayOfWeekStart: 1,
-      lang: lang
-    });
-  });
   if(window.location.hash) {
     Session.set('activeTab', window.location.hash.substr(1));
   }
@@ -141,13 +124,7 @@ AutoForm.hooks({
   userEditProfile: {
     before: {
       update: function(doc) {
-        // Format the date time
-        var birthday = doc.$set['profile.birthday'];
-        if(birthday) {
-          birthday = moment(birthday, "DD/MM/YYYY");
-          doc.$set['profile.birthday'] = moment(birthday).unix();
-        }
-
+        
         // Change email: verified
         var email = doc.$set['emails'];
         if(email) {

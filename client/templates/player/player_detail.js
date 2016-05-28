@@ -19,8 +19,7 @@ Template.playerDetail.helpers({
       profileInfos += (gender)? ' '+gender : '';
 
       if(this.profile.birthday) {
-        var birthday = moment(this.profile.birthday, 'X');
-        var age = rangeAge(moment().diff(birthday, 'years'));
+        var age = rangeAge(this.profile.birthday);
         profileInfos += ' '+TAPi18n.__('playerAge', age);
       }
 
