@@ -35,7 +35,7 @@
           <p>{{_ "myProfileVisibleData"}}</p>
           {{> afQuickField name='profile.name'}}
           <div class="grid-row">
-            {{> afQuickField name='profile.birthday' formgroup-class='grid-col medium-6' type='number' min='1900' max='2100'}}
+            {{> afQuickField name='profile.birthday' type='select' options=selectYears formgroup-class='grid-col medium-6'}}
             {{> afQuickField name='profile.gender' type='select' options='allowed' formgroup-class='grid-col medium-6'}}
           </div>
           <!-- {{> afQuickField name='profile.address.street'}} -->
@@ -62,22 +62,26 @@
     <div class="grid-section has-space-bottom">
       <h2 class="h1">{{_ "myProfileMessages"}}</h2>
       <div class="grid-section">
-        {{#each lastMessageFromPlayer}}
-          {{#with player}}
-          <div id="{{username}}" class="player-item is-message">
-            <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-avatar">
-              {{> avatar user=this}}
-            </a>
-            <div class="player-item-content">
-              <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-name">{{playerName}}</a>
-              <p class="player-item-message">
-                {{#if ../lastMessage.fromUser}}<svg class="icon is-inline is-muted"><use xlink:href="#icon-reply" /></svg>{{/if}}
-                {{../lastMessage.text}}
-              </p>
+        {{#if lastMessageFromPlayer}}
+          {{#each lastMessageFromPlayer}}
+            {{#with player}}
+            <div id="{{username}}" class="player-item is-message">
+              <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-avatar">
+                {{> avatar user=this}}
+              </a>
+              <div class="player-item-content">
+                <a href="{{pathFor 'playerMessages' userId=_id}}" class="player-item-name">{{playerName}}</a>
+                <p class="player-item-message">
+                  {{#if ../lastMessage.fromUser}}<svg class="icon is-inline is-muted"><use xlink:href="#icon-reply" /></svg>{{/if}}
+                  {{../lastMessage.text}}
+                </p>
+              </div>
             </div>
-          </div>
-          {{/with}}
-        {{/each}}
+            {{/with}}
+          {{/each}}
+        {{else}}
+          <div class="msg">{{{_ "myProfileNoMessages"}}}</div>
+        {{/if}}
       </div>
     </div>
   </div>

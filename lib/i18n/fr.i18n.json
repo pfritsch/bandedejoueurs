@@ -89,7 +89,8 @@
         },
         "birthday": {
           "label": "Génération",
-          "placeholder": "Année de naissance"
+          "placeholder": "Année de naissance",
+          "firstOption": "Choisis une année"
         },
         "gender": {
           "label": "Chromosomes",
@@ -97,7 +98,8 @@
           "options": {
             "XY": "XY",
             "XX": "XX"
-          }
+          },
+          "firstOption": "Choisis une catégorie"
         },
         "address": {
           "country": {
@@ -183,7 +185,7 @@
   "myProfileDelete": "Supprimer mon compte",
   "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte? Cela va également effacer toutes tes parties. (Cette action est irreversible)",
   "myProfileNoGamesessions": "<strong>Pas de partie prévue pour le moment...</strong> Pourquoi ne pas <a href=\"gamesessions\">voir les prochaines parties</a>?",
-  "myProfileNoGroup": "<strong>Pas encore de joueur dans ta bande...</strong> Pourquoi ne pas <a href=\"players\">en inviter</a>?",
+  "myProfileNoMessages": "<strong>Pas encore de messages...</strong> Pourquoi ne pas <a href=\"players\">contacter un joueur</a> près de chez toi?",
 
   "playerAge": "%s ans",
   "playerContact": "Contacter",

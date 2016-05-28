@@ -48,3 +48,13 @@ Template.navMain.helpers({
     return activeRoute(args);
   }
 });
+
+// Nav Tabs
+Template.navTabs.helpers({
+  hasNewMessage: function(){
+    var messages = Meteor.user().messages;
+    if(messages) {
+      return messages.contains("status", "new") > -1;
+    }
+  }
+});

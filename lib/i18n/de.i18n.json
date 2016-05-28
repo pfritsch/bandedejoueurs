@@ -88,8 +88,9 @@
           "placeholder": "Sollen wir dich John Doe nennen?"
         },
         "birthday": {
-          "label": "Geburtsdatum",
-          "placeholder": "TT/MM/JJJJ"
+          "label": "Generation",
+          "placeholder": "JJJJ",
+          "firstOption": "Wähle ein Jahr"
         },
         "gender": {
           "label": "Chromosomen",
@@ -97,7 +98,8 @@
           "options": {
             "XY": "XY",
             "XX": "XX"
-          }
+          },
+          "firstOption": "Wähle Chromosomenpaar"
         },
         "address": {
           "country": {
@@ -183,7 +185,7 @@
   "myProfileDelete": "Mein Konto löschen",
   "myProfileRemoveConfirm": "Bist du sicher, dass du dein Konto löschen möchtest? Dies wird auch alle deine Spielpartien löschen. (Diese Aktion kann nicht rückgängig gemacht werden)",
   "myProfileNoGamesessions": "<strong>Keine Spielpartien geplant für den Moment...</strong> Wieso nicht <a href=\"gamesessions\">die nächsten Spielpartien anschauen</a>?",
-  "myProfileNoGroup": "<strong>Noch keine anderen Mitspieler in deiner Bande...</strong> Wieso nicht <a href=\"players\">jemanden einladen</a>?",
+  "myProfileNoMessages": "<strong>Noch keinen Nachrichten...</strong> Wieso nicht <a href=\"players\">ein Spieler kontaktieren</a>?",
 
   "playerAge": "%s Jahre alt",
   "playerSeeProfile": "Mein Profil anschauen",

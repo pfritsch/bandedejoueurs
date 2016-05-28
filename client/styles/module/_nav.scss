@@ -411,3 +411,17 @@ a.nav-main-link {
     }
   }
 }
+.nav-tabs.has-new-message .messages {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: rem-calc(10);
+    right: rem-calc(-10);
+    width: rem-calc(12);
+    height: rem-calc(12);
+    background: #FE732B;
+    border-radius: 50%;
+  }
+}

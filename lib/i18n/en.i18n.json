@@ -88,8 +88,9 @@
           "placeholder": "Do we have to call you John Doe?"
         },
         "birthday": {
-          "label": "Birthday",
-          "placeholder": "DD/MM/YYYY"
+          "label": "Generation",
+          "placeholder": "YYYY",
+          "firstOption": "Pick one"
         },
         "gender": {
           "label": "Chromosomes",
@@ -97,7 +98,8 @@
           "options": {
             "XY": "XY",
             "XX": "XX"
-          }
+          },
+          "firstOption": "Pick one"
         },
         "address": {
           "country": {
@@ -183,7 +185,7 @@
   "myProfileDelete": "Delete my profile",
   "myProfileRemoveConfirm": "Are you really sure to leave the Bande for good? It will also remove all you game events. (This action is irreversible)",
   "myProfileNoGamesessions": "<strong>Nothing planned at the moment...</strong> Why not <a href=\"gamesessions\">see what comes next</a>?",
-  "myProfileNoGroup": "<strong>Yet no player in your Bande...</strong> Maybe you could <a href=\"players\">invite some</a>?",
+  "myProfileNoMessages": "<strong>No messages yet...</strong> Feeling alone? <a href=\"players\">Contact a player</a> near by.",
 
   "playerAge": "%s years old",
   "playerContact": "Contact",

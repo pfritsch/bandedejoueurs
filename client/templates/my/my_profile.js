@@ -77,6 +77,14 @@ Template.myProfile.helpers({
       })
     }
     return rGroupByPlayer;
+  },
+  selectYears: function() {
+    var options = [];
+    var year = moment().year();
+    for (var i = year; i > Math.floor(year - 100); i--) {
+      options.push({label: i.toString(), value: i});
+    }
+    return options;
   }
 });
 
@@ -124,7 +132,7 @@ AutoForm.hooks({
   userEditProfile: {
     before: {
       update: function(doc) {
-        
+
         // Change email: verified
         var email = doc.$set['emails'];
         if(email) {

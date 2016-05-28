@@ -64,9 +64,9 @@
 
       {{trackTabs tabs}}
 
-      <ul class="tabs-list nav-tabs">
+      <ul class="tabs-list nav-tabs {{#if hasNewMessage}}has-new-message{{/if}}">
         {{#each tabs}}
-          <li class="tab-item nav-tabs-item {{isActiveTab slug}}"><a href="#{{slug}}" class="nav-tabs-links">{{name}}</a></li>
+          <li class="tab-item nav-tabs-item {{slug}} {{isActiveTab slug}}"><a href="#{{slug}}" class="nav-tabs-links">{{name}}</a></li>
         {{/each}}
       </ul>
     </div>
