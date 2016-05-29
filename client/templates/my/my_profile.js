@@ -81,7 +81,8 @@ Template.myProfile.helpers({
   selectYears: function() {
     var options = [];
     var year = moment().year();
-    for (var i = year; i > Math.floor(year - 100); i--) {
+    year5 = Math.ceil(year/5)*5;
+    for (var i = year5; i > 1930; i -= 5) {
       options.push({label: i.toString(), value: i});
     }
     return options;
