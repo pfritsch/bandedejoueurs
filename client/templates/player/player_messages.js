@@ -30,10 +30,10 @@ Template.playerMessages.helpers({
   'onlyFromUser': function() {
     var playerId = this._id;
     var messagesFromPlayer = Meteor.user().messages.filter(function(msg){
-     if ('playerId' in msg && msg.playerId === playerId && !msg.fromUser) {
-       return true;
-     } else {
+     if ('playerId' in msg && msg.playerId === playerId && msg.fromUser) {
        return false;
+     } else {
+       return true;
      }
     });
     return Meteor.user().messages.length > 0 && messagesFromPlayer.length <= 0;
