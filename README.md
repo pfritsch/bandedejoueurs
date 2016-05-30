@@ -55,7 +55,11 @@ Deployment
 		mupx setup
 		mupx deploy
 
+
 __Doesn't yet work with npm v6+ (have to select npm 5.11.1 on nvm)__
+
+	. ~/.nvm/nvm.sh
+	nvm use
 
 <!-- https://github.com/sachinbhutani/meteor-openshift
 
