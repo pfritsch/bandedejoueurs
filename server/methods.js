@@ -17,31 +17,39 @@ Meteor.methods({
     }
     if(user.services){
       if(user.services.google) {
-        user.username = user.services.google.given_name;
-        email = user.services.google.email;
-        user.emails = [{ address: email, verified: true } ];
-        user.profile.name = user.services.google.name;
-        if(user.services.google.gender === 'female') user.profile.gender = 'XX';
-        if(user.services.google.gender === 'male') user.profile.gender = 'XY';
+        if(!user.username) user.username = user.services.google.given_name;
+        if(!user.profile.name) user.profile.name = user.services.google.name;
+        if(!user.profile.gender) {
+          if(user.services.google.gender === 'female') user.profile.gender = 'XX';
+          if(user.services.google.gender === 'male') user.profile.gender = 'XY';
+        }
         user.avatar = user.services.google.picture;
-        if(!user.username) user.username = user.services.facebook.email.substring(0, user.services.facebook.email.indexOf("@"));
+        if(!user.emails[0]) {
+          email = user.services.google.email;
+          user.emails = [{ address: email, verified: true } ];
+        }
       }
       else if(user.services.twitter) {
-        user.username = user.services.twitter.screenName;
+        if(!user.username) user.username = user.services.twitter.screenName;
         var picture = user.services.twitter.profile_image_url_https;
         user.avatar = picture.replace('_normal','');
       }
       else if(user.services.facebook) {
-        user.username = user.services.facebook.username;
-        user.profile.name = user.services.facebook.name;
-        if(user.services.facebook.gender === 'female') user.profile.gender = 'XX';
-        if(user.services.facebook.gender === 'male') user.profile.gender = 'XY';
+        // if(!user.username) user.username = user.services.facebook.email.substring(0, user.services.facebook.email.indexOf("@"));
+        if(!user.username) user.username = user.services.facebook.username;
+        if(!user.profile.name) user.profile.name = user.services.facebook.name;
+        if(!user.profile.gender) {
+          if(user.services.facebook.gender === 'female') user.profile.gender = 'XX';
+          if(user.services.facebook.gender === 'male') user.profile.gender = 'XY';
+        }
         user.avatar = "https://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
-        email = user.services.facebook.email;
-        user.emails = [{ address: email, verified: true } ];
+        if(!user.emails[0]) {
+          email = user.services.facebook.email;
+          user.emails = [{ address: email, verified: true } ];
+        }
       }
       else if(user.services.steam) {
-        user.username = user.services.github.username;
+        if(!user.username) user.username = user.services.github.username;
       }
       if(!user.username) user.username = email.substring(0, email.indexOf("@"));
     }
