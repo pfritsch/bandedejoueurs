@@ -12,7 +12,7 @@
 .home-hero {
   text-align: center;
   margin-top: rem-calc(60);
-  @media #{$small-up} { 
+  @media #{$small-up} {
     margin-top: rem-calc(160);
   }
 }
@@ -35,7 +35,7 @@
   @media #{$medium-up} {
     margin-bottom: rem-calc(-96);
   }
-} 
+}
 
 .home-title {
   padding: rem-calc(0 48);
@@ -45,7 +45,7 @@
     font-size: rem-calc(18);
     margin-top: rem-calc(6);
 
-    @media #{$small-up} { 
+    @media #{$small-up} {
       font-size: rem-calc(24);
       line-height: rem-calc(36);
       margin-top: rem-calc(12);
@@ -61,7 +61,7 @@
   height: rem-calc(35);
 }
 
-.home-light, 
+.home-light,
 .home-description,
 .home-who {
   padding: rem-calc(48);
@@ -69,7 +69,7 @@
     padding: rem-calc(60 0);
   }
 }
-.home-light, 
+.home-light,
 .home-description,
 .home-ready {
   text-align: center;
@@ -168,7 +168,7 @@
     padding: rem-calc(60 0);
   }
 }
-.home-ready-form {
+.home-ready-join {
   @media #{$medium-up} {
     @include span(5 last of 12);
     @include squish(0, 1);
@@ -180,21 +180,46 @@
     background-color: #501132;
     color: white;
     border: none;
-    border-radius: rem-calc(18); 
+    border-radius: rem-calc(18);
     &:hover,
     &:focus {
       background-color: darken(#501132, 5%);
     }
   }
-}
-.home-ready-illus {
-  @media #{$medium-up} {
-    transform: translateY(-10%);
-    @include span(5 of 12);
-    @include squish(1, 0);
+  & + .home-ready-illus {
+    @media #{$medium-up} {
+      transform: translateY(-10%);
+      @include span(5 of 12);
+      @include squish(1, 0);
+    }
   }
 }
-.home-ready, 
+.home-ready-form {
+  @media #{$medium-up} {
+    @include span(7 last of 12);
+    text-align: left;
+    margin-top: rem-calc(24);
+  }
+  .at-btn.submit {
+    margin: rem-calc(12 0);
+    background-color: #501132;
+    color: white;
+    border: none;
+    border-radius: rem-calc(18);
+    &:hover,
+    &:focus {
+      background-color: darken(#501132, 5%);
+    }
+  }
+  & + .home-ready-illus {
+    @media #{$medium-up} {
+      transform: translateY(-10%);
+      @include span(5 of 12);
+    }
+  }
+}
+
+.home-ready,
 .home-who {
   color: white;
   input {
