@@ -71,7 +71,7 @@ service-configuration
 accounts-facebook
 accounts-google
 accounts-twitter
-mrt:accounts-steam
+#mrt:accounts-steam
 softwarerero:accounts-t9n
 jparker:gravatar
 

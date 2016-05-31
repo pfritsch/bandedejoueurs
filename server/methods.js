@@ -48,9 +48,9 @@ Meteor.methods({
           user.emails = [{ address: email, verified: true } ];
         }
       }
-      else if(user.services.steam) {
-        if(!user.username) user.username = user.services.github.username;
-      }
+      // else if(user.services.steam) {
+      //   if(!user.username) user.username = user.services.github.username;
+      // }
       if(!user.username) user.username = email.substring(0, email.indexOf("@"));
     }
     Meteor.users.update(Meteor.userId(), {

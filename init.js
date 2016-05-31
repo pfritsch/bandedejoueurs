@@ -60,16 +60,16 @@ if (Meteor.isServer) {
       },
       { upsert: true }
     );
-    // Add Steam configuration entry
-    ServiceConfiguration.configurations.update(
-      { "service": "steam" },
-      {
-        $set: {
-          key: Meteor.settings.private.steam.key
-        }
-      },
-      { upsert: true }
-    );
+    // // Add Steam configuration entry
+    // ServiceConfiguration.configurations.update(
+    //   { "service": "steam" },
+    //   {
+    //     $set: {
+    //       key: Meteor.settings.private.steam.key
+    //     }
+    //   },
+    //   { upsert: true }
+    // );
     // Add Google configuration entry
     ServiceConfiguration.configurations.update(
       { "service": "google" },
