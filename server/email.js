@@ -42,55 +42,94 @@ Meteor.methods({
     });
     console.log("Mail sent to: " + player.emails[0].address)
   },
-  sendNewsletter: function () {
+  sendNews: function () {
     this.unblock();
 
-    var gamesessions = Gamesessions.find({
-      meetingDate: {
-        $gte: moment().unix(),
-        $lt: moment().add(7, 'd').unix()
-      }
-    },{
-      sort: {meetingDate: 1}
-    }).fetch();
-
     var players = Meteor.users.find({'emailCheck': true});
+    var todayNumber = moment().isoWeekday();
+    var title = 'emailNewsTitle';
 
-    players.forEach(function(player){
+    if(todayNumber < 7){
 
-      var lang = player.lang;
-      moment.locale(lang);
+      // Daily News
+      var gamesessions = Gamesessions.find({
+        meetingDate: {
+          $gte: moment().unix(),
+          $lt: moment().add(48, 'h').unix()
+        },
+        emailSent: {
+          $in: [null, false]
+        }
+      },{
+        sort: {
+          meetingDate: 1
+        }
+      }).fetch();
+      title = 'emailNewsTitleDaily';
 
-      var gamesessionsFormated = gamesessions.map(function(gamesession){
-        gamesession.dateFormated = moment(gamesession.meetingDate, 'X').calendar();
-        gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
-        console.log(gamesession.organisedBy);
-        return gamesession;
+    } else if(todayNumber === 7) {
+
+      // Weekly News
+      var gamesessions = Gamesessions.find({
+        meetingDate: {
+          $gte: moment().unix(),
+          $lt: moment().add(7, 'd').unix()
+        },
+        emailSent: {
+          $in: [null, false]
+        }
+      },{
+        sort: {
+          meetingDate: 1
+        }
+      }).fetch();
+
+    }
+
+
+    if (gamesessions.length > 0) {
+
+      players.forEach(function(player){
+
+        var lang = player.lang;
+        moment.locale(lang);
+
+        var gamesessionsFormated = gamesessions.map(function(gamesession){
+          gamesession.dateFormated = moment(gamesession.meetingDate, 'X').calendar();
+          gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
+          return gamesession;
+        });
+
+        var emailData = {
+          template: 'email_news',
+          absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
+          subject: TAPi18n.__('emailNewsSubject', {}, lang),
+          titleNewSessions: TAPi18n.__(title, {}, lang),
+          gamesessions: gamesessionsFormated,
+          callToActionUrl: FlowRouter.url('gamesessionList'),
+          callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
+          ciao: TAPi18n.__('emailCiao', {}, lang),
+          followUs: TAPi18n.__('emailFollowUs', {}, lang),
+          feedback: TAPi18n.__('emailFeedback', {}, lang)
+        };
+
+        SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
+
+        Email.send({
+          to: player.emails[0].address,
+          from: process.env.MAIL_FROM,
+          subject: emailData.subject,
+          html: SSR.render( 'htmlEmail', emailData )
+        });
+        console.log("Mail sent to: " + player.emails[0].address)
+
       });
 
-      var emailData = {
-        template: 'email_news',
-        absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
-        subject: TAPi18n.__('emailNewsSubject', {}, lang),
-        titleNewSessions: TAPi18n.__('emailNewsTitle', {}, lang),
-        gamesessions: gamesessionsFormated,
-        callToActionUrl: FlowRouter.url('gamesessionList'),
-        callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
-        ciao: TAPi18n.__('emailCiao', {}, lang),
-        followUs: TAPi18n.__('emailFollowUs', {}, lang),
-        feedback: TAPi18n.__('emailFeedback', {}, lang)
-      };
-
-      SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
-
-      Email.send({
-        to: player.emails[0].address,
-        from: process.env.MAIL_FROM,
-        subject: emailData.subject,
-        html: SSR.render( 'htmlEmail', emailData )
+      gamesessions.forEach(function(gamesession){
+        Gamesessions.update(gamesession._id, {
+          $set : {emailSent : true}
+        });
       });
-      console.log("Mail sent to: " + player.emails[0].address)
-    });
-
+    }
   }
 });
