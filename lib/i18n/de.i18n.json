@@ -133,7 +133,7 @@
   "headerLogin": "Login",
 
   "navPlayers": "Spieler",
-  "navParties": "Die nächsten Spielpartien",
+  "navParties": "Spiele",
   "navAbout": "Über",
   "navOrganize": "Eine Spielpartie organisieren",
 
@@ -142,7 +142,7 @@
   "homeHeraAlt": "Bande de joueurs, triff andere Spieler für Multiplayer",
   "homeWhatTitle": "Nie mehr wieder alleine spielen!",
   "homeWhatSubtitle": "Bande de Joueurs ist eine Online Community für Brett- und Videospieler.",
-  "homeWhatText": "Wenn du wie wir denkst, dass Spiele da sind um sie zusammen zu spielen, Gleichgesinnte zusammenzubringen, dann bist du hier genau richtig. Hier kannst du Mitspieler für alle Arten von Spielen findne.",
+  "homeWhatText": "Wenn du wie wir denkst, dass Spiele da sind um sie zusammen zu spielen, Gleichgesinnte zusammenzubringen, dann bist du hier genau richtig. Hier kannst du Mitspieler für alle Arten von Spielen finden.",
   "homeHowTitle": "Wie funktioniert es?",
   "homeHowOrganize": "Organisiere oder melde dich an für eine Spielpartie an einem Datum deiner Wahl.",
   "homeHowMeet":"Triff andere Spieler online oder in deiner Nähe.",
@@ -188,9 +188,12 @@
   "myProfileNoMessages": "<strong>Noch keinen Nachrichten...</strong> Wieso nicht <a href=\"players\">ein Spieler kontaktieren</a>?",
 
   "playerAge": "%s Jahre alt",
+  "playerContact": "Kontaktieren",
+  "playerContactName": "%s kontaktieren",
+  "playerSendMessage": "Senden",
+  "playerSendMessagePlaceholder": "Dein Nachricht",
+  "playerSendMessageWait": "Nachricht gesendet. Jetzt warten wir mal auf einen ersten Antwort...",
   "playerSeeProfile": "Mein Profil anschauen",
-  "playerGroupRemove": "Von meiner Bande entfernen",
-  "playerGroupInvite": "In meine Bande einladen",
   "playerItemThatsyou": "(das bist du)",
   "playerDetailallPlayers": "Alle Spieler",
   "playerDetailItsYou": "<strong>Ja, das bist du!</strong> Schau dir die Seite an, die dich den anderen Mitspielern vorstellt. <br />Du kannst die Angaben in <a href=\"/profile\">dein Profil</a> anpassen.",
@@ -199,9 +202,8 @@
   "playerDetailGamesessions": "Nächste Spielpartien",
   "playerDetailGamesessions_plural": "Nächste Spielpartien (__count__)",
   "playerDetailSee": "Profil anschauen",
+  "playerDetailSeeName": "Profil von %s",
   "playerListSearch": "Wo möchtest du spielen?",
-
-  "playerInviteExample": "Hallo %s, ",
 
   "gamesessionOrganizedBy": "Organisiert von __name__",
   "gamesessionEdit": "Bearbeiten",
@@ -259,16 +261,32 @@
 
   "gameAdd": "Eine Spielpartie hinzufügen",
 
+  "emailWelcomeSubject": "Willkommen in der Bande",
+  "emailWelcomeTitle": "Gratuliere %s, jetzt bist du teil von der Bande!",
+  "emailWelcomeSubtitle": "Perfekt, jetzt los mit dem Spiel",
+  "emailWelcomeText": "Du kannst anfangen bei schauen die <a href=\"__urlGamesessions__\" target=\"_blank\">nächsten Spielpartien</a>, oder suchen nach <a href=\"__urlPlayers__\" target=\"_blank\">Spieler in der Nähe</a>. Oder auch könntest du <a href=\"__urlProfile__\" target=\"_blank\">dein Profil ausfühlen</a>, es ist ja besser sich ein bisschen zu kennen, vor zusammen zu spielen, wahr?",
+  "emailWelcomeCTA": "Mein Profil anschauen",
+
   "emailCongrats": "Glückwunsch %s !",
   "emailGamesessionSendLink": "Du wirst benachrichtigt, sobald sich andere Spieler für deine Spielpartie eingeschrieben haben. Vergiss nicht deine Freunde einzuladen, in dem du ihnen den folgenden Link schickst:",
   "emailGamesessionRDV": "Das Datum für die Spielpartie wurde abgemacht:",
   "emailCiao": "Gutes Spiel!",
   "emailFollowUs": "Finde uns auf Twitter:",
   "emailFeedback": "Eine Frage, ein Kommentar?",
+
   "emailGamesessionJoinSubject": "Sich der Spielpartie %s anschliessen",
   "emailGamesessionJoinTitle": "Super %s,<br> du hast dich für die Spielpartie eingeschrieben!",
   "emailGamesessionNewplayerTitle": "Ein neuer Spieler hat sich eingeschrieben!<br> %s",
   "emailGamesessionNewplayerText": "Ein Spieler hat sich der Spielpartie angeschlossen.",
+
+  "emailMessageNew": "Einen neuen Nachricht auf Bande de Joueurs",
+  "emailMessageFrom": "Du hast ein Nachricht von %s bekommen",
+  "emailMessageAnswer": "Antworten",
+
+  "emailNewsSubject": "News von Bande de Joueurs",
+  "emailNewsTitle": "Was spielen wir diese Woche?",
+  "emailNewsTitleDaily": "Neuen Spielpartien finden in den nächsten Tagen statt",
+  "emailNewsCTA": "Los!",
 
   "time": {
     "morning": "Morgen",
