@@ -162,7 +162,7 @@
   "homeReadyTitle": "Bereit um zu spielen?",
   "homeReadySubtitle": "Schliess dich uns an!",
   "homeReadyText": "Es ist komplett kostenfrei und geht auch nicht lange. Du bist schon fast Teil der Bande...",
-  "homeReadySubtitleOnline": "Hallo, wie gehts?",
+  "homeReadySubtitleOnline": "Hallo %s, wie gehts?",
   "homeReadyTextOnline": "Es freut uns dich bei uns zu haben.",
   "homeReadyAlt": "Un dragon joue à la gameboy",
   "homeWhoTitle": "Wer wir sind?",
