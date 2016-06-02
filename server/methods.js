@@ -94,13 +94,9 @@ Meteor.methods({
     var now = moment().unix();
 
     var messagesFromPlayer = user.messages.filter(function(msg){
-     if ('playerId' in msg && msg.playerId === playerId && !msg.fromUser) {
-       return true;
-     } else {
-       return false;
-     }
+      return msg.playerId === playerId && msg.fromUser != true;
     });
-    if(Meteor.user().messages.length > 0 && messagesFromPlayer.length <= 0) return false;
+    if(Meteor.user().messages.length <= 0 || messagesFromPlayer.length === 0) return false;
 
     // Add message to player
     Meteor.users.update(playerId, {$addToSet: {'messages': {

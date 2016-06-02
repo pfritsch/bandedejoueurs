@@ -30,13 +30,9 @@ Template.playerMessages.helpers({
   'onlyFromUser': function() {
     var playerId = this._id;
     var messagesFromPlayer = Meteor.user().messages.filter(function(msg){
-     if ('playerId' in msg && msg.playerId === playerId && msg.fromUser) {
-       return false;
-     } else {
-       return true;
-     }
+      return msg.playerId === playerId && msg.fromUser != true;
     });
-    return Meteor.user().messages.length > 0 && messagesFromPlayer.length <= 0;
+    return messagesFromPlayer.length === 0;
   },
   'dateFormatted': function() {
     return moment(this.date, 'X').fromNow();
@@ -68,7 +64,7 @@ Template.playerMessages.events({
           followUs: TAPi18n.__('emailFollowUs'),
           feedback: TAPi18n.__('emailFeedback')
         };
-        Meteor.call('sendPlayerEmail', emailData, this._id);
+        // Meteor.call('sendPlayerEmail', emailData, this._id);
       }
       e.target.playerMessage.value = ''
     }

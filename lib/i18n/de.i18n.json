@@ -84,7 +84,7 @@
       },
       "profile": {
         "name": {
-          "label": "Echter Name",
+          "label": "Anzeigename",
           "placeholder": "Sollen wir dich John Doe nennen?"
         },
         "birthday": {
@@ -173,14 +173,14 @@
   "accountErrorEmail": "E-mail ungültig",
   "accountChangePassword": "Mein Passwort ändern",
 
-  "myProfileProfile": "Mein Profil",
+  "myProfile": "Mein Profil",
   "myProfileNotifications": "Benachrichtigungen",
   "myProfileBand": "Meine Bande",
   "myProfileParties": "Meine Spielpartien",
   "myProfileGames": "Meine Spiele",
   "myProfileSubtitle": "Hier kannst du dein Profil anpassen und uns ein bisschen mehr von dir erzählen.",
   "myProfileAboutYou": "Über dich",
-  "myProfileVisibleData": "Bis auf deine Adresse werden alle diese Daten für die Übrigen Spieler sichtbar sein.",
+  "myProfileVisibleData": "Wichtig: alle diese Daten sind für die Übrigen Spieler sichtbar.",
   "myProfileSave": "Mein Profil speichern",
   "myProfileDelete": "Mein Konto löschen",
   "myProfileRemoveConfirm": "Bist du sicher, dass du dein Konto löschen möchtest? Dies wird auch alle deine Spielpartien löschen. (Diese Aktion kann nicht rückgängig gemacht werden)",
