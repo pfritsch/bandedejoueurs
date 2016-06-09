@@ -40,6 +40,7 @@ kadira:blaze-layout
 okgrow:router-autoscroll
 arillo:flow-router-helpers
 meteorhacks:fast-render
+force-ssl
 
 # SEO
 spiderable
