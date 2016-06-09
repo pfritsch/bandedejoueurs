@@ -73,7 +73,20 @@ Template.gamesessionDetail.onCreated(function() {
   var self = this;
   self.autorun(function() {
     var gamesessionId = FlowRouter.getParam('gamesessionId');
-    self.subscribe('singleGamesession', gamesessionId);
+    self.subscribe('singleGamesession', gamesessionId, {
+      onReady: function() {
+        var gamesession = Gamesessions.findOne({_id: gamesessionId});
+        var title = gamesession.title+" "+formatDate(gamesession.meetingDate);
+        SEO.set({
+          title: "Bande de joueurs - "+title,
+          description: gamesession.description || TAPi18n.__('gamesessionDetailDesc', title),
+          meta: {
+            'property="og:image"': gamesession.cover,
+            'name="twitter:image"': gamesession.cover
+          }
+        });
+      }
+    });
   });
 });
 
