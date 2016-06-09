@@ -116,6 +116,7 @@ oauth@1.1.6
 oauth1@1.1.5
 oauth2@1.1.5
 observe-sequence@1.0.7
+okgrow:analytics@1.0.6
 okgrow:router-autoscroll@0.1.8
 ordered-dict@1.0.4
 peerlibrary:blocking@0.5.2

@@ -44,6 +44,7 @@ meteorhacks:fast-render
 # SEO
 spiderable
 tomwasd:flow-router-seo
+okgrow:analytics
 
 # Forms
 aldeed:autoform
