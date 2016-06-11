@@ -8,5 +8,4 @@ SyncedCron.add({
     Meteor.call('sendNews');
   }
 });
-
 SyncedCron.start();

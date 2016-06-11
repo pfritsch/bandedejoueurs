@@ -95,7 +95,7 @@ Meteor.methods({
         moment.locale(lang);
 
         var gamesessionsFormated = gamesessions.map(function(gamesession){
-          gamesession.dateFormated = moment(gamesession.meetingDate, 'X').calendar();
+          gamesession.dateFormated = moment(gamesession.meetingDate, 'X').add(2, 'h').calendar();
           gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
           return gamesession;
         });
@@ -121,7 +121,7 @@ Meteor.methods({
           subject: emailData.subject,
           html: SSR.render( 'htmlEmail', emailData )
         });
-        console.log("Mail sent to: " + player.emails[0].address)
+        console.log("Mail sent to: " + player.emails[0].address + " in "+lang)
 
       });
 
