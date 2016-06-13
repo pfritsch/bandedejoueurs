@@ -67,7 +67,7 @@ Template.playerMessages.events({
           followUs: TAPi18n.__('emailFollowUs'),
           feedback: TAPi18n.__('emailFeedback')
         };
-        // Meteor.call('sendPlayerEmail', emailData, this._id);
+        Meteor.call('sendPlayerEmail', emailData, this._id);
       }
       e.target.playerMessage.value = ''
     }
