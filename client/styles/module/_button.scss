@@ -214,3 +214,10 @@ input.button-big,
 .button-list {
   @include reset-list;
 }
+.button-list-item {
+  display: inline-block;
+  margin-left: rem-calc(12);
+  &:first-child {
+    margin-left: 0;
+  }
+}

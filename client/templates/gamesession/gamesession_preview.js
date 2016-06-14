@@ -17,8 +17,15 @@ Template.gamesessionPreview.helpers({
     var title = this.title;
     var date = moment(this.meetingDate, 'X').calendar();
     if(!this.boardgameTags && !this.videogameTags) title = splitDay(moment(this.meetingDate, 'X').hour())+' '+title;
-    var text = TAPi18n.__('gamesessionShareMsgTwitter', title+' '+date+' '+link);
-    return encodeURI(text);
+    var text = "https://twitter.com/intent/tweet?text="+encodeURI(TAPi18n.__('gamesessionShareMsgTwitter', title+' '+date+' '+link));
+    return text;
+  },
+  linkFacebook: function() {
+    var app_id = 1570718869885594;
+    var href = Meteor.absoluteUrl()+'gamesessions/'+this._id;
+    var redirect_uri = href;
+    var url = "https://www.facebook.com/dialog/share?app_id="+app_id+"+&display=popup&href="+href+"&redirect_uri="+redirect_uri+"}}";
+    return url;
   }
 });
 

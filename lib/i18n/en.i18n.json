@@ -242,6 +242,7 @@
   "gamesessionPreviewTitle": "Congratulations! The event was created successfully",
   "gamesessionPreviewText": "You can see it in the next games list. It should look so:",
   "gamesessionPreviewInvite": "You will be notified as soon as other players have registered in the game <br /> Don't forget to invite your friends by sending them this link:",
+  "gamesessionPreviewShareOn": "Share on %s",
 
   "gamesessionUpdateTitle": "Modify %s",
   "gamesessionUpdateSubtitle": "You're about to modifiy this event. All registered players will recieve a notification.",

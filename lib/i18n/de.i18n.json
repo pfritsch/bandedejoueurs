@@ -242,6 +242,7 @@
   "gamesessionPreviewTitle": "Glückwunsch! Die Spielpartie wurde erfolgreich erstellt",
   "gamesessionPreviewText": "Sie wird nun in der Liste der nächsten Spiele aufgeführt. So sieht es aus:",
   "gamesessionPreviewInvite": "Du wirst benachrichtigt, sobald sich andere Spieler für deine Spielpartie eingeschrieben haben.<br />Vergiss nicht deine Freunde einzuladen, in dem du ihnen den folgenden Link schickst:",
+  "gamesessionPreviewShareOn": "Verteilen auf %s",
 
   "gamesessionUpdateTitle": "Die Spielpartie ändern %s",
   "gamesessionUpdateSubtitle": "Du bist im Begriff die Spielpartie zu ändern. Alle eingeschriebenen Spieler werden eine Benachrichtigung erhalten.",

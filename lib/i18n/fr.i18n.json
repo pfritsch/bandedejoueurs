@@ -242,6 +242,7 @@
   "gamesessionPreviewTitle": "Félicitations! La partie a été crée avec succès",
   "gamesessionPreviewText": "Elle sera visible dans la liste des prochaines parties. Voilà à quoi ça va ressembler:",
   "gamesessionPreviewInvite": "Tu seras informé dès que d'autres joueurs se seront inscrits à ta partie.<br />N'oublies pas d'inviter tes amis en leur envoyant ce lien:",
+  "gamesessionPreviewShareOn": "Partager sur %s",
 
   "gamesessionUpdateTitle": "Modifier la partie %s",
   "gamesessionUpdateSubtitle": "Tu es sur le point de modifier cet évènement, tous les joueurs inscrits recevront une notification.",
