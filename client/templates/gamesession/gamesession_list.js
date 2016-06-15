@@ -42,9 +42,7 @@ Template.gamesessionList.helpers({
     var allCities = [];
     sessions.map(function(item) {
       var address = item.meetingPlace.address;
-      if(address && allCities.indexOf(address.city) < 0) {
-        allCities.push(address.city);
-      }
+      if(address && allCities.indexOf(address.city) < 0) allCities.push(address.city);
     });
     return allCities.map(function(city) {
       return city = {label: city, value: city}
@@ -57,12 +55,14 @@ Template.gamesessionList.helpers({
     var allServices = [];
     sessions.map(function(item) {
       var service = item.meetingPlace.service;
-      if(service) allServices.push({
-        label: TAPi18n.__('schemas.gamesession.meetingPlace.service.title.options.'+service.title),
-        value: service.title
-      });
+      if(service && allServices.indexOf(service.title) < 0) allServices.push(service.title);
     });
-    return allServices;
+    return allServices.map(function(service) {
+      return service = {
+        label: TAPi18n.__('schemas.gamesession.meetingPlace.service.title.options.'+service),
+        value: service
+      }
+    });
   },
   meetingPlaceIRLPlaceholder: function() {
     return TAPi18n.__('gamesessionFilterWhereIRL')
@@ -122,7 +122,7 @@ Template.gamesessionList.onCreated(function() {
       meetingDate: {$gte: moment().subtract(6, 'h').unix()}
     };
     var option = {
-      sort: { meetingDate: 1 }, 
+      sort: { meetingDate: 1 },
       limit: 0
     };
     self.subscribe('gamesessions', filter, option);
