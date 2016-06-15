@@ -32,10 +32,10 @@
                 {{> avatar user=this}}
               </a>
             {{/with}}
-            <div class="gamesession-detail-desc">
+            <div class="gamesession-detail-text">
               <span class="gamesession-detail-owner-name is-muted">{{_ 'gamesessionOrganizedBy' name=authorName}}</span>
               {{#if description}}
-                <p>{{description}}</p>
+                <p class="gamesession-detail-desc">{{description}}</p>
               {{/if}}
               <p>{{{detailsFormated}}}</p>
             </div>

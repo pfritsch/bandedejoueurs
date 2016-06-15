@@ -15,6 +15,9 @@ Template.gamesessionItem.helpers({
     var author = Meteor.users.findOne({_id: this.authorId}) || {};
     return author;
   },
+  descriptionTruncated: function() {
+    return this.description.truncate(200,true);
+  },
   playersLeft: function() {
     if(this.spots) {
       var availableSlots = this.spots - this.players.length;
