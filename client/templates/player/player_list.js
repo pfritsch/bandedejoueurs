@@ -1,6 +1,9 @@
 Template.playerList.helpers({
   allPlayers: function() {
-    return Meteor.users.find();
+    return Meteor.users.find({ _id: {$ne: Meteor.userId()} }, {sort: {createdAt: -1}});
+  },
+  currentUser:function() {
+    return Meteor.user();
   },
   geolocationError: function() {
     var error = Geolocation.error();

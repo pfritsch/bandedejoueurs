@@ -10,6 +10,9 @@
     </div>
     {{/if}}
     <div class="player-list">
+      {{#with currentUser}}
+        {{> playerItem}}
+      {{/with}}
       {{#each allPlayers}}
         {{> playerItem}}
       {{/each}}

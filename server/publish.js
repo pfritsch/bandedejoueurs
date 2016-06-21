@@ -5,6 +5,7 @@ Meteor.publish('currentUserData', function() {
 Meteor.publish('somePlayers', function(filters) {
   return Meteor.users.find(filters, {fields: {
     username: 1,
+    'createdAt': 1,
     'profile.name': 1,
     'profile.birthday': 1,
     'profile.gender': 1,
@@ -33,6 +34,7 @@ Meteor.publish('mapPlayers', function(box) {
   };
   return Meteor.users.find(filters, {fields: {
     username: 1,
+    'createdAt': 1,
     'profile.name': 1,
     'profile.birthday': 1,
     'profile.gender': 1,

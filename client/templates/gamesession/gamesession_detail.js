@@ -81,6 +81,9 @@ Template.gamesessionDetail.onCreated(function() {
           title: "Bande de joueurs - "+title,
           description: gamesession.description || TAPi18n.__('gamesessionDetailDesc', title),
           meta: {
+            'property="og:title"': title,
+            'property="og:type"': 'website',
+            'property="og:url"': 'https://bandedejoueurs.com/gamesessions/'+gamesessionId,
             'property="og:image"': gamesession.cover,
             'name="twitter:image"': gamesession.cover
           }
