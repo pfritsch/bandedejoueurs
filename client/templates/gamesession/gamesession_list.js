@@ -126,5 +126,9 @@ Template.gamesessionList.onCreated(function() {
       limit: 0
     };
     self.subscribe('gamesessions', filter, option);
+
+    SEO.set({
+      title: 'Bande de joueurs | '+TAPi18n.__('gamesessionDetailallSessions')
+    });
   });
 });

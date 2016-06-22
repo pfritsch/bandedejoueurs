@@ -87,6 +87,10 @@ Template.playerList.onCreated(function() {
 
   Session.set('selectedPlayer', null);
 
+  SEO.set({
+    title: 'Bande de joueurs | '+TAPi18n.__('playerDetailallPlayers')
+  });
+
   GoogleMaps.ready('map', function(map) {
     getBox();
 
