@@ -10,7 +10,7 @@ getUserLanguage = function () {
 SEO = new FlowRouterSEO();
 SEO.setDefaults({
   title: 'Bande de joueurs',
-  description: 'Communauté de joueurs de jeux de société et de jeux vidéos. Organiser ou participer à une partie, rencontrer d\'autres joueurs près de chez soi ou en ligne.',
+  description: 'Rencontrer d\'autre joueurs, organiser des soirées jeux ou des parties multijoueur ou co-op en ligne.',
   meta: {
     'property="og:type"': 'website',
     'property="og:site_name"': 'Bande de joueurs',

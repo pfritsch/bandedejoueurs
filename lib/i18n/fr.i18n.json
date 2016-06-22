@@ -1,5 +1,4 @@
-{
-  "schemas": {
+{ "schemas": {
     "gamesession": {
       "meetingType": {
         "label": "Rendez-vous où ?",

@@ -45,6 +45,7 @@ force-ssl
 # SEO
 spiderable
 tomwasd:flow-router-seo
+gadicohen:sitemaps
 okgrow:analytics
 
 # Forms

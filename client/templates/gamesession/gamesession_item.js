@@ -16,7 +16,7 @@ Template.gamesessionItem.helpers({
     return author;
   },
   descriptionTruncated: function() {
-    return this.description.truncate(200,true);
+    if(this.description) return this.description.truncate(200,true);
   },
   playersLeft: function() {
     if(this.spots) {

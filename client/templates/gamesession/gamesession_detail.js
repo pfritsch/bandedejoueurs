@@ -78,7 +78,7 @@ Template.gamesessionDetail.onCreated(function() {
         var gamesession = Gamesessions.findOne({_id: gamesessionId});
         var title = gamesession.title+" "+formatDate(gamesession.meetingDate);
         SEO.set({
-          title: "Bande de joueurs - "+title,
+          title: title,
           description: gamesession.description || TAPi18n.__('gamesessionDetailDesc', title),
           meta: {
             'property="og:title"': title,
