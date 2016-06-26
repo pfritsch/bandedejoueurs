@@ -25,12 +25,13 @@ Template.gamesessionActions.events({
           template: 'email_event',
           absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
+          gameThumbnail: this.cover,
           title: TAPi18n.__('emailGamesessionJoinTitle', getName(Meteor.user())),
           subtitle: this.title+' '+formatDate(this.meetingDate),
           rdv: TAPi18n.__('emailGamesessionRDV'),
           rdvDate: TAPi18n.__('helper.onDate', moment(this.meetingDate, 'X').format('LLLL')),
           rdvLocation: formatLocation(this.meetingPlace),
-          callToActionUrl: FlowRouter.url('playerDetail', {userId: this._id}),
+          callToActionUrl: FlowRouter.url('gamesessionDetail', {gamesessionId: this._id}),
           callToAction: TAPi18n.__('gamesessionDetailSee'),
           ciao: TAPi18n.__('emailCiao'),
           followUs: TAPi18n.__('emailFollowUs'),
@@ -40,13 +41,26 @@ Template.gamesessionActions.events({
 
         // Send email to author
         var author = Meteor.users.findOne(this.authorId);
+        var gamesessionText =  TAPi18n.__('emailGamesessionNewplayerText');
+        if(this.spots) {
+          var availableSlots = this.spots - this.players.length;
+          if(availableSlots > 0) {
+            gamesessionText = gamesessionText+' '+TAPi18n.__('gamesessionItemSpots', {count: availableSlots});
+          } else {
+            gamesessionText = gamesessionText+' '+TAPi18n.__('gamesessionItemSpotsFull');
+          }
+        }
         var emailData = {
-          template: 'email_simple',
+          template: 'email_event',
           absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
-          title: TAPi18n.__('emailGamesessionNewplayerTitle', getName(author)),
-          subtitle: this+' '+formatDate(this.meetingDate),
-          text: TAPi18n.__('emailGamesessionNewplayerText'),
+          gameThumbnail: Meteor.user().avatar,
+          title: TAPi18n.__('emailGamesessionNewplayerTitle', getName(Meteor.user())),
+          subtitle: this.title+' '+formatDate(this.meetingDate),
+          rdv: TAPi18n.__('emailGamesessionRDV'),
+          rdvDate: TAPi18n.__('helper.onDate', moment(this.meetingDate, 'X').format('LLLL')),
+          rdvLocation: formatLocation(this.meetingPlace),
+          text: gamesessionText,
           callToActionUrl: FlowRouter.url('playerDetail', {userId: Meteor.userId()}),
           callToAction: TAPi18n.__('playerDetailSee'),
           ciao: TAPi18n.__('emailCiao'),

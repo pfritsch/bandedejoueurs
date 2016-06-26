@@ -277,7 +277,7 @@
 
   "emailGamesessionJoinSubject": "Inscription à la partie %s",
   "emailGamesessionJoinTitle": "Super %s,<br> tu es bien inscrit!",
-  "emailGamesessionNewplayerTitle": "Un nouveau joueur s'est inscrit!<br> %s",
+  "emailGamesessionNewplayerTitle": "%s s'est inscrit à la partie!",
   "emailGamesessionNewplayerText": "Un joueur de la bande a rejoint la partie.",
 
   "emailMessageNew": "Un nouveau message sur Bande de Joueurs",

@@ -18,6 +18,7 @@ Meteor.methods({
       html: SSR.render( 'htmlEmail', emailData )
     });
     console.log("Mail sent to: " + user.emails[0].address)
+    // console.log(emailData)
   },
   sendPlayerEmail: function (emailData, playerId) {
     this.unblock();
@@ -41,6 +42,7 @@ Meteor.methods({
       html: SSR.render( 'htmlEmail', emailData )
     });
     console.log("Mail sent to: " + player.emails[0].address)
+    // console.log(emailData)
   },
   sendNews: function () {
     this.unblock();
