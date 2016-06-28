@@ -43,7 +43,7 @@ Template.gamesessionActions.events({
         var author = Meteor.users.findOne(this.authorId);
         var gamesessionText =  TAPi18n.__('emailGamesessionNewplayerText');
         if(this.spots) {
-          var availableSlots = this.spots - this.players.length;
+          var availableSlots = (this.spots - this.players.length) + 1;
           if(availableSlots > 0) {
             gamesessionText = gamesessionText+' '+TAPi18n.__('gamesessionItemSpots', {count: availableSlots});
           } else {

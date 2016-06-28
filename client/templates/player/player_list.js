@@ -17,12 +17,12 @@ Template.playerList.helpers({
       lat: 46,
       lng: 8
     };
-    var newCoordinates = Geolocation.latLng();
-    if(newCoordinates) {
+    if(!Geolocation.error()) {
       latLng = Geolocation.latLng();
-    } else if(Meteor.user()) {
+    } else if(Meteor.user() && Meteor.user().profile.coordinates != null) {
       latLng = Meteor.user().profile.coordinates;
     }
+    console.log(latLng);
     if (GoogleMaps.loaded() && latLng) {
       return {
         center: new google.maps.LatLng(latLng),
