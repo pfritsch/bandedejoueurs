@@ -286,7 +286,8 @@
 
   "emailNewsSubject": "Des nouvelles de la Bande de Joueurs",
   "emailNewsTitle": "À quoi on joue cette semaine?",
-  "emailNewsTitleDaily": "De nouvelles parties sont organisées dans les jours à venir",
+  "emailNewsTitleDaily": "De nouvelles parties prévues dans les jours à venir",
+  "emailNewsTitleNow": "Une partie vient d'être organisée pour aujourd'hui",
   "emailNewsCTA": "C'est parti!",
 
   "time": {

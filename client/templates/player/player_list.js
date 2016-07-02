@@ -22,7 +22,7 @@ Template.playerList.helpers({
     } else if(Meteor.user() && Meteor.user().profile.coordinates != null) {
       latLng = Meteor.user().profile.coordinates;
     }
-    console.log(latLng);
+    // console.log(latLng);
     if (GoogleMaps.loaded() && latLng) {
       return {
         center: new google.maps.LatLng(latLng),

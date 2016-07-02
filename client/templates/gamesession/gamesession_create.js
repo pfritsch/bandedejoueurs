@@ -242,6 +242,17 @@ AutoForm.hooks({
       // Add author to player list
       Meteor.call('joinGamesession', this.docId);
 
+      // Send the news if the event take place before 18:00
+      if(moment(this.insertDoc.meetingDate, 'X').isBefore(moment(18, "HH"))) {
+        var gamesessions = [this.insertDoc];
+        var title = 'emailNewsTitleNow';
+        try {
+          Meteor.call('sendNews', gamesessions, title);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
       // Redirect to confirmation page
       FlowRouter.go('gamesessionPreview', {gamesessionId: this.docId});
     },
