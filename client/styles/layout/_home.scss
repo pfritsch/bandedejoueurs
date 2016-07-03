@@ -11,8 +11,7 @@
 
 .home-hero {
   text-align: center;
-  margin-top: rem-calc(60);
-  @media #{$small-up} {
+  @media #{$medium-up} {
     margin-top: rem-calc(160);
   }
 }
@@ -38,7 +37,7 @@
 }
 
 .home-title {
-  padding: rem-calc(0 48);
+  padding: rem-calc(60 48);
   span {
     display: inline-block;
     font-weight: 300;
