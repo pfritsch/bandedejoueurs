@@ -107,31 +107,34 @@ Template.playerList.onCreated(function() {
         added: function(document) {
           if(document._id && document.profile) {
             if(!markers[document._id] && document.profile.location) {
-              var iconMarker = 'images/marker_default.png';
-              // Create a marker for this document
-              var latLng = new google.maps.LatLng(document.profile.location.coordinates.lat, document.profile.location.coordinates.lng);
-              var marker = new google.maps.Marker({
-                animation: google.maps.Animation.DROP,
-                position: latLng,
-                map: map.instance,
-                icon: iconMarker,
-                optimized: false,
-                id: document._id
-              });
-              markers[document._id] = marker;
+              if(document.profile.location.coordinates) {
+                var iconMarker = 'images/marker_default.png';
+                
+                // Create a marker for this document
+                var latLng = new google.maps.LatLng(document.profile.location.coordinates.lat, document.profile.location.coordinates.lng);
+                var marker = new google.maps.Marker({
+                  animation: google.maps.Animation.DROP,
+                  position: latLng,
+                  map: map.instance,
+                  icon: iconMarker,
+                  optimized: false,
+                  id: document._id
+                });
+                markers[document._id] = marker;
 
-              marker.addListener('click', function(){
-                Session.set('selectedPlayer', this.id);
-                for(item in markers) {
-                  markers[item].setIcon('images/marker_default.png');
-                  this.setZIndex();
-                }
-                this.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
-                this.setIcon('images/marker_selected.png');
+                marker.addListener('click', function(){
+                  Session.set('selectedPlayer', this.id);
+                  for(item in markers) {
+                    markers[item].setIcon('images/marker_default.png');
+                    this.setZIndex();
+                  }
+                  this.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
+                  this.setIcon('images/marker_selected.png');
 
-                var currentPath = FlowRouter.current().path;
-                FlowRouter.go(currentPath+'#'+document.username);
-              });
+                  var currentPath = FlowRouter.current().path;
+                  FlowRouter.go(currentPath+'#'+document.username);
+                });
+              }
             }
           }
         },

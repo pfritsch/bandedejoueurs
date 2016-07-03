@@ -1,9 +1,9 @@
 getUserLanguage = function () {
-  var userLang = navigator.language || navigator.userLanguage;
+  var userLang = localStorage.getItem('userLocale') || navigator.language || navigator.userLanguage;
   if (['fr','en','de'].indexOf(userLang) >= 0) {
     return userLang;
   } else {
-    return 'en';
+    return 'fr';
   }
 };
 
@@ -25,22 +25,7 @@ if (Meteor.isClient) {
     // Default sessions variables
     Session.setDefault('showGame', {boardgameTags: 1, videogameTags: 1});
 
-    // Init Lang
-    if(!localStorage.getItem('userLocale')) {
-      localStorage.setItem('userLocale', getUserLanguage());
-      if(Meteor.user()){
-        Meteor.call('userEditLang', getUserLanguage());
-      }
-    }
-    Session.setDefault('lang', localStorage.getItem('userLocale'));
-    T9n.setLanguage(Session.get('lang'));
-    TAPi18n.setLanguage(Session.get('lang'))
-    .fail(function (error_message) {
-      console.log(error_message);
-    });
-
-    // Init Moment js
-    moment.locale(Session.get('lang'));
+    checkLang();
 
     // Settings Autoform
     AutoForm.setDefaultTemplate('plain');

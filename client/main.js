@@ -7,6 +7,25 @@ checkUser = function() {
     return true
   }
 }
+checkLang = function() {
+  // Init Lang
+  var lang = getUserLanguage();
+  if(!localStorage.getItem('userLocale')) {
+    localStorage.setItem('userLocale', lang);
+  }
+  if(Meteor.user()){
+    Meteor.call('userEditLang', lang);
+  }
+  Session.setDefault('lang', localStorage.getItem('userLocale'));
+  T9n.setLanguage(Session.get('lang'));
+  TAPi18n.setLanguage(Session.get('lang'))
+  .fail(function (error_message) {
+    console.log(error_message);
+  });
+
+  // Init Moment js
+  moment.locale(Session.get('lang'));
+}
 formatDate = function(meetingDate) {
   var date = moment(meetingDate, 'X');
   return (date.isAfter(moment(), 'day'))? date.calendar() : date.fromNow();
