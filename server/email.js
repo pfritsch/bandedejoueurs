@@ -48,12 +48,14 @@ Meteor.methods({
       console.log("Mail sent to: " + player.emails[0].address)
     }
   },
-  sendNews: function (gamesessions, title) {
+  sendNews: function (gamesessions, newPlayers, weekly) {
     this.unblock();
 
     var players = Meteor.users.find({'emailCheck': true, emails: { $exists: true }});
 
-    if (gamesessions.length > 0) {
+    if (gamesessions.length > 0 || newPlayers.length > 0) {
+
+      var titleNewSessions = (!weekly)? 'emailNewSessionsTitle' : 'emailNewSessionsTitleDaily';
 
       players.forEach(function(player){
 
@@ -61,18 +63,34 @@ Meteor.methods({
           var lang = player.lang || 'en';
           moment.locale(lang);
 
-          var gamesessionsFormated = gamesessions.map(function(gamesession){
-            gamesession.dateFormated = moment(gamesession.meetingDate, 'X').add(2, 'h').calendar();
-            gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
-            return gamesession;
-          });
+          if(gamesessions.length > 0) {
+            var gamesessionsFormated = gamesessions.map(function(gamesession){
+              gamesession.dateFormated = moment(gamesession.meetingDate, 'X').add(2, 'h').calendar();
+              gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
+              return gamesession;
+            });
+          } else {
+            var gamesessionsFormated = false;
+          }
+
+          if(newPlayers.length > 0) {
+            var newPlayersFormated = newPlayers.map(function(player){
+              player.playerName = player.profile.name || player.username;
+              return player;
+            });
+          } else {
+            var newPlayersFormated = false;
+          }
 
           var emailData = {
             template: 'email_news',
             absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
             subject: TAPi18n.__('emailNewsSubject', {}, lang),
-            titleNewSessions: TAPi18n.__(title, {}, lang),
             gamesessions: gamesessionsFormated,
+            titleNewSessions: TAPi18n.__(titleNewSessions, {}, lang),
+            newPlayers: newPlayersFormated,
+            titleNewPlayers: TAPi18n.__('emailNewPlayersTitle', {count: newPlayers.length}, lang),
+            titleNewPlayersSubtitle: TAPi18n.__('emailNewPlayersSubtitle', {count: newPlayers.length}, lang),
             callToActionUrl: FlowRouter.url('gamesessionList'),
             callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
             ciao: TAPi18n.__('emailCiao', {}, lang),

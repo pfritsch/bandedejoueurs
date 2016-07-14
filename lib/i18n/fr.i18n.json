@@ -285,8 +285,12 @@
   "emailMessageAnswer": "Répondre",
 
   "emailNewsSubject": "Des nouvelles de la Bande de Joueurs",
-  "emailNewsTitle": "À quoi on joue cette semaine?",
-  "emailNewsTitleDaily": "De nouvelles parties prévues dans les jours à venir",
+  "emailNewSessionsTitle": "À quoi on joue cette semaine?",
+  "emailNewSessionsTitleDaily": "De nouvelles parties prévues dans les jours à venir",
+  "emailNewPlayersTitle": "Un nouveau joueur a rejoint la bande!",
+  "emailNewPlayersSubtitle": "On l'accueille bien fort",
+  "emailNewPlayersTitle_plural": "De nouveaux joueurs on rejoint la bande!",
+  "emailNewPlayersSubtitle_plural": "On les accueille bien fort",
   "emailNewsTitleNow": "Une partie vient d'être organisée pour aujourd'hui",
   "emailNewsCTA": "C'est parti!",
 

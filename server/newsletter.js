@@ -6,8 +6,9 @@ SyncedCron.add({
   },
   job: function() {
 
-    var title = 'emailNewsTitle';
+    var weekly = false;
     var todayNumber = moment().isoWeekday();
+
     if(todayNumber < 7){
 
       // Daily News
@@ -24,9 +25,12 @@ SyncedCron.add({
           meetingDate: 1
         }
       }).fetch();
-      title = 'emailNewsTitleDaily';
+
+      var newPlayers = [];
 
     } else if(todayNumber === 7) {
+
+      weekly = true;
 
       // Weekly News
       var gamesessions = Gamesessions.find({
@@ -43,10 +47,17 @@ SyncedCron.add({
         }
       }).fetch();
 
+      var now = moment();
+      var lastWeek = moment().subtract(7, 'd').format();
+      var newPlayers = Meteor.users.find({
+        createdAt: {
+          $gte: new Date(lastWeek)
+        }
+      }).fetch();
     }
 
     try {
-      Meteor.call('sendNews', gamesessions, title);
+      Meteor.call('sendNews', gamesessions, newPlayers, weekly);
     } catch (e) {
       console.log(e);
     }

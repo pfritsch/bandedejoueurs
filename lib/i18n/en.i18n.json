@@ -286,10 +286,17 @@
   "emailMessageAnswer": "Answer",
 
   "emailNewsSubject": "Fresh news from Bande de Joueurs",
-  "emailNewsTitle": "What are we playing this week?",
-  "emailNewsTitleDaily": "New games are organized in the next few days",
+  "emailNewSessionsTitle": "What are we playing this week?",
+  "emailNewSessionsTitleDaily": "New games are organized in the next few days",
+  "emailNewPlayersTitle": "A new player just joined the Bande!",
+  "emailNewPlayersSubtitle": "Make some noise for...",
+  "emailNewPlayersTitle_plural": "New players just joined the Bande!",
+  "emailNewPlayersSubtitle_plural": "Make some noise for...",
   "emailNewsTitleNow": "A game has just been organized for today",
   "emailNewsCTA": "Let's game!",
+
+  "emailNewsTitleNow": "Une partie vient d'être organisée pour aujourd'hui",
+  "emailNewsCTA": "C'est parti!",
 
   "time": {
     "morning": "Morning",
