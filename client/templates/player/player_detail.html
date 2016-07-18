@@ -29,7 +29,7 @@
         </div>
         {{#if profile.style}}
         <div class="player-detail-style">
-          <strong>{{_ 'playerDetailStyle' username}}</strong>
+          <strong>{{_ 'playerDetailStyle' playerName}}</strong>
           <ul class="tags">
             {{#each profile.style}}
             <li class="tag is-{{this}} is-checked"><div class="tag-content"><svg class="icon"><use xlink:href="#icon-{{this}}" /></svg> <span>{{_ this}}</span></div></li>
