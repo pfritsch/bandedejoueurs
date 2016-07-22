@@ -5,6 +5,7 @@ Template.gamesessionList.helpers({
     var sessions = Gamesessions.find(getGamesessionsFilter(), {
       sort: {meetingDate: 1}
     }).fetch();
+
     return groupGamesessionsByDate(sessions);
   },
   gamesTitleOptions: function() {
@@ -116,6 +117,9 @@ Template.gamesessionList.events({
 });
 
 Template.gamesessionList.onCreated(function() {
+  SEO.set({
+    title: 'Bande de joueurs | '+TAPi18n.__('gamesessionDetailallSessions')
+  });
   var self = this;
   self.autorun(function() {
     var filter = {
@@ -126,9 +130,5 @@ Template.gamesessionList.onCreated(function() {
       limit: 0
     };
     self.subscribe('gamesessions', filter, option);
-
-    SEO.set({
-      title: 'Bande de joueurs | '+TAPi18n.__('gamesessionDetailallSessions')
-    });
   });
 });

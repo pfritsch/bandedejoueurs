@@ -18,17 +18,14 @@ Meteor.publish('somePlayers', function(filters) {
   }});
 });
 
-Meteor.publish('mapPlayers', function(box) {
+Meteor.publish('playersOnMap', function(box) {
   // Filter users within the map box
   var filters = {};
   if(box) filters = {
     $and: [
       {'profile.location':{$exists:true}},
       {'profile.location.coordinates': {
-          $geoWithin: {
-            $box: box
-          }
-        }
+        $geoWithin: { $box: box }}
       }
     ]
   };
@@ -44,6 +41,35 @@ Meteor.publish('mapPlayers', function(box) {
     avatar: 1
   }});
 });
+
+// Meteor.publish('playersNotMap', function(box) {
+//   // Filter users within the map box
+//   var filters = {};
+//   if(box) filters = {
+//     $and: [
+//       {'profile.location':{$exists:true}},
+//       {'profile.location.coordinates': {
+//         $geoWithin: { $box: box }}
+//       }
+//     ]
+//   };
+//   var playersOnMap = Meteor.users.find(filters, {fields: {'_id': 1}}).fetch();
+//   return Meteor.users.find({
+//     _id: { $nin: playersOnMap }
+//   },{
+//     fields: {
+//       username: 1,
+//       'createdAt': 1,
+//       'profile.name': 1,
+//       'profile.birthday': 1,
+//       'profile.gender': 1,
+//       'profile.address.city': 1,
+//       'profile.bio': 1,
+//       'profile.location': 1,
+//       avatar: 1
+//     }
+//   });
+// });
 
 Meteor.publish('someGames', function(filters, options) {
   if(options) {

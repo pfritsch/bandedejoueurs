@@ -11,7 +11,7 @@
     </div>
     <ul class="nav-off-menu">
       <li><a href="{{pathFor 'home'}}" class="nav-off-link {{activeRouteClass 'home'}}">Home</a></li>
-      <li><a href="{{pathFor 'playerList'}}" class="nav-off-link {{activeRouteClass 'playerList'}}">Joueurs</a></li>
+      <li><a href="{{pathFor 'playerMap'}}" class="nav-off-link {{activeRouteClass 'playerMap'}} {{activeRouteClass 'playerList'}}">Joueurs</a></li>
       <li><a href="{{pathFor 'gamesessions'}}" class="nav-off-link {{activeRouteClass 'gamesessionList'}}">Prochaines parties</a></li>
       {{#if currentUser}}
         <li><a href="{{pathFor 'myProfile'}}" class="nav-off-link {{activeRouteClass 'myProfile'}}">{{_ "myProfile"}}</a></li>
@@ -26,7 +26,7 @@
   <nav id="nav-main" class="nav-main">
     <div class="grid-container">
       <ul class="nav-main-first">
-        <li><a href="{{pathFor 'playerList'}}" class="nav-main-link {{activeRouteClass 'playerList'}}">{{_ "navPlayers"}}</a></li>
+        <li><a href="{{pathFor 'playerMap'}}" class="nav-main-link {{activeRouteClass 'playerMap'}} {{activeRouteClass 'playerList'}}">{{_ "navPlayers"}}</a></li>
         <li><a href="{{pathFor 'gamesessionList'}}" class="nav-main-link {{activeRouteClass 'gamesessionList'}}">{{_ "navParties"}}</a></li>
         {{#if currentUser}}
           <li><a href="{{pathFor 'myProfile'}}" class="nav-main-link {{activeRouteClass 'myProfile'}}">{{_ "myProfile"}}</a></li>

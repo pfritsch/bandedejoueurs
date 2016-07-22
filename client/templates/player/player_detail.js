@@ -31,6 +31,12 @@ Template.playerDetail.helpers({
       return this._id === Meteor.userId();
     }
   },
+  'age': function() {
+    if(this.profile.birthday) {
+      var age = rangeAge(this.profile.birthday);
+      return TAPi18n.__('playerAge', age);
+    }
+  },
   myGamesessions: function() {
     var myGamesessions = this.profile.gamesessions;
     if(myGamesessions && myGamesessions.length > 0) {

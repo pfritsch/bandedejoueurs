@@ -221,3 +221,31 @@ input.button-big,
     margin-left: 0;
   }
 }
+
+.button-filter {
+  display: inline-block;
+  padding: rem-calc(9);
+  opacity: 0.5;
+  line-height: 0;
+  color: white;
+  border-radius: rem-calc(2);
+  transition: all 200ms ease;
+  cursor: pointer;
+  background: #C8B255;
+
+  &.is-active {
+    opacity: 1;
+    color: white;
+  }
+  &:hover,
+  &:focus {
+    opacity: 1;
+    color: #4E4930;
+    background-color: white;
+  }
+
+  .icon {
+    width: rem-calc(18);
+    height: rem-calc(18);
+  }
+}

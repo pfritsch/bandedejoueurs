@@ -27,6 +27,9 @@ if (Meteor.isClient) {
 
     checkLang();
 
+    PlayersOnMap = new Meteor.Collection("playersOnMap");
+    PlayersNotMap = new Meteor.Collection("playersNotMap");
+
     // Settings Autoform
     AutoForm.setDefaultTemplate('plain');
   });

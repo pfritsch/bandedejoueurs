@@ -53,13 +53,28 @@ Meteor.methods({
       // }
       if(!user.username) user.username = email.substring(0, email.indexOf("@"));
     }
-    Meteor.users.update(Meteor.userId(), {
-      $set : {username : user.username, profile : user.profile, avatar : user.avatar, emails: user.emails}
-    });
+
+    try {
+      Meteor.users.update(Meteor.userId(), {
+        $set : {username : user.username, profile : user.profile, avatar : user.avatar, emails: user.emails}
+      });
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in getting user social data', e);
+    } finally {
+      console.log("Update social data from "+user.username);
+    }
+
   },
   userEditProfile: function(doc) {
+    user = Meteor.user();
     check(doc, Schema.userProfile);
-    Meteor.users.update(Meteor.userId(), {$set: {profile : doc}});
+    try {
+      Meteor.users.update(Meteor.userId(), {$set: {profile : doc}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in updating user data', e);
+    } finally {
+      console.log("Update user profile from "+user.username);
+    }
   },
   userRemoveProfile: function(userId) {
     user = Meteor.user();
@@ -69,22 +84,34 @@ Meteor.methods({
     Gamesessions.remove({authorId: user._id});
 
     // Remove the current user
-    Meteor.users.remove({ _id: userId}, function (error, result) {
-      if (error) {
-        console.log("Error removing user: ", error);
-      } else {
-        console.log("Number of users removed: " + result);
-      }
-    })
+    try {
+      Meteor.users.remove({ _id: userId});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in removing user', e);
+    } finally {
+      console.log("Remove user "+user.username);
+    }
   },
   userEditID: function(doc) {
     check(doc, Schema.user);
-    Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
+    try {
+      Meteor.users.update(Meteor.userId(), {$set: {username : doc.username}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in editing user ID', e);
+    } finally {
+      console.log("Update user ID "+doc.username);
+    }
   },
   userEditLang: function(lang) {
     user = Meteor.user();
     check(user, Object);
-    Meteor.users.update(Meteor.userId(), {$set: {'lang' : lang}});
+    try {
+      Meteor.users.update(Meteor.userId(), {$set: {'lang' : lang}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in change lang', e);
+    } finally {
+      console.log("Change lang for "+user.username+" - "+lang);
+    }
   },
   userSendMessage: function(playerId, text) {
     user = Meteor.user();
@@ -102,21 +129,33 @@ Meteor.methods({
     if(messagesFromPlayer.length === 0 && messagesFromMe.length > 0) return false;
 
     // Add message to player
-    Meteor.users.update(playerId, {$addToSet: {'messages': {
-      'playerId': Meteor.userId(),
-      'date': now,
-      'text': text,
-      'status': "new"
-    }}});
+    try {
+      Meteor.users.update(playerId, {$addToSet: {'messages': {
+        'playerId': Meteor.userId(),
+        'date': now,
+        'text': text,
+        'status': "new"
+      }}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in sending message', e);
+    } finally {
+      console.log("Message sent to "+playerId);
+    }
 
     // Add message to user
-    Meteor.users.update(Meteor.userId(), {$addToSet: {'messages': {
-      'playerId': playerId,
-      'date': now,
-      'text': text,
-      'fromUser': true,
-      'status': "read"
-    }}});
+    try {
+      Meteor.users.update(Meteor.userId(), {$addToSet: {'messages': {
+        'playerId': playerId,
+        'date': now,
+        'text': text,
+        'fromUser': true,
+        'status': "read"
+      }}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in sending message', e);
+    } finally {
+      console.log("Message sent to "+Meteor.userId());
+    }
   },
   userReadMessage: function(playerId) {
     user = Meteor.user();
@@ -129,66 +168,26 @@ Meteor.methods({
       if(msg.playerId === playerId) msg.status = 'read'
       return msg;
     });
-    Meteor.users.update(Meteor.userId(), {$set: {'messages': readMessages}});
-  },
-  userInvitePlayer: function(playerId) {
-    user = Meteor.user();
-    check(user, Object);
-    check(playerId, String);
-    if(!user.group) user.group = [];
-    if(user.group.contains(playerId, 'userId') < 0) {
-      // Add invitation to player pending invites
-      Meteor.users.update(playerId, {$addToSet: {'group': {
-        'userId': Meteor.userId(),
-        'status': 'pendingInvitation'
-      }}});
-      // Add invitation to user group
-      Meteor.users.update(Meteor.userId(), {$addToSet: {'group': {
-        'userId': playerId,
-        'status': 'invited'
-      }}});
+
+    try {
+      Meteor.users.update(Meteor.userId(), {$set: {'messages': readMessages}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in reading message', e);
+    } finally {
+      console.log("Message read by "+user.username);
     }
   },
-  acceptInvitation: function(playerId) {
+  joinGamesession: function (gamesessionId) {
     user = Meteor.user();
     check(user, Object);
-    check(playerId, String);
-    var player = Meteor.users.findOne(playerId);
-
-    var playerGroup = player.group.map(function(player,index){
-      if(player.userId === Meteor.userId()) player.status = 'accepted'
-      return player;
-    });
-    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
-
-    var myGroup = user.group.map(function(player,index){
-      if(player.userId === playerId) player.status = 'accepted'
-      return player;
-    });
-    Meteor.users.update(Meteor.userId(), {$set: {'group': myGroup}});
+    Meteor.users.update(user._id, {$addToSet: {'profile.gamesessions': gamesessionId}});
+    Gamesessions.update(gamesessionId, {$addToSet: {players: user._id}});
   },
-  declineInvitation: function(playerId) {
+  leaveGamesession: function (gamesessionId) {
     user = Meteor.user();
     check(user, Object);
-    check(playerId, String);
-    var player = Meteor.users.findOne(playerId);
-
-    var playerGroup = player.group.map(function(player,index){
-      if(player.userId === Meteor.userId()) player.status = 'refused'
-      return player;
-    });
-    Meteor.users.update(playerId, {$set: {'group': playerGroup}});
-
-    Meteor.users.update(Meteor.userId(), {$pull: {'group': {userId: playerId}}});
-  },
-  cancelInvitation: function(playerId) {
-    user = Meteor.user();
-    check(user, Object);
-    check(playerId, String);
-    var player = Meteor.users.findOne(playerId);
-
-    Meteor.users.update(playerId, {$pull: {'group': {userId: Meteor.userId()}}});
-    Meteor.users.update(Meteor.userId(), {$pull: {'group': {userId: playerId}}});
+    Meteor.users.update(user._id, {$pull: {'profile.gamesessions': gamesessionId}});
+    Gamesessions.update(gamesessionId, {$pull: {players: user._id}});
   },
   geoLocalizePlace: function(place) {
     var geo = new GeoCoder();
@@ -285,17 +284,5 @@ Meteor.methods({
         value: res._id
       };
     });
-  },
-  joinGamesession: function (gamesessionId) {
-    user = Meteor.user();
-    check(user, Object);
-    Meteor.users.update(user._id, {$addToSet: {'profile.gamesessions': gamesessionId}});
-    Gamesessions.update(gamesessionId, {$addToSet: {players: user._id}});
-  },
-  leaveGamesession: function (gamesessionId) {
-    user = Meteor.user();
-    check(user, Object);
-    Meteor.users.update(user._id, {$pull: {'profile.gamesessions': gamesessionId}});
-    Gamesessions.update(gamesessionId, {$pull: {players: user._id}});
   }
 });

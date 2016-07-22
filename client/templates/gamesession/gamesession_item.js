@@ -12,7 +12,7 @@ Template.gamesessionItem.helpers({
     return this;
   },
   author: function() {
-    var author = Meteor.users.findOne({_id: this.authorId}) || {};
+    var author = Meteor.users.findOne(this.authorId) || {};
     return author;
   },
   descriptionTruncated: function() {
@@ -29,7 +29,6 @@ Template.gamesessionItem.helpers({
     }
   }
 });
-
 Template.gamesessionItem.onCreated(function() {
   var self = this;
   var authorId = this.data.authorId;

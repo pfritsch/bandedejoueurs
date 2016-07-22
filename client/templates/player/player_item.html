@@ -12,6 +12,7 @@
         {{#if profile.birthday}}<li class="player-item-age">{{age}}</li>{{/if}}
         {{#if playerGames}}<li class="player-item-games">{{playerGames}}</li>{{/if}}
       </ul>
+      {{#if profile.bio}}<p class="player-item-bio">{{profile.bio}}</p>{{/if}}
     </div>
     <div class="player-item-action">
       {{> playerAction player=this}}

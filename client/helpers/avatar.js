@@ -1,7 +1,5 @@
 Template.avatar.helpers({
   userColor: function(){
-    if('username' in this) {
-      return hashStringToColor(this.username);
-    }
+    return hashStringToColor(getName(this));
   }
 });

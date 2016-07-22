@@ -8,7 +8,7 @@ Template.home.helpers({
 Template.home.onCreated(function() {
   SEO.set({
     title: 'Bande de Joueurs',
-    description: 'Jeux de société ou jeux vidéo. Trouve des partenaires pour tes jeux préférés.',
+    description: 'Trouver des joueurs près de chez soi ou en ligne, pour des jeux de société ou jeux vidéo.',
     meta: {
       'property="og:title"': 'Bande de joueurs',
       'property="og:type"': 'website',

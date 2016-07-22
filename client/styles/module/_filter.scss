@@ -1,11 +1,15 @@
 .filter-container {
+  position: relative;
   background: #FFE77D;
   text-align: center;
+  z-index: 1;
 }
 .filter {
-  max-height: 0;
   overflow: hidden;
   text-align: left;
+}
+.filter.is-collapsible {
+  max-height: 0;
   transition: all 300ms ease-out;
   &.is-open:not(.is-moving) {
     overflow: visible;
@@ -18,7 +22,7 @@
     }
   }
 }
-.filter-button {
+.filter-toggle {
   position: relative;
   display: inline-block;
   bottom: rem-calc(-12);
@@ -38,9 +42,12 @@
     transform: rotate(-90deg) scale(1.25);
   }
 }
-.filter.is-open + .filter-button > .icon {
+.filter.is-collapsible.is-open + .filter-toggle > .icon {
   transform: rotate(90deg);
 }
-.filter.is-open + .filter-button:hover > .icon {
+.filter.is-collapsible.is-open + .filter-toggle:hover > .icon {
   transform: rotate(90deg) scale(1.25);
+}
+.filter-buttons {
+  padding: rem-calc(6) 0;
 }

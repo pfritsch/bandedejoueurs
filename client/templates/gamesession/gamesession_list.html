@@ -1,7 +1,7 @@
 <template name="gamesessionList">
 {{#if Template.subscriptionsReady}}
   <div class="filter-container">
-    <div class="filter grid-container">
+    <div class="filter is-collapsible grid-container">
       <div class="grid-row">
         <div class="grid-col medium-8">
           <label>{{_ 'gamesessionFilterWhere'}}</label>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <a href="#" class="filter-button" data-collapse="filter">
+    <a href="#" class="filter-toggle" data-collapse="filter">
       <svg class="icon"><use xlink:href="#icon-chevron-left" /></svg>
     </a>
   </div>

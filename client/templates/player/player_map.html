@@ -1,0 +1,42 @@
+<template name="playerMap">
+{{#if Template.subscriptionsReady}}
+  <div class="filter-container">
+    <div class="filter grid-container">
+      <div class="filter-buttons">
+        <a href="{{pathFor 'playerMap'}}" title="Map" class="button-filter is-active">
+          <svg class="icon"><use xlink:href="#icon-globe" /></svg>
+        </a>
+        <a href="{{pathFor 'playerList'}}" title="List" class="button-filter">
+          <svg class="icon"><use xlink:href="#icon-list" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="player-container has-map">
+    {{#if mapLoaded}}
+    <div class="player-map">
+      <div class="player-search">
+        <input type="text" name="searchplayerMap" placeholder="{{_ 'playerListSearch'}}">
+        {{#if currentUser}}
+          <small><a href="#" class="share-position">Trouver ma position</a></small>
+        {{/if}}
+      </div>
+      {{> googleMap name="map" options=mapOptions}}
+    </div>
+    {{/if}}
+    <div class="player-list">
+      {{#with currentUser}}
+        {{> playerItem}}
+      {{/with}}
+      {{#each playersOnMap}}
+        {{> playerItem}}
+      {{/each}}
+    </div>
+  </div>
+{{else}}
+  <div class="grid-container">
+    {{> spinner}}
+  </div>
+{{/if}}
+</template>
