@@ -75,7 +75,11 @@ Meteor.methods({
 
           if(newPlayers.length > 0) {
             var newPlayersFormated = newPlayers.map(function(player){
-              player.playerName = player.profile.name || player.username;
+              player.playerName = getName(player);
+              player.userColor = hashStringToColor(player.playerName);
+              if(player.profile.birthday) {
+                player.age = rangeAge(player.profile.birthday);
+              }
               return player;
             });
           } else {
