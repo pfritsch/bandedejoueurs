@@ -23,7 +23,6 @@ Where?
 
 * [bandedejoueurs.com](http://bandedejoueurs.com),
 * [bandedejoueurs.fr](http://bandedejoueurs.fr)
-* [bandedejoueurs.net](http://bandedejoueurs.net)
 
 
 Dev Setup
