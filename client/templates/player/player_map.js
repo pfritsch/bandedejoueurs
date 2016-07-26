@@ -9,6 +9,9 @@ Template.playerMap.helpers({
     var error = Geolocation.error();
     return error && error.message;
   },
+  searchPlace:function() {
+    return Session.get('searchPlaceValue');
+  },
   mapLoaded: function() {
     return GoogleMaps.loaded();
   },
@@ -17,13 +20,9 @@ Template.playerMap.helpers({
       lat: 47,
       lng: 4
     };
-    // if(!Geolocation.error()) {
-    //   latLng = Geolocation.latLng();
-    // } else
     if(Meteor.user() && Meteor.user().profile.location.coordinates != null) {
       latLng = Meteor.user().profile.location.coordinates;
     }
-    // console.log(latLng);
     if (GoogleMaps.loaded() && latLng) {
       return {
         center: new google.maps.LatLng(latLng),
@@ -57,15 +56,20 @@ Template.playerMap.events({
     }
   },
   'click .share-position': function(e, tpl) {
-    getUserCoordinates();
-  },
-  'change [name="searchplayerMap"]': function(e, tpl) {
     e.preventDefault();
-    var location = $(e.target).val();
+    getUserCoordinates();
+    setTimeout(function(){
+      $('.player-search').submit();
+    }, 5000)
+  },
+  'change [name="searchplayerMap"], submit .player-search': function(e, tpl) {
+    e.preventDefault();
+    var location = $('[name="searchplayerMap"]').val();
     var map = tpl.mapPlayers;
     if(location.length > 3) {
       Meteor.call('geoLocalizePlace', location, function (error, result) {
         if(!error && result) {
+          Session.set('searchPlaceValue', location);
           map.setOptions({
             center: new google.maps.LatLng(result),
             zoom: 10,
@@ -145,12 +149,14 @@ Template.playerMap.onCreated(function() {
           markers[newDocument._id].setPosition({ lat: newDocument.profile.location.coordinates.lat, lng: newDocument.profile.location.coordinates.lng });
         },
         removed: function(oldDocument) {
-          // Remove the marker from the map
-          markers[oldDocument._id].setMap(null);
-          // Clear the event listener
-          google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
-          // Remove the reference to this marker instance
-          delete markers[oldDocument._id];
+          if(markers[oldDocument._id]){
+            // Remove the marker from the map
+            markers[oldDocument._id].setMap(null);
+            // Clear the event listener
+            google.maps.event.clearInstanceListeners(markers[oldDocument._id]);
+            // Remove the reference to this marker instance
+            delete markers[oldDocument._id];
+          }
         }
       });
     });

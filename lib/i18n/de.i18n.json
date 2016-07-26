@@ -204,6 +204,7 @@
   "playerDetailSee": "Profil anschauen",
   "playerDetailSeeName": "Profil von %s",
   "playerListSearch": "Wo möchtest du spielen?",
+  "playerListFindPlace": "Meine Position finden",
 
   "gamesessionOrganizedBy": "Organisiert von __name__",
   "gamesessionEdit": "Bearbeiten",

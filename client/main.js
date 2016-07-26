@@ -44,11 +44,26 @@ getUserCoordinates = function() {
     Tracker.autorun(function () {
       var newCoordinates = Geolocation.latLng();
       if(newCoordinates) {
-        profile.location = {
-          type: 'Point',
-          coordinates: newCoordinates
-        }
-        Meteor.call("userEditProfile", profile);
+        Meteor.call('geoLocalizeReverse', newCoordinates.lat, newCoordinates.lng, function (error, result) {
+          if(!error && result) {
+            if(!profile.location) {
+              profile.location = {
+                type: 'Point',
+                coordinates: newCoordinates
+              }
+            }
+            if(!profile.address) {
+              profile.address = {
+                "city": result[0].city,
+                "zipCode": parseInt(result[0].zipcode)
+              }
+            }
+            Meteor.call("userEditProfile", profile);
+            Session.set('searchPlaceValue', result[0].city);
+          } else {
+            console.log(error);
+          }
+        });
       }
     });
   }

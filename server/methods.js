@@ -197,6 +197,10 @@ Meteor.methods({
     }
     return newCoordinates;
   },
+  geoLocalizeReverse: function(lat, lng) {
+    var geo = new GeoCoder();
+    return geo.reverse(lat, lng);
+  },
   getVideoGameByTitle: function (query) {
     this.unblock();
     var giantBombKey = Meteor.settings.private.giantBomb;

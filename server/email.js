@@ -74,13 +74,13 @@ Meteor.methods({
           }
 
           if(newPlayers.length > 0) {
-            var newPlayersFormated = newPlayers.map(function(player){
-              player.playerName = getName(player);
-              player.userColor = hashStringToColor(player.playerName);
-              if(player.profile.birthday) {
-                player.age = rangeAge(player.profile.birthday);
+            var newPlayersFormated = newPlayers.map(function(newPlayer){
+              newPlayer.playerName = getName(player);
+              newPlayer.userColor = hashStringToColor(newPlayer.playerName);
+              if(newPlayer.profile.birthday) {
+                newPlayer.age = rangeAge(newPlayer.profile.birthday);
               }
-              return player;
+              return newPlayer;
             });
           } else {
             var newPlayersFormated = false;

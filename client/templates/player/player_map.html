@@ -16,12 +16,12 @@
   <div class="player-container has-map">
     {{#if mapLoaded}}
     <div class="player-map">
-      <div class="player-search">
-        <input type="text" name="searchplayerMap" placeholder="{{_ 'playerListSearch'}}">
+      <form class="player-search">
+        <input type="text" name="searchplayerMap" placeholder="{{_ 'playerListSearch'}}" value="{{searchPlace}}">
         {{#if currentUser}}
-          <small><a href="#" class="share-position">Trouver ma position</a></small>
+          <small><a href="#" class="share-position">{{_ 'playerListFindPlace'}}</a></small>
         {{/if}}
-      </div>
+      </form>
       {{> googleMap name="map" options=mapOptions}}
     </div>
     {{/if}}

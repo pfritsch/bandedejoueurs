@@ -9,26 +9,7 @@ SyncedCron.add({
     var weekly = false;
     var todayNumber = moment().isoWeekday();
 
-    if(todayNumber < 7){
-
-      // Daily News
-      var gamesessions = Gamesessions.find({
-        meetingDate: {
-          $gte: moment().unix(),
-          $lt: moment().add(48, 'h').unix()
-        },
-        emailSent: {
-          $in: [null, false]
-        }
-      },{
-        sort: {
-          meetingDate: 1
-        }
-      }).fetch();
-
-      var newPlayers = [];
-
-    } else if(todayNumber === 7) {
+    if(todayNumber === 7) {
 
       weekly = true;
 
@@ -46,6 +27,7 @@ SyncedCron.add({
           meetingDate: 1
         }
       }).fetch();
+      console.log("Gamesessions: "+gamesessions.length);
 
       var now = moment();
       var lastWeek = moment().subtract(7, 'd').format();
@@ -54,6 +36,27 @@ SyncedCron.add({
           $gte: new Date(lastWeek)
         }
       }).fetch();
+      console.log("New players: "+newPlayers.length);
+
+    } else {
+
+      // Daily News
+      var gamesessions = Gamesessions.find({
+        meetingDate: {
+          $gte: moment().unix(),
+          $lt: moment().add(48, 'h').unix()
+        },
+        emailSent: {
+          $in: [null, false]
+        }
+      },{
+        sort: {
+          meetingDate: 1
+        }
+      }).fetch();
+      console.log("Gamesessions: "+gamesessions.length);
+
+      var newPlayers = [];
     }
 
     try {
