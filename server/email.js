@@ -52,75 +52,70 @@ Meteor.methods({
     this.unblock();
 
     var players = Meteor.users.find({'emailCheck': true, emails: { $exists: true }});
+    var titleNewSessions = (weekly)? 'emailNewSessionsTitle' : 'emailNewSessionsTitleDaily';
 
-    if (gamesessions.length > 0 || newPlayers.length > 0) {
+    players.forEach(function(player){
 
-      var titleNewSessions = (!weekly)? 'emailNewSessionsTitle' : 'emailNewSessionsTitleDaily';
+      if(player.emails && typeof player.emails[0] !== 'undefined' && player.emails[0] !== null) {
+        var lang = player.lang || 'en';
+        moment.locale(lang);
 
-      players.forEach(function(player){
-
-        if(player.emails && typeof player.emails[0] !== 'undefined' && player.emails[0] !== null) {
-          var lang = player.lang || 'en';
-          moment.locale(lang);
-
-          if(gamesessions.length > 0) {
-            var gamesessionsFormated = gamesessions.map(function(gamesession){
-              gamesession.dateFormated = moment(gamesession.meetingDate, 'X').add(2, 'h').calendar();
-              gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
-              return gamesession;
-            });
-          } else {
-            var gamesessionsFormated = false;
-          }
-
-          if(newPlayers.length > 0) {
-            var newPlayersFormated = newPlayers.map(function(newPlayer){
-              newPlayer.playerName = getName(player);
-              newPlayer.userColor = hashStringToColor(newPlayer.playerName);
-              if(newPlayer.profile.birthday) {
-                newPlayer.age = rangeAge(newPlayer.profile.birthday);
-              }
-              return newPlayer;
-            });
-          } else {
-            var newPlayersFormated = false;
-          }
-
-          var emailData = {
-            template: 'email_news',
-            absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
-            subject: TAPi18n.__('emailNewsSubject', {}, lang),
-            gamesessions: gamesessionsFormated,
-            titleNewSessions: TAPi18n.__(titleNewSessions, {}, lang),
-            newPlayers: newPlayersFormated,
-            titleNewPlayers: TAPi18n.__('emailNewPlayersTitle', {count: newPlayers.length}, lang),
-            titleNewPlayersSubtitle: TAPi18n.__('emailNewPlayersSubtitle', {count: newPlayers.length}, lang),
-            callToActionUrl: FlowRouter.url('gamesessionList'),
-            callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
-            ciao: TAPi18n.__('emailCiao', {}, lang),
-            followUs: TAPi18n.__('emailFollowUs', {}, lang),
-            feedback: TAPi18n.__('emailFeedback', {}, lang)
-          };
-
-          SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
-
-          Email.send({
-            to: player.emails[0].address,
-            from: process.env.MAIL_FROM,
-            subject: emailData.subject,
-            html: SSR.render( 'htmlEmail', emailData )
+        if(gamesessions.length > 0) {
+          var gamesessionsFormated = gamesessions.map(function(gamesession){
+            gamesession.dateFormated = moment(gamesession.meetingDate, 'X').add(2, 'h').calendar();
+            gamesession.organisedBy = TAPi18n.__('gamesessionOrganizedBy', {name: gamesession.authorName}, lang);
+            return gamesession;
           });
-          console.log("Mail sent to: " + player.emails[0].address + " in "+lang)
+        } else {
+          var gamesessionsFormated = false;
         }
 
-      });
+        if(newPlayers.length > 0) {
+          var newPlayersFormated = newPlayers.map(function(newPlayer){
+            newPlayer.playerName = getName(newPlayer);
+            newPlayer.userColor = hashStringToColor(newPlayer.playerName);
+            if(newPlayer.profile.birthday) {
+              newPlayer.age = rangeAge(newPlayer.profile.birthday);
+            }
+            return newPlayer;
+          });
+        } else {
+          var newPlayersFormated = false;
+        }
 
-      gamesessions.forEach(function(gamesession){
-        Gamesessions.update(gamesession._id, {
-          $set : {emailSent : true}
+        var emailData = {
+          template: 'email_news',
+          absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
+          subject: TAPi18n.__('emailNewsSubject', {}, lang),
+          gamesessions: gamesessionsFormated,
+          titleNewSessions: TAPi18n.__(titleNewSessions, {}, lang),
+          newPlayers: newPlayersFormated,
+          titleNewPlayers: TAPi18n.__('emailNewPlayersTitle', {count: newPlayers.length}, lang),
+          titleNewPlayersSubtitle: TAPi18n.__('emailNewPlayersSubtitle', {count: newPlayers.length}, lang),
+          callToActionUrl: FlowRouter.url('gamesessionList'),
+          callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
+          ciao: TAPi18n.__('emailCiao', {}, lang),
+          followUs: TAPi18n.__('emailFollowUs', {}, lang),
+          feedback: TAPi18n.__('emailFeedback', {}, lang)
+        };
+
+        SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));
+
+        Email.send({
+          to: player.emails[0].address,
+          from: process.env.MAIL_FROM,
+          subject: emailData.subject,
+          html: SSR.render( 'htmlEmail', emailData )
         });
-      });
+        console.log("Mail sent to: " + player.emails[0].address + " in "+lang)
+      }
 
-    }
+    });
+
+    gamesessions.forEach(function(gamesession){
+      Gamesessions.update(gamesession._id, {
+        $set : {emailSent : true}
+      });
+    });
   }
 });

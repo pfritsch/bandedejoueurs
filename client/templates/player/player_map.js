@@ -146,7 +146,9 @@ Template.playerMap.onCreated(function() {
           }
         },
         changed: function(newDocument, oldDocument) {
-          markers[newDocument._id].setPosition({ lat: newDocument.profile.location.coordinates.lat, lng: newDocument.profile.location.coordinates.lng });
+          if(markers[newDocument._id]){
+            markers[newDocument._id].setPosition({ lat: newDocument.profile.location.coordinates.lat, lng: newDocument.profile.location.coordinates.lng });
+          }
         },
         removed: function(oldDocument) {
           if(markers[oldDocument._id]){

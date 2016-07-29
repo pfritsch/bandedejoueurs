@@ -1,20 +1,24 @@
 SyncedCron.add({
   name: 'Send news',
   schedule: function(parser) {
-    // return parser.text('every 30 secs');
+    // return parser.text('every 30 seconds');
     return parser.text('at 16:00'); // Every day at 18:00 (Timezone)
   },
   job: function() {
 
     var weekly = false;
     var todayNumber = moment().isoWeekday();
+    var gamesessions = [];
+    var newPlayers = [];
 
     if(todayNumber === 7) {
+
+      console.log("Weekly Newsletter");
 
       weekly = true;
 
       // Weekly News
-      var gamesessions = Gamesessions.find({
+      gamesessions = Gamesessions.find({
         meetingDate: {
           $gte: moment().unix(),
           $lt: moment().add(7, 'd').unix()
@@ -27,21 +31,21 @@ SyncedCron.add({
           meetingDate: 1
         }
       }).fetch();
-      console.log("Gamesessions: "+gamesessions.length);
 
       var now = moment();
       var lastWeek = moment().subtract(7, 'd').format();
-      var newPlayers = Meteor.users.find({
+      newPlayers = Meteor.users.find({
         createdAt: {
           $gte: new Date(lastWeek)
         }
       }).fetch();
-      console.log("New players: "+newPlayers.length);
 
     } else {
 
+      console.log("Daily Newsletter");
+
       // Daily News
-      var gamesessions = Gamesessions.find({
+      gamesessions = Gamesessions.find({
         meetingDate: {
           $gte: moment().unix(),
           $lt: moment().add(48, 'h').unix()
@@ -54,15 +58,17 @@ SyncedCron.add({
           meetingDate: 1
         }
       }).fetch();
-      console.log("Gamesessions: "+gamesessions.length);
 
-      var newPlayers = [];
     }
+    console.log("New players: "+newPlayers.length);
+    console.log("Gamesessions: "+gamesessions.length);
 
-    try {
-      Meteor.call('sendNews', gamesessions, newPlayers, weekly);
-    } catch (e) {
-      console.log(e);
+    if (gamesessions.length > 0 || newPlayers.length > 0) {
+      try {
+        Meteor.call('sendNews', gamesessions, newPlayers, weekly);
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 });

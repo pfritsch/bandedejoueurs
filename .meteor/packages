@@ -43,7 +43,7 @@ meteorhacks:fast-render
 force-ssl
 
 # SEO
-spiderable
+ongoworks:spiderable
 tomwasd:flow-router-seo
 gadicohen:sitemaps
 okgrow:analytics

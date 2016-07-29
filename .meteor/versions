@@ -121,6 +121,7 @@ oauth2@1.1.5
 observe-sequence@1.0.7
 okgrow:analytics@1.0.6
 okgrow:router-autoscroll@0.1.8
+ongoworks:spiderable@1.0.7
 ordered-dict@1.0.4
 peerlibrary:blocking@0.5.2
 peerlibrary:xml2js@0.4.8_1
@@ -141,7 +142,6 @@ sha@1.0.4
 softwarerero:accounts-t9n@1.2.2
 spacebars@1.0.7
 spacebars-compiler@1.0.7
-spiderable@1.0.9
 srp@1.0.4
 standard-minifiers@1.0.2
 tap:i18n@1.8.0
