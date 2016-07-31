@@ -248,3 +248,12 @@
     @include squish(0, 1);
   }
 }
+.home-friends {
+  @media #{$medium-up} {
+    @include span(10 of 12);
+    @include squish(1, 1);
+  }
+}
+h2.home-friends {
+  margin-top: rem-calc(60);
+}

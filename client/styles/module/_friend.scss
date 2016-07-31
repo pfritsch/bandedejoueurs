@@ -1,0 +1,23 @@
+.friend-list {
+  @include reset-list;
+  margin: 0 rem-calc(-6);
+
+  @media #{$medium-up} {
+    display: flex;
+  }
+
+  & > li {
+    margin: rem-calc(12 6 0);
+    @media #{$medium-up} {
+      flex: 1;
+    }
+  }
+}
+.friend-item {
+  display: block;
+}
+.friend-invitation {
+  text-align: center;
+  font-size: rem-calc(14);
+  margin-top: rem-calc(12);
+}
