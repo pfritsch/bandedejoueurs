@@ -12,15 +12,15 @@ Template.playerDetail.helpers({
       var profileInfos = "";
 
       if(this.profile.address && this.profile.address.city) {
-        profileInfos += this.profile.address.city;
+        profileInfos += this.profile.address.city + '  ';
       }
 
       var gender = (this.profile.gender)? this.profile.gender : false;
-      profileInfos += (gender)? ' '+gender : '';
+      profileInfos += (gender)? gender+'  ' : '';
 
       if(this.profile.birthday) {
         var age = rangeAge(this.profile.birthday);
-        profileInfos += ' '+TAPi18n.__('playerAge', age);
+        profileInfos += TAPi18n.__('playerAge', age);
       }
 
       return (profileInfos != "")? profileInfos : TAPi18n.__('playerDetailNone');
