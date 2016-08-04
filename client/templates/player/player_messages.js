@@ -2,10 +2,11 @@ Template.playerMessages.helpers({
   player: function() {
     var userId = FlowRouter.getParam('userId');
     var player = Meteor.users.findOne(userId) || {};
+    player.name = getName(player);
     return player;
   },
-  'playerName': function() {
-    return getName(this);
+  'currentPlayerName': function() {
+    return getName(Meteor.user());
   },
   'userColor': function(pUsername){
     return hashStringToColor(pUsername);

@@ -34,7 +34,7 @@
             <small class="is-muted">{{dateFormatted}}</small>
             <div class="avatar avatar-circle is-mini">
               {{#with currentUser}}
-              <img class="avatar-image" src="{{#if avatar}}{{avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor username}}">
+              <img class="avatar-image" src="{{#if avatar}}{{avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor currentPlayerName}}">
               {{/with}}
             </div>
           </div>
@@ -45,7 +45,7 @@
             <p>{{text}}</p>
               <small class="is-muted">{{dateFormatted}}</small>
             <div class="avatar avatar-circle is-mini">
-              <img class="avatar-image" src="{{#if ../avatar}}{{../avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor ../username}}">
+              <img class="avatar-image" src="{{#if ../avatar}}{{../avatar}}{{else}}/images/default.svg{{/if}}" alt="avatar" style="background-color:{{userColor ../name}}">
             </div>
           </div>
         </li>
