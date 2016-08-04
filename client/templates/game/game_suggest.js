@@ -60,7 +60,7 @@ Template.gameSuggest.onCreated(function () {
     if(!game.image) {
       suggests[index].image = {thumb_url: Meteor.absoluteUrl()+'/images/cover_video.svg'};
     } else {
-      suggests[index].image = {thumb_url: 'http://static.giantbomb.com'+game.image.thumb_url};
+      suggests[index].image = {thumb_url: game.image.thumb_url};
     }
     Session.set('suggests', suggests);
   }
