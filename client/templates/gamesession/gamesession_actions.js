@@ -43,18 +43,22 @@ Template.gamesessionActions.events({
         var author = Meteor.users.findOne(this.authorId);
         var gamesessionText =  TAPi18n.__('emailGamesessionNewplayerText');
         if(this.spots) {
-          var availableSlots = (this.spots - this.players.length) + 1;
+          var availableSlots = (this.spots - this.players.length) - 1;
           if(availableSlots > 0) {
             gamesessionText = gamesessionText+' '+TAPi18n.__('gamesessionItemSpots', {count: availableSlots});
           } else {
             gamesessionText = gamesessionText+' '+TAPi18n.__('gamesessionItemSpotsFull');
           }
         }
+        var newplayer = Meteor.user();
+        newplayer.playerName = getName(Meteor.user());
+        newplayer.userColor = hashStringToColor(getName(Meteor.user()));
+
         var emailData = {
-          template: 'email_event',
+          template: 'email_player',
           absoluteUrl: Meteor.absoluteUrl('', {secure: true}),
           subject: TAPi18n.__('emailGamesessionJoinSubject', this.title),
-          gameThumbnail: Meteor.user().avatar,
+          newplayer: newplayer,
           title: TAPi18n.__('emailGamesessionNewplayerTitle', getName(Meteor.user())),
           subtitle: this.title+' '+formatDate(this.meetingDate),
           rdv: TAPi18n.__('emailGamesessionRDV'),
