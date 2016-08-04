@@ -2,7 +2,7 @@ Template.playerMessages.helpers({
   player: function() {
     var userId = FlowRouter.getParam('userId');
     var player = Meteor.users.findOne(userId) || {};
-    player.name = getName(player);
+    player.playerName = getName(player);
     return player;
   },
   'currentPlayerName': function() {

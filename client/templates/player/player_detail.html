@@ -19,7 +19,7 @@
           {{> avatar user=this}}
         </div>
         <div class="player-detail-infos">
-          {{playerInfos}}
+          {{#if playerInfos}}<p>{{playerInfos}}</p>{{/if}}
           {{#if profile.bio}}<p class="player-detail-bio">{{breaklines profile.bio}}</p>{{/if}}
           <p>{{> playerAction player=this btnClass='button-big'}}</p>
         </div>
