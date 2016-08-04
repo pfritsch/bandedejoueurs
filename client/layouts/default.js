@@ -17,5 +17,9 @@ Template.layoutDefault.events({
   },
   'click .my-profil-logout, click .logout': function(){
     AccountsTemplates.logout();
+  },
+  'click .goback': function(e) {
+    e.preventDefault();
+    history.back();
   }
 });

@@ -313,7 +313,8 @@
     "logout": "Se déconnecter",
     "loading": "Chargement...",
     "more": "+",
-    "less": "-"
+    "less": "-",
+    "goback": "Retour"
   },
   "errorNotUser": "Pour aller plus loin, tu dois faire partie de la bande... <a href=\"/sign-up\">Rejoindre la bande</a>",
   "errorProfile": "Finalise ton profil avant d'aller plus loin: <a href=\"/profile\">Finaliser mon profile</a>",

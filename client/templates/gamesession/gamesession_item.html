@@ -21,7 +21,7 @@
 
       <section class="gamesession-item-owner">
         {{#with author}}
-          <a href="{{pathFor 'playerDetail' username=username}}" class="gamesession-item-owner-avatar">
+          <a href="{{pathFor 'playerDetail' userId=this._id}}" class="gamesession-item-owner-avatar">
             {{> avatar user=this}}
           </a>
         {{/with}}

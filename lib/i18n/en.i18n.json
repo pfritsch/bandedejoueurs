@@ -317,7 +317,8 @@
     "logout": "Logout",
     "loading": "Loading...",
     "more": "+",
-    "less": "-"
+    "less": "-",
+    "goback": "Back"
   },
   "errorNotUser": "To go further, you need to be part of the Bande... <a href=\"/sign-up\">Join us!</a>",
   "errorProfile": "Finish your profile before you go further: <a href=\"/profile\">Finalize my profile</a>",

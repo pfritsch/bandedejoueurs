@@ -317,7 +317,8 @@
     "logout": "Ausloggen",
     "loading": "Lädt...",
     "more": "+",
-    "less": "-"
+    "less": "-",
+    "goback": "Zurück"
   },
   "errorNotUser": "Um weiterzufahren, musst du Teil der Bande sein... <a href=\"/sign-up\">Sich der Bande anschliessen</a>",
   "errorProfile": "Stelle zuerst dein Profil fertig, bevor du weitergehst: <a href=\"/profile\">Mein Profil fertigstellen</a>",
