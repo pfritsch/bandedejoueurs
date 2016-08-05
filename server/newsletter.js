@@ -48,7 +48,7 @@ SyncedCron.add({
       gamesessions = Gamesessions.find({
         meetingDate: {
           $gte: moment().unix(),
-          $lt: moment().add(48, 'h').unix()
+          $lt: moment().add(60, 'h').unix()
         },
         emailSent: {
           $in: [null, false]
