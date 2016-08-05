@@ -1,15 +1,18 @@
 .friend-list {
   @include reset-list;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 rem-calc(-6);
-
-  @media #{$medium-up} {
-    display: flex;
-  }
 
   & > li {
     margin: rem-calc(12 6 0);
-    @media #{$medium-up} {
+    line-height: 0;
+    @media #{$small-up} {
       flex: 1;
+      min-width: calc(50% - 12px);
+    }
+    @media #{$large-up} {
+      min-width: calc(25% - 12px);
     }
   }
 }
