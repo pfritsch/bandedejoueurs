@@ -18,6 +18,8 @@
 }
 .avatar-image {
   min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
   background: #13B169;
 }
 a:hover .avatar {
