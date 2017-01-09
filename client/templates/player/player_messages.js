@@ -36,7 +36,7 @@ Template.playerMessages.helpers({
     var messagesFromMe = Meteor.user().messages.filter(function(msg){
       return msg.playerId === playerId && msg.fromUser === true;
     });
-    return messagesFromPlayer.length === 0 && messagesFromMe.length > 0;
+    return messagesFromPlayer.length === 0 && messagesFromMe.length >= 5;
   },
   'dateFormatted': function() {
     return moment(this.date, 'X').fromNow();

@@ -126,7 +126,7 @@ Meteor.methods({
     var messagesFromMe = Meteor.user().messages.filter(function(msg){
       return msg.playerId === playerId && msg.fromUser === true;
     });
-    if(messagesFromPlayer.length === 0 && messagesFromMe.length > 0) return false;
+    if(messagesFromPlayer.length === 0 && messagesFromMe.length >= 5) return false;
 
     // Add message to player
     try {

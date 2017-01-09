@@ -26,7 +26,7 @@ Template.playerMap.helpers({
     if (GoogleMaps.loaded() && latLng) {
       return {
         center: new google.maps.LatLng(latLng),
-        zoom: 6,
+        zoom: 8,
         maxZoom: 12,
         mapTypeControl: false,
         streetViewControl: false,
