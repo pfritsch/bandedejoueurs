@@ -278,6 +278,7 @@
   "emailCiao": "Good game!",
   "emailFollowUs": "Follow us on Twitter:",
   "emailFeedback": "A question, feedback?",
+  "emailUnsubscribe": "<a href=\"https://bandedejoueurs.com/profile\" target=\"_blank\">I don't want to recieve e-mails anymore</a>",
 
   "emailGamesessionJoinSubject": "Join the event: %s",
   "emailGamesessionJoinTitle": "Great %s,<br> you are in!",

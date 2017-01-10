@@ -1,7 +1,6 @@
 Meteor.methods({
   sendUserEmail: function (emailData) {
     this.unblock();
-
     user = Meteor.user();
     check(user, Object);
 
@@ -96,7 +95,8 @@ Meteor.methods({
           callToAction: TAPi18n.__('emailNewsCTA', {}, lang),
           ciao: TAPi18n.__('emailCiao', {}, lang),
           followUs: TAPi18n.__('emailFollowUs', {}, lang),
-          feedback: TAPi18n.__('emailFeedback', {}, lang)
+          feedback: TAPi18n.__('emailFeedback', {}, lang),
+          unsubscribe: TAPi18n.__('emailUnsubscribe', {}, lang)
         };
 
         SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));

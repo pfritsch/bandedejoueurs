@@ -105,7 +105,14 @@ Template.myProfile.events({
 
 Template.myProfile.rendered = function() {
   if(window.location.hash) {
-    Session.set('activeTab', window.location.hash.substr(1));
+    var hash = window.location.hash.substr(1);
+    // if(hash === "unsubscribe"){
+    //   console.log($('input[name="emailCheck"]'));
+    //   $('input[name="emailCheck"]').attr('checked', false);
+    //   // AutoForm.validateField('userEditProfile', 'emailCheck', false);
+    // } else {
+      Session.set('activeTab', hash);
+    // }
   }
 };
 

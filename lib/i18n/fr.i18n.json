@@ -277,6 +277,7 @@
   "emailCiao": "Bon jeu!",
   "emailFollowUs": "Retrouve-nous sur Twitter:",
   "emailFeedback": "Une question, un commentaire?",
+  "emailUnsubscribe": "<a href=\"https://bandedejoueurs.com/profile\" target=\"_blank\">Ne plus recevoir d'e-mails de la bande (il suffit de décocher une case dans ton profil)</a>",
 
   "emailGamesessionJoinSubject": "Inscription à la partie %s",
   "emailGamesessionJoinTitle": "Super %s,<br> tu es bien inscrit!",

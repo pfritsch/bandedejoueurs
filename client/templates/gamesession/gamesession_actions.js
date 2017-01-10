@@ -35,7 +35,8 @@ Template.gamesessionActions.events({
           callToAction: TAPi18n.__('gamesessionDetailSee'),
           ciao: TAPi18n.__('emailCiao'),
           followUs: TAPi18n.__('emailFollowUs'),
-          feedback: TAPi18n.__('emailFeedback')
+          feedback: TAPi18n.__('emailFeedback'),
+          unsubscribe: TAPi18n.__('emailUnsubscribe')
         };
         Meteor.call('sendUserEmail', emailData);
 
