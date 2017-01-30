@@ -188,6 +188,8 @@
   "myProfileRemoveConfirm": "Are you really sure to leave the Bande for good? It will also remove all you game events. (This action is irreversible)",
   "myProfileNoGamesessions": "<strong>Nothing planned at the moment...</strong> Why not <a href=\"gamesessions\">see what comes next</a>?",
   "myProfileNoMessages": "<strong>No messages yet...</strong> Feeling alone? <a href=\"players\">Contact a player</a> near by.",
+  "myProfileUnsubscribeTitle": "Voilà, we won't send you emails anymore",
+  "myProfileUnsubscribe": "If you ever change your mind, you can modify your preference under your profile.",
 
   "playerAge": "%s years old",
   "playerContact": "Contact",

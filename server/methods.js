@@ -177,6 +177,15 @@ Meteor.methods({
       console.log("Message read by "+user.username);
     }
   },
+  userUnsubscribe: function(userId) {
+    try {
+      Meteor.users.update(userId, {$set: {emailCheck:false}});
+    } catch (e) {
+      throw new Meteor.Error(500, 'Exception in unsubscribing', e);
+    } finally {
+      console.log("User unsubscribed");
+    }
+  },
   joinGamesession: function (gamesessionId) {
     user = Meteor.user();
     check(user, Object);

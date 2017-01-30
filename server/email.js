@@ -4,7 +4,7 @@ Meteor.methods({
     user = Meteor.user();
     check(user, Object);
 
-    if(user.emails) {
+    if(user.emails && user.emailCheck === true) {
       check(user.emails[0], {
         address: String,
         verified: Boolean
@@ -29,7 +29,7 @@ Meteor.methods({
     var player = Meteor.users.findOne(playerId);
     check(player, Object);
 
-    if(player.emails){
+    if(player.emails && user.emailCheck === true){
       check(player.emails[0], {
         address: String,
         verified: Boolean
@@ -55,7 +55,7 @@ Meteor.methods({
 
     players.forEach(function(player){
 
-      if(player.emails && typeof player.emails[0] !== 'undefined' && player.emails[0] !== null) {
+      if(player.emails && typeof player.emails[0] !== 'undefined' && player.emails[0] !== null && player.emailCheck === true) {
         var lang = player.lang || 'en';
         moment.locale(lang);
 

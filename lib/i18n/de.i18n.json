@@ -188,6 +188,8 @@
   "myProfileRemoveConfirm": "Bist du sicher, dass du dein Konto löschen möchtest? Dies wird auch alle deine Spielpartien löschen. (Diese Aktion kann nicht rückgängig gemacht werden)",
   "myProfileNoGamesessions": "<strong>Keine Spielpartien geplant für den Moment...</strong> Wieso nicht <a href=\"gamesessions\">die nächsten Spielpartien anschauen</a>?",
   "myProfileNoMessages": "<strong>Noch keinen Nachrichten...</strong> Wieso nicht <a href=\"players\">ein Spieler kontaktieren</a>?",
+  "myProfileUnsubscribeTitle": "Voilà, ab jetzt senden wir dir kein E-mail mehr",
+  "myProfileUnsubscribe": "Wenn du deiner Meinung änderst kannst du es unten deinen Profil anpassen",
 
   "playerAge": "%s Jahre alt",
   "playerContact": "Kontaktieren",

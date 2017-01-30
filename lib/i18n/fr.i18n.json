@@ -187,6 +187,8 @@
   "myProfileRemoveConfirm": "Es-tu certain de vouloir supprimer ton compte? Cela va également effacer toutes tes parties. (Cette action est irreversible)",
   "myProfileNoGamesessions": "<strong>Pas de partie prévue pour le moment...</strong> Pourquoi ne pas <a href=\"gamesessions\">voir les prochaines parties</a>?",
   "myProfileNoMessages": "<strong>Pas encore de messages...</strong> Pourquoi ne pas <a href=\"players\">contacter un joueur</a> près de chez toi?",
+  "myProfileUnsubscribeTitle": "Voilà, on arrête de t'envoyer des E-mails",
+  "myProfileUnsubscribe": "Si jamais un jour tu changes d'avis, tu peux choisir d'en recevoir à nouveau dans ton profil.",
 
   "playerAge": "%s ans",
   "playerContact": "Contacter",

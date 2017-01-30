@@ -18,8 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 # DEV Helper
 meteortoys:allthings
-meteorhacks:kadira
-kadira:debug
 
 # EMAILS
 email                   # The email package allows sending email from you app
@@ -90,3 +88,4 @@ mdg:geolocation
 
 # Loading
 sacha:spin
+houston:admin
