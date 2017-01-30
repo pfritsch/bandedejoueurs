@@ -170,16 +170,5 @@ Template.playerMap.onCreated(function() {
     google.maps.event.addListener(map.instance, 'zoom_changed', function(e){
      getBox();
     });
-
-    google.maps.event.addListener(map.instance, 'mousedown', function(e){
-      enableScrollingWithMouseWheel(map.instance);
-    });
-
   });
-
-  // setTimeout(function(){
-  //   if(!GoogleMaps.loaded()) {
-  //     Meteor.subscribe('somePlayers', {});
-  //   }
-  // }, 1000);
 });
