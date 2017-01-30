@@ -96,7 +96,7 @@ Meteor.methods({
           ciao: TAPi18n.__('emailCiao', {}, lang),
           followUs: TAPi18n.__('emailFollowUs', {}, lang),
           feedback: TAPi18n.__('emailFeedback', {}, lang),
-          unsubscribe: TAPi18n.__('emailUnsubscribe', {}, lang)
+          unsubscribe: TAPi18n.__('emailUnsubscribe', {userId : player._id}, lang)
         };
 
         SSR.compileTemplate( 'htmlEmail', Assets.getText( emailData.template+'.html' ));

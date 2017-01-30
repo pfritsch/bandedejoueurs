@@ -236,7 +236,7 @@ AutoForm.hooks({
         ciao: TAPi18n.__('emailCiao'),
         followUs: TAPi18n.__('emailFollowUs'),
         feedback: TAPi18n.__('emailFeedback'),
-        unsubscribe: TAPi18n.__('emailUnsubscribe')
+        unsubscribe: TAPi18n.__('emailUnsubscribe', {userId : Meteor.userId()})
       };
       Meteor.call('sendUserEmail', emailData);
 

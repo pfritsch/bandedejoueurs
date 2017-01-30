@@ -36,7 +36,7 @@ Template.gamesessionActions.events({
           ciao: TAPi18n.__('emailCiao'),
           followUs: TAPi18n.__('emailFollowUs'),
           feedback: TAPi18n.__('emailFeedback'),
-          unsubscribe: TAPi18n.__('emailUnsubscribe')
+          unsubscribe: TAPi18n.__('emailUnsubscribe', {userId : Meteor.userId()})
         };
         Meteor.call('sendUserEmail', emailData);
 
@@ -70,7 +70,8 @@ Template.gamesessionActions.events({
           callToAction: TAPi18n.__('playerDetailSee'),
           ciao: TAPi18n.__('emailCiao'),
           followUs: TAPi18n.__('emailFollowUs'),
-          feedback: TAPi18n.__('emailFeedback')
+          feedback: TAPi18n.__('emailFeedback'),
+          unsubscribe: TAPi18n.__('emailUnsubscribe', {userId : this.authorId})
         };
         Meteor.call('sendPlayerEmail', emailData, this.authorId);
       }
