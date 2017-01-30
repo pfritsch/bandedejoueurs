@@ -54,7 +54,6 @@ aldeed:delete-button
 # Time
 momentjs:moment
 drewy:datetimepicker
-# drewy:autoform-datetimepicker
 
 # International
 tap:i18n
@@ -76,7 +75,6 @@ service-configuration
 accounts-facebook
 accounts-google
 accounts-twitter
-#mrt:accounts-steam
 softwarerero:accounts-t9n
 jparker:gravatar
 
@@ -88,4 +86,3 @@ mdg:geolocation
 
 # Loading
 sacha:spin
-houston:admin
