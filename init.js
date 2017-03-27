@@ -70,6 +70,7 @@ if (Meteor.isServer) {
     //   },
     //   { upsert: true }
     // );
+
     // Add Google configuration entry
     ServiceConfiguration.configurations.update(
       { "service": "google" },
