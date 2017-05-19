@@ -59,3 +59,21 @@ __Doesn't yet work with npm v6+ (have to select npm 5.11.1 on nvm)__
 
 	. ~/.nvm/nvm.sh
 	nvm use
+
+
+Clean Docker
+==============
+
+https://lebkowski.name/docker-volumes/
+
+		ssh ubuntu@159.100.249.37
+		sudo su -
+
+		# to check
+		docker images
+
+		# remove exited containers:
+		docker ps --filter status=dead --filter status=exited -aq | xargs -r docker rm -v
+
+		# remove unused images:
+		docker images --no-trunc | grep '<none>' | awk '{ print $3 }' | xargs -r docker rmi
